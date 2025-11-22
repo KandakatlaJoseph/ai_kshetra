@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,29 +8,32 @@
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap"
+        rel="stylesheet">
 
 </head>
+
 <body>
 
     <header class="header">
 
-            <nav class="menu nav-menu">
-   <input type="checkbox" class="menu-open" id="menu-open" />
+        <nav class="menu nav-menu">
+            <input type="checkbox" class="menu-open" id="menu-open" />
 
-   <label class="menu-open-button" for="menu-open">
-      <span class="lines line-1"></span>
-      <span class="lines line-2"></span>
-      <span class="lines line-3"></span>
-   </label>
+            <label class="menu-open-button" for="menu-open">
+                <span class="lines line-1"></span>
+                <span class="lines line-2"></span>
+                <span class="lines line-3"></span>
+            </label>
 
-   <a href="#home" class="menu-item">Home</a>
-   <a href="#events" class="menu-item">Events</a>
-   <a href="#about" class="menu-item">About</a>
-   <a href="#contact" class="menu-item">Contact</a>
-</nav>
+            <a href="#home" class="menu-item">Home</a>
+            <a href="#events" class="menu-item">Events</a>
+            <a href="#about" class="menu-item">About</a>
+            <a href="#contact" class="menu-item">Contact</a>
+        </nav>
 
-        
+
     </header>
 
     <main>
@@ -62,70 +66,78 @@
         <section id="events" class="events">
             <div class="container">
                 <h2 class="section-title">Upcoming Events</h2>
-               <div class="events-carousel-wrapper">
-    <button class="carousel-arrow left" id="eventsPrev">‹</button>
+                <div class="events-carousel-wrapper">
+                    <button class="carousel-arrow left" id="eventsPrev">‹</button>
 
-    <div class="events-carousel" id="eventsCarousel">
-     <div class="event-card">
-                        <div class="event-content">
-                            <span class="event-category">Hackathon</span>
-                            <h3 class="event-title">Build with AI</h3>
-                            <p class="event-desc">Solve real-world problems by creating an AI-powered prototype. Round 1: MCQ Quiz. Round 2: Prototype Building.</p>
-                            <div class="event-meta">
-                                <span>👥 Team: 2-4 Members</span>
-                                <span>🏆 Top 10 Qualify</span>
-                            </div>
-                            <!-- <a href="register_build.php" class="btn btn-outline">Register Now</a> -->
-                             <button class="btn btn-outline event-details-btn" data-modal="build-modal">View Details</button>
+                    <div class="events-carousel" id="eventsCarousel">
+                        <div class="event-card">
+                            <div class="event-content">
+                                <span class="event-category">Hackathon</span>
+                                <h3 class="event-title">Build with AI</h3>
+                                <p class="event-desc">Solve real-world problems by creating an AI-powered prototype.
+                                    Round 1: MCQ Quiz. Round 2: Prototype Building.</p>
+                                <div class="event-meta">
+                                    <span>👥 Team: 2-4 Members</span>
+                                    <span>🏆 Top 10 Qualify</span>
+                                </div>
+                                <!-- <a href="register_build.php" class="btn btn-outline">Register Now</a> -->
+                                <button class="btn btn-outline event-details-btn" data-modal="build-modal">View
+                                    Details</button>
 
-                        </div>
-                    </div>
-                    <!-- Event 2: CodeWarz -->
-                    <div class="event-card">
-                        <div class="event-content">
-                            <span class="event-category">Coding</span>
-                            <h3 class="event-title">CodeWarz</h3>
-                            <p class="event-desc">Competitive coding, algorithm fixing, and rapid-fire rounds. Test your accuracy, efficiency, and speed.</p>
-                            <div class="event-meta">
-                                <span>👥 Team: 2 Members</span>
-                                <span>🏆 Top 10 Qualify</span>
                             </div>
-                            <!-- <a href="register_code.php" class="btn btn-outline">Register Now</a> -->
-                             <button class="btn btn-outline event-details-btn" data-modal="code-modal">View Details</button>
                         </div>
-                    </div>
-                    <!-- Event 3: PromptCraft -->
-                    <div class="event-card">
-                        <div class="event-content">
-                            <span class="event-category">Creativity</span>
-                            <h3 class="event-title">PromptCraft</h3>
-                            <p class="event-desc">Write powerful AI prompts and identify AI vs Human content. No coding knowledge required.</p>
-                            <div class="event-meta">
-                                <span>👤 Individual</span>
-                                <span>📝 Offline Event</span>
+                        <!-- Event 2: CodeWarz -->
+                        <div class="event-card">
+                            <div class="event-content">
+                                <span class="event-category">Coding</span>
+                                <h3 class="event-title">CodeWarz</h3>
+                                <p class="event-desc">Competitive coding, algorithm fixing, and rapid-fire rounds. Test
+                                    your accuracy, efficiency, and speed.</p>
+                                <div class="event-meta">
+                                    <span>👥 Team: 2 Members</span>
+                                    <span>🏆 Top 10 Qualify</span>
+                                </div>
+                                <!-- <a href="register_code.php" class="btn btn-outline">Register Now</a> -->
+                                <button class="btn btn-outline event-details-btn" data-modal="code-modal">View
+                                    Details</button>
                             </div>
-                            <!-- <a href="register_prompt.php" class="btn btn-outline">Register Now</a> -->
-                             <button class="btn btn-outline event-details-btn" data-modal="prompt-modal">View Details</button>
                         </div>
-                    </div>
-                    <!-- Event 4: DreamFrame -->
-                    <div class="event-card">
-                        <div class="event-content">
-                            <span class="event-category">Design</span>
-                            <h3 class="event-title">DreamFrame</h3>
-                            <p class="event-desc">Creative Canvas design challenge. Create a poster in Canva based on a theme in 60 minutes.</p>
-                            <div class="event-meta">
-                                <span>👤 Individual</span>
-                                <span>🎨 Tool: Canva</span>
+                        <!-- Event 3: PromptCraft -->
+                        <div class="event-card">
+                            <div class="event-content">
+                                <span class="event-category">Creativity</span>
+                                <h3 class="event-title">PromptCraft</h3>
+                                <p class="event-desc">Write powerful AI prompts and identify AI vs Human content. No
+                                    coding knowledge required.</p>
+                                <div class="event-meta">
+                                    <span>👤 Individual</span>
+                                    <span>📝 Offline Event</span>
+                                </div>
+                                <!-- <a href="register_prompt.php" class="btn btn-outline">Register Now</a> -->
+                                <button class="btn btn-outline event-details-btn" data-modal="prompt-modal">View
+                                    Details</button>
                             </div>
-                            <!-- <a href="register_dream.php" class="btn btn-outline">Register Now</a> -->
-                             <button class="btn btn-outline event-details-btn" data-modal="dream-modal">View Details</button>
+                        </div>
+                        <!-- Event 4: DreamFrame -->
+                        <div class="event-card">
+                            <div class="event-content">
+                                <span class="event-category">Design</span>
+                                <h3 class="event-title">DreamFrame</h3>
+                                <p class="event-desc">Creative Canvas design challenge. Create a poster in Canva based
+                                    on a theme in 60 minutes.</p>
+                                <div class="event-meta">
+                                    <span>👤 Individual</span>
+                                    <span>🎨 Tool: Canva</span>
+                                </div>
+                                <!-- <a href="register_dream.php" class="btn btn-outline">Register Now</a> -->
+                                <button class="btn btn-outline event-details-btn" data-modal="dream-modal">View
+                                    Details</button>
+                            </div>
                         </div>
                     </div>
-    </div>
 
-    <button class="carousel-arrow right" id="eventsNext">›</button>
-</div>
+                    <button class="carousel-arrow right" id="eventsNext">›</button>
+                </div>
 
             </div>
         </section>
@@ -136,7 +148,8 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>AI KSHETRA</h3>
-                    <p>Empowering the next generation of tech innovators. Join us for a celebration of technology, creativity, and code.</p>
+                    <p>Empowering the next generation of tech innovators. Join us for a celebration of technology,
+                        creativity, and code.</p>
                     <div class="social-links">
                         <a href="#" class="social-icon" aria-label="Twitter">𝕏</a>
                         <a href="#" class="social-icon" aria-label="Instagram">📸</a>
@@ -252,8 +265,8 @@
                 <li><strong>Tool:</strong> Canva</li>
                 <li><strong>Time Limit:</strong> 60 minutes</li>
                 <li><strong>Judging:</strong> Creativity, clarity, theme relevance, and visual impact.</li>
-                
-    
+
+
             </ul>
 
             <a href="register_dream.php" class="btn btn-primary" style="width:100%;text-align:center;margin-top:20px;">
@@ -264,4 +277,5 @@
 
     <script src="static/js/script.js"></script>
 </body>
+
 </html>
