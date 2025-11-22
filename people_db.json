@@ -1,0 +1,56 @@
+{
+  "faculty": [
+    {
+      "name": "Dr. Placeholder One",
+      "role": "Faculty Coordinator",
+      "image": "....via.placeholder.com/200x200?text=Faculty+1",
+      "contact": ""
+    },
+    {
+      "name": "Prof. Placeholder Two",
+      "role": "Faculty Advisor",
+      "image": "https://via.placeholder.com/200x200?text=Faculty+2",
+      "contact": ""
+    }
+  ],
+  "student_coordinators": [
+    {
+      "name": "Student A",
+      "role": "Lead Coordinator",
+      "image": "NiharPIC.jpg",
+      "contact": "+91 7093725382"
+    },
+    {
+      "name": "Student B",
+      "role": "Event Coordinator",
+      "image": "https://via.placeholder.com/200x200?text=Student+2",
+      "contact": ""
+    },
+    {
+      "name": "Student C",
+      "role": "Tech Support",
+      "image": "https://via.placeholder.com/200x200?text=Student+3",
+      "contact": ""
+    }
+  ],
+  "organisers": [
+    {
+      "name": "Organizer Alpha",
+      "role": "Core Team",
+      "image": "https://via.placeholder.com/200x200?text=Org+1",
+      "contact": ""
+    },
+    {
+      "name": "Organizer Beta",
+      "role": "Operations",
+      "image": "https://via.placeholder.com/200x200?text=Org+2",
+      "contact": ""
+    },
+    {
+      "name": "Organizer Gamma",
+      "role": "Logistics",
+      "image": "https://via.placeholder.com/200x200?text=Org+3",
+      "contact": ""
+    }
+  ]
+}
