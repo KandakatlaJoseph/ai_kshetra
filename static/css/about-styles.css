@@ -1,0 +1,54 @@
+.about-hero {
+    min-height: 60vh !important;
+    background-image:
+        url("./main.jpg"),
+        linear-gradient(rgba(0, 191, 255, 0.10) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 191, 255, 0.10) 1px, transparent 1px);
+    background-size: cover, 50px 50px, 50px 50px;
+    background-position: center;
+    background-repeat: no-repeat, repeat, repeat;
+}
+
+.people-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 40px;
+    padding: 40px 20px;
+}
+
+.person-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    transition: 0.4s ease;
+    backdrop-filter: blur(10px);
+}
+
+.person-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 25px rgba(157,78,221,0.3);
+}
+
+.person-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 25%;
+    object-fit: cover;
+    border: 2px solid var(--accent-secondary);
+    margin-bottom: 15px;
+}
+
+.person-name {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.person-role,
+.person-contact {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}

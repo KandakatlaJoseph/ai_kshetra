@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | AI KSHETRA</title>
+
+    
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/about-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Exo+2:wght@300;500;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+    <!-- Radial Menu -->
+    <div class="nav-menu">
+        <div class="menu">
+            <input type="checkbox" class="menu-open" id="menu-open">
+            <label class="menu-open-button" for="menu-open">
+                <span class="lines line-1"></span>
+                <span class="lines line-2"></span>
+                <span class="lines line-3"></span>
+            </label>
+
+            <a href="index.html" class="menu-item">Home</a>
+            <a href="events.html" class="menu-item">Events</a>
+            <a href="about.html" class="menu-item">About</a>
+            <a href="contact.html" class="menu-item">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero about-hero">
+        <div>
+            <span class="hero-subtitle">Discover the Vision</span>
+            <h1 class="hero-title">About AI KSHETRA</h1>
+            <p class="hero-tagline">Where Intelligence Meets Innovation</p>
+        </div>
+    </section>
+
+    <!-- About Content Section -->
+    <section class="container" style="padding: 120px 0;">
+        <h2 class="section-title">What is AI KSHETRA?</h2>
+
+        <p style="max-width: 900px; margin: 0 auto; color: var(--text-secondary); font-size: 1.2rem; text-align:center; margin-bottom:60px;">
+            AI KSHETRA is a platform crafted to challenge, inspire, and elevate students 
+            into real-world innovators. Organized by the AI Spectrum Club, this event 
+            blends competitive spirit, creativity, and hands-on problem-solving in the 
+            fields of Artificial Intelligence, Algorithms, and Design. From coding 
+            battles to prototype building and prompt engineering — AI KSHETRA is where 
+            ideas transform into real impact.
+        </p>
+    </section>
+
+    <!-- People Sections -->
+    <section style="padding: 40px 0;">
+        <h2 class="section-title">Faculty</h2>
+        <div id="faculty" class="people-grid"></div>
+    </section>
+
+    <section style="padding: 40px 0;">
+        <h2 class="section-title">Student Coordinators</h2>
+        <div id="student_coordinators" class="people-grid"></div>
+    </section>
+
+    <section style="padding: 40px 0;">
+        <h2 class="section-title">Organisers</h2>
+        <div id="organisers" class="people-grid"></div>
+    </section>
+
+    <script>
+        async function loadPeople() {
+            const res = await fetch('people_db.json');
+            const data = await res.json();
+
+            const createCard = (person) => `
+                <div class="person-card fade-in-section">
+                    <img src= "./static/peopleImg/${person.image}" alt="${person.name}" class="person-img" />
+                    <h3 class="person-name">${person.name}</h3>
+                    <p class="person-role">${person.role}</p>
+                    ${person.contact ? `<p class="person-contact">${person.contact}</p>` : ""}
+                </div>
+            `;
+
+            Object.keys(data).forEach(category => {
+                const container = document.getElementById(category);
+                data[category].forEach(person => {
+                    container.innerHTML += createCard(person);
+                });
+            });
+
+            // Intersection Observer for fade-in
+            const faders = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            });
+
+            faders.forEach(f => observer.observe(f));
+        }
+
+        loadPeople();
+    </script>
+
+</body>
+
+</html>
