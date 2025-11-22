@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Kshetra - College Tech Fest</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <header class="header">
+
+            <nav class="menu nav-menu">
+   <input type="checkbox" class="menu-open" id="menu-open" />
+
+   <label class="menu-open-button" for="menu-open">
+      <span class="lines line-1"></span>
+      <span class="lines line-2"></span>
+      <span class="lines line-3"></span>
+   </label>
+
+   <a href="#home" class="menu-item">Home</a>
+   <a href="#events" class="menu-item">Events</a>
+   <a href="#about" class="menu-item">About</a>
+   <a href="#contact" class="menu-item">Contact</a>
+</nav>
+
+        
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <span class="hero-subtitle">NEXAA - Next Gen Engineers & AI Association presents</span>
+                <h1 class="hero-title">AI KSHETRA</h1>
+                <!-- <p class="hero-tagline">Part of COLORIDO 2025. Innovate. Compete. Win.</p> -->
+                <div class="hero-buttons">
+                    <a href="#events" class="btn btn-primary">Explore Events</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">Major Events</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1000+</span>
+                        <span class="stat-label">Participants</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">₹24K+</span>
+                        <span class="stat-label">Prizes</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="events" class="events">
+            <div class="container">
+                <h2 class="section-title">Upcoming Events</h2>
+               <div class="events-carousel-wrapper">
+    <button class="carousel-arrow left" id="eventsPrev">‹</button>
+
+    <div class="events-carousel" id="eventsCarousel">
+     <div class="event-card">
+                        <div class="event-content">
+                            <span class="event-category">Hackathon</span>
+                            <h3 class="event-title">Build with AI</h3>
+                            <p class="event-desc">Solve real-world problems by creating an AI-powered prototype. Round 1: MCQ Quiz. Round 2: Prototype Building.</p>
+                            <div class="event-meta">
+                                <span>👥 Team: 2-4 Members</span>
+                                <span>🏆 Top 10 Qualify</span>
+                            </div>
+                            <!-- <a href="register_build.php" class="btn btn-outline">Register Now</a> -->
+                             <button class="btn btn-outline event-details-btn" data-modal="build-modal">View Details</button>
+
+                        </div>
+                    </div>
+                    <!-- Event 2: CodeWarz -->
+                    <div class="event-card">
+                        <div class="event-content">
+                            <span class="event-category">Coding</span>
+                            <h3 class="event-title">CodeWarz</h3>
+                            <p class="event-desc">Competitive coding, algorithm fixing, and rapid-fire rounds. Test your accuracy, efficiency, and speed.</p>
+                            <div class="event-meta">
+                                <span>👥 Team: 2 Members</span>
+                                <span>🏆 Top 10 Qualify</span>
+                            </div>
+                            <!-- <a href="register_code.php" class="btn btn-outline">Register Now</a> -->
+                             <button class="btn btn-outline event-details-btn" data-modal="code-modal">View Details</button>
+                        </div>
+                    </div>
+                    <!-- Event 3: PromptCraft -->
+                    <div class="event-card">
+                        <div class="event-content">
+                            <span class="event-category">Creativity</span>
+                            <h3 class="event-title">PromptCraft</h3>
+                            <p class="event-desc">Write powerful AI prompts and identify AI vs Human content. No coding knowledge required.</p>
+                            <div class="event-meta">
+                                <span>👤 Individual</span>
+                                <span>📝 Offline Event</span>
+                            </div>
+                            <!-- <a href="register_prompt.php" class="btn btn-outline">Register Now</a> -->
+                             <button class="btn btn-outline event-details-btn" data-modal="prompt-modal">View Details</button>
+                        </div>
+                    </div>
+                    <!-- Event 4: DreamFrame -->
+                    <div class="event-card">
+                        <div class="event-content">
+                            <span class="event-category">Design</span>
+                            <h3 class="event-title">DreamFrame</h3>
+                            <p class="event-desc">Creative Canvas design challenge. Create a poster in Canva based on a theme in 60 minutes.</p>
+                            <div class="event-meta">
+                                <span>👤 Individual</span>
+                                <span>🎨 Tool: Canva</span>
+                            </div>
+                            <!-- <a href="register_dream.php" class="btn btn-outline">Register Now</a> -->
+                             <button class="btn btn-outline event-details-btn" data-modal="dream-modal">View Details</button>
+                        </div>
+                    </div>
+    </div>
+
+    <button class="carousel-arrow right" id="eventsNext">›</button>
+</div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>AI KSHETRA</h3>
+                    <p>Empowering the next generation of tech innovators. Join us for a celebration of technology, creativity, and code.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Twitter">𝕏</a>
+                        <a href="#" class="social-icon" aria-label="Instagram">📸</a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn">in</a>
+                        <a href="#" class="social-icon" aria-label="GitHub">⌨</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#events">Events</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#">Code of Conduct</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Sponsorship</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AI Kshetra. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Event Detail Modals -->
+
+    <!-- Build with AI -->
+    <div id="build-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-close>&times;</span>
+            <h2>Build with AI</h2>
+            <p>Solve real-world problems by designing and building an AI-powered prototype.</p>
+
+            <ul>
+                <li><strong>Round 1:</strong> MCQ quiz on AI, ML, and problem-solving.</li>
+                <li><strong>Round 2:</strong> Prototype building & short presentation.</li>
+                <li><strong>Team Size:</strong> 2–4 members</li>
+                <li><strong>Mode:</strong> Offline, on-campus</li>
+            </ul>
+
+            <a href="register_build.php" class="btn btn-primary" style="width:100%;text-align:center;margin-top:20px;">
+                Register Now
+            </a>
+        </div>
+    </div>
+
+    <!-- CodeWarz -->
+    <div id="code-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-close>&times;</span>
+            <h2>CodeWarz</h2>
+            <p>Competitive coding with algorithmic challenges and rapid-fire debugging rounds.</p>
+
+            <ul>
+                <li><strong>Platform:</strong> HackerRank</li>
+                <li><strong>Team Size:</strong> 2 members</li>
+                <li><strong>Focus:</strong> Time complexity, accuracy, logic, debugging.</li>
+                <li><strong>Mode:</strong> Lab-based offline event</li>
+            </ul>
+
+            <a href="register_code.php" class="btn btn-primary" style="width:100%;text-align:center;margin-top:20px;">
+                Register Now
+            </a>
+        </div>
+    </div>
+
+    <!-- PromptCraft -->
+    <div id="prompt-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-close>&times;</span>
+            <h2>PromptCraft</h2>
+            <p>Learn and compete in prompt engineering and AI vs human content identification.</p>
+
+            <ul>
+                <li><strong>Participation:</strong> Individual / Team of 2</li>
+                <li><strong>Round 1:</strong> Prompt writing for different use-cases.</li>
+                <li><strong>Round 2:</strong> Guess whether content is AI-generated or human-written.</li>
+                <li><strong>Mode:</strong> Offline</li>
+            </ul>
+
+            <a href="register_prompt.php" class="btn btn-primary" style="width:100%;text-align:center;margin-top:20px;">
+                Register Now
+            </a>
+        </div>
+    </div>
+
+    <!-- DreamFrame -->
+    <div id="dream-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-close>&times;</span>
+            <h2>DreamFrame</h2>
+            <p>Create a stunning poster based on the given theme using Canva.</p>
+
+            <ul>
+                <li><strong>Participation:</strong> Individual</li>
+                <li><strong>Tool:</strong> Canva</li>
+                <li><strong>Time Limit:</strong> 60 minutes</li>
+                <li><strong>Judging:</strong> Creativity, clarity, theme relevance, and visual impact.</li>
+                
+    
+            </ul>
+
+            <a href="register_dream.php" class="btn btn-primary" style="width:100%;text-align:center;margin-top:20px;">
+                Register Now
+            </a>
+        </div>
+    </div>
+
+    <script src="static/js/script.js"></script>
+</body>
+</html>
