@@ -60,16 +60,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">AI KSHETRA</div>
-            <nav class="nav">
-                <a href="index.php">Home</a>
-                <a href="index.php#events">Events</a>
-            </nav>
-        </div>
-    </header>
+<header class="header">
 
+    <nav class="menu nav-menu">
+        <input type="checkbox" class="menu-open" id="menu-open" />
+
+        <label class="menu-open-button" for="menu-open">
+            <span class="lines line-1"></span>
+            <span class="lines line-2"></span>
+            <span class="lines line-3"></span>
+        </label>
+
+<a href="index.html#home" class="menu-item">Home</a>
+<a href="index.html#events" class="menu-item">Events</a>
+<a href="about.html" class="menu-item">About</a>
+<a href="index.html#contact" class="menu-item">Contact</a>
+
+    </nav>
+
+</header>
     <div class="container">
         <div class="reg-container">
             <h2 class="reg-title">Register for PromptCraft</h2>

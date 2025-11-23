@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Kshetra - College Tech Fest</title>
     <link rel="stylesheet" href="static/css/style.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -37,7 +38,7 @@
             <a href="#home" class="menu-item">Home</a>
             <a href="#events" class="menu-item">Events</a>
             <a href="./about.html" class="menu-item">About</a>
-            <a href="#foot" class="menu-item">Contact</a>
+            <a href="#contact" class="menu-item">Contact</a>
         </nav>
 
 
@@ -87,9 +88,8 @@
                                     <span>👥 Team: 2-4 Members</span>
                                     <span>🏆 Top 10 Qualify</span>
                                 </div>
-                                <!-- <a href="register_build.php" class="btn btn-outline">Register Now</a> -->
-                                <button class="btn btn-outline event-details-btn" data-modal="build-modal">View
-                                    Details</button>
+                                <a href="build-with-ai.php" class="btn btn-outline">View Details</a>
+                               
 
                             </div>
                         </div>
@@ -104,9 +104,8 @@
                                     <span>👥 Team: 2 Members</span>
                                     <span>🏆 Top 10 Qualify</span>
                                 </div>
-                                <!-- <a href="register_code.php" class="btn btn-outline">Register Now</a> -->
-                                <button class="btn btn-outline event-details-btn" data-modal="code-modal">View
-                                    Details</button>
+                                <a href="codewarz.php" class="btn btn-outline">View Details</a>
+                                
                             </div>
                         </div>
                         <!-- Event 3: PromptCraft -->
@@ -120,9 +119,8 @@
                                     <span>👤 Individual</span>
                                     <span>📝 Offline Event</span>
                                 </div>
-                                <!-- <a href="register_prompt.php" class="btn btn-outline">Register Now</a> -->
-                                <button class="btn btn-outline event-details-btn" data-modal="prompt-modal">View
-                                    Details</button>
+                                <a href="promptcraft.php" class="btn btn-outline">View Details</a>
+                                
                             </div>
                         </div>
                         <!-- Event 4: DreamFrame -->
@@ -136,9 +134,8 @@
                                     <span>👤 Individual</span>
                                     <span>🎨 Tool: Canva</span>
                                 </div>
-                                <!-- <a href="register_dream.php" class="btn btn-outline">Register Now</a> -->
-                                <button class="btn btn-outline event-details-btn" data-modal="dream-modal">View
-                                    Details</button>
+                                <a href="dreamframe.php" class="btn btn-outline">View Details</a>
+                                
                             </div>
                         </div>
                     </div>
@@ -150,7 +147,7 @@
         </section>
     </main>
 
-    <footer class="footer" id="foot">
+    <footer class="footer" id="contact">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
@@ -198,226 +195,7 @@
 
 
 
-    <!-- Event Detail Modals -->
-
-    <div id="build-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" data-close>&times;</span>
-            <h2>Build with AI</h2>
-
-            <p>
-                Build with AI is a hands-on technical event where participants conceptualize, design,
-                and demonstrate an AI-powered prototype that directly solves a real-world problem.
-                The event evaluates the participant’s understanding of artificial intelligence,
-                machine learning, data science, and practical problem-solving.
-            </p>
-
-            <h3>Main Purpose</h3>
-            <p>
-                The goal of the event is to encourage students to convert raw ideas into tangible
-                working models. Participants must identify a real issue, propose an AI-focused
-                solution, develop the system, and explain the relevance and scalability of their work.
-            </p>
-
-            <h3>Round Structure</h3>
-            <ul>
-                <li>
-                    <strong>Round 1: MCQ Screening</strong><br>
-                    A 20 to 30 minute objective quiz containing 25 to 30 questions on artificial
-                    intelligence, machine learning algorithms, Python libraries, data science basics,
-                    web technologies, logical reasoning, and applications of AI.
-                </li>
-
-                <li>
-                    <strong>Round 2: Prototype Development</strong><br>
-                    Shortlisted teams must build a functional AI-powered prototype. They are required
-                    to clearly explain the problem statement, describe the approach, show a working
-                    demonstration, and discuss results and future improvements.
-                </li>
-            </ul>
-
-            <h3>Team Requirements</h3>
-            <p>
-                Each team must consist of 2 to 4 members. Participants may belong to different
-                academic years or departments. One team leader must be assigned.
-            </p>
-
-            <h3>Judging Parameters</h3>
-            <ul>
-                <li>Innovation and uniqueness of the idea</li>
-                <li>Real-world relevance and practicality</li>
-                <li>Model performance, accuracy, and technical correctness</li>
-                <li>Clarity of explanation, presentation quality, and answers</li>
-                <li>Additional credit for scalability and future scope</li>
-            </ul>
-
-            <a href="register_build.php" class="btn btn-primary"
-                style="width:100%; text-align:center; margin-top:20px;">
-                Register Now
-            </a>
-        </div>
-    </div>
-
-
-    <div id="code-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" data-close>&times;</span>
-            <h2>CodeWarz</h2>
-
-            <p>
-                CodeWarz is a multi-round competitive coding event designed to test participants on
-                fundamental programming concepts, data structures, algorithms, debugging skills, and
-                rapid problem-solving abilities. It emphasizes both accuracy and speed.
-            </p>
-
-            <h3>Event Flow</h3>
-            <ul>
-                <li>
-                    <strong>Preliminary Round: MCQ Quiz</strong><br>
-                    This round evaluates understanding of programming logic, data structures,
-                    time complexity, and analytical thinking.
-                </li>
-
-                <li>
-                    <strong>Main Rounds for Top 10 Teams</strong><br>
-                    The main phase contains four sub-rounds, each targeting a specific technical skill:
-                    <ul>
-                        <li><strong>Coding Round (1 hour 20 minutes)</strong>: Five problems of increasing difficulty.
-                            Scored as 5 marks each for two easy questions, 10 marks each for two medium questions, and
-                            15 marks for one hard question.</li>
-                        <li><strong>Fill the Algorithm</strong>: Participants correct missing or incorrect parts of an
-                            algorithm within a limited time. Each correct fix carries separate marks.</li>
-                        <li><strong>Rapid Fire</strong>: A high-speed question-answer activity that tests reflex-based
-                            technical recall.</li>
-                    </ul>
-                </li>
-            </ul>
-
-            <h3>Team Format</h3>
-            <p>
-                Teams must consist of two members. The rounds are conducted offline in a controlled
-                environment using competitive coding platforms.
-            </p>
-
-            <h3>Expected Outcome</h3>
-            <p>
-                Participants will gain exposure to real-time coding pressure, algorithmic thinking,
-                debugging efficiency, and structured analytical reasoning.
-            </p>
-
-            <a href="register_code.php" class="btn btn-primary" style="width:100%; text-align:center; margin-top:20px;">
-                Register Now
-            </a>
-        </div>
-    </div>
-
-
-
-    <div id="prompt-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" data-close>&times;</span>
-            <h2>PromptCraft</h2>
-
-            <p>
-                PromptCraft is a dual-task event that evaluates both the creative and analytical
-                aspects of interacting with modern AI systems. Participants must craft effective
-                prompts for given situations and distinguish AI-generated text from
-                human-written content based on linguistic and structural cues.
-            </p>
-
-            <h3>Task Breakdown</h3>
-            <ul>
-                <li>
-                    <strong>Task 1: Prompt Writing</strong><br>
-                    Participants receive three scenarios involving creative writing, content generation,
-                    technical assistance, or analysis. The goal is to write the most complete, clear,
-                    context-rich, and instruction-perfect prompts that would produce the ideal output.
-                </li>
-
-                <li>
-                    <strong>Task 2: AI or Human Identification</strong><br>
-                    Participants are given short passages of various types such as code explanations,
-                    articles, descriptions, and stories. They must identify whether each excerpt is
-                    written by a human or generated by an AI model, and justify the reasoning.
-                </li>
-            </ul>
-
-            <h3>Judging Guidelines</h3>
-            <ul>
-                <li>Prompt clarity, structure, and completeness</li>
-                <li>Use of constraints, examples, and contextual framing</li>
-                <li>Creativity and precision in task interpretation</li>
-                <li>Accuracy in identifying AI versus human writing</li>
-                <li>Quality of justification for each choice</li>
-            </ul>
-
-            <h3>Participation</h3>
-            <p>
-                Participants may join individually or as a team of two. No coding knowledge is
-                required; the event focuses on reasoning, communication clarity, and language analysis.
-            </p>
-
-            <a href="register_prompt.php" class="btn btn-primary"
-                style="width:100%; text-align:center; margin-top:20px;">
-                Register Now
-            </a>
-        </div>
-    </div>
-
-
-
-    <div id="dream-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" data-close>&times;</span>
-            <h2>DreamFrame</h2>
-
-            <p>
-                DreamFrame is a design-oriented event that challenges participants to transform a given
-                theme or narrative into a visually appealing and meaningful digital poster using Canva.
-                It focuses on creativity, aesthetic balance, clear message delivery, and visual
-                storytelling.
-            </p>
-
-            <h3>Event Format</h3>
-            <ul>
-                <li>
-                    Participants receive a scenario or theme connected to artificial intelligence,
-                    technology, social impact, or creative interpretation.
-                </li>
-                <li>
-                    They must create a fully designed poster within a fixed duration of 60 minutes using
-                    Canva. All elements including layout, colors, typography, icons, and illustrations
-                    should align with the message.
-                </li>
-                <li>
-                    A short one to two minute explanation of the design choices must be presented,
-                    covering color usage, layout decisions, clarity of message, and reasoning.
-                </li>
-            </ul>
-
-            <h3>Judging Focus</h3>
-            <ul>
-                <li>Originality and creativity</li>
-                <li>Relevance to the provided scenario</li>
-                <li>Visual appeal, layout structure, and color choice</li>
-                <li>Clarity and impact of the conveyed message</li>
-                <li>Strength of design justification</li>
-            </ul>
-
-            <h3>Participation</h3>
-            <p>
-                Participants may compete individually or in teams of two. No prior design experience is
-                required, making it accessible to all students interested in creativity and visual
-                communication.
-            </p>
-
-            <a href="register_dream.php" class="btn btn-primary"
-                style="width:100%; text-align:center; margin-top:20px;">
-                Register Now
-            </a>
-        </div>
-    </div>
-
+   
 
 
     <script src="static/js/script.js"></script>
