@@ -1,3 +1,9 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 .about-hero {
     min-height: 60vh !important;
     background-image:
@@ -51,4 +57,16 @@
 .person-contact {
     color: var(--text-secondary);
     font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+    .people-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
 }

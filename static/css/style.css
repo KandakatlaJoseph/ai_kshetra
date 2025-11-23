@@ -23,17 +23,17 @@
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 12px;
+    width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-color);
+    background: var(--bg-color);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--accent-secondary);
-  border-radius: 20px;
-  border: 3px solid var(--bg-color);
+    background-color: var(--accent-secondary);
+    border-radius: 20px;
+    border: 3px solid var(--bg-color);
 }
 
 
@@ -841,7 +841,7 @@ body {
 /* Position radial menu on top right */
 .nav-menu {
     position: fixed;
-    top: 75px;
+    top: 45vh;
     right: 10px;
     z-index: 5000;
 }
@@ -872,10 +872,63 @@ body {
     box-shadow: 0 0 18px rgba(157, 78, 221, 0.6);
 }
 
+
+/* ADDED NOW */
+
+/* Increase menu circle size slightly */
+.menu-open-button,
+.menu-item {
+    width: 60px !important;   /* was 52px */
+    height: 60px !important;  /* was 52px */
+    font-size: 0.85rem !important; /* slightly larger text */
+}
+
+/* Also enlarge the burger icon lines a little */
+.menu-open-button .lines {
+    width: 26px;
+}
+/* Desktop radial expansion — increased spacing */
+.menu-open:checked ~ .menu-item:nth-child(3) {
+    transform: translate3d(0, -80px, 0);
+}
+
+.menu-open:checked ~ .menu-item:nth-child(4) {
+    transform: translate3d(-70px, -45px, 0);
+}
+
+.menu-open:checked ~ .menu-item:nth-child(5) {
+    transform: translate3d(-70px, 45px, 0);
+}
+
+.menu-open:checked ~ .menu-item:nth-child(6) {
+    transform: translate3d(0, 80px, 0);
+}
+
+
 /* Responsive */
 @media (max-width: 768px) {
+
+    .nav-menu {
+        position: fixed;
+        top: 7vh;
+        right: 10px;
+        z-index: 5000;
+    }
+
+    .hero-subtitle {
+        font-size: 0.8rem;
+        margin-top: 28vh;
+    }
+
     .hero-title {
         font-size: 3rem;
+        margin-top: 5vh;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        /* gap: 35px; */
+        font-size: 1rem;
     }
 
     .hero-stats {
@@ -890,6 +943,48 @@ body {
 
 
 }
+
+/* Mobile: Open menu horizontally to the left with staggered pop animation */
+@media (max-width: 768px) {
+
+    /* Base state: hidden & small */
+    .menu-item {
+        opacity: 0;
+        transform: scale(0.2);
+        transition: transform 0.5s ease, opacity 0.25s ease;
+    }
+
+    /* When menu is open, make items visible */
+    .menu-open:checked ~ .menu-item {
+        opacity: 1;
+    }
+
+    /* Item 1 – pop out first */
+    .menu-open:checked ~ .menu-item:nth-child(3) {
+        transform: translateX(-65px) scale(1);
+        transition-delay: 0.05s;
+    }
+
+    /* Item 2 – then this */
+    .menu-open:checked ~ .menu-item:nth-child(4) {
+        transform: translateX(-135px) scale(1);
+        transition-delay: 0.10s;
+    }
+
+    /* Item 3 */
+    .menu-open:checked ~ .menu-item:nth-child(5) {
+        transform: translateX(-205px) scale(1);
+        transition-delay: 0.15s;
+    }
+
+    /* Item 4 – last one */
+    .menu-open:checked ~ .menu-item:nth-child(6) {
+        transform: translateX(-275px) scale(1);
+        transition-delay: 0.20s;
+    }
+}
+
+
 
 
 /* Mobile: hide arrows */
