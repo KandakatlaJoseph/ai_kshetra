@@ -19,27 +19,28 @@
       "contact": ""
     },
     {
+      "name": "Dr. Seli Mohapatra",
+      "role": "Assoc. Professor & Coordinator, CodeWarz",
+      "image": "seli_mam_up.jpg",
+      "contact": ""
+    },
+    {
+      "name": "K. Sudheer Babu",
+      "role": "Assoc. Professor & Coordinator, DreamFrame",
+      "image": "sudheerSir.jpg",
+      "contact": ""
+    },
+    {
       "name": "Mr. M. Praveen Kumar",
       "role": "Asst. Professor & Coordinator, Build with AI",
       "image": "Praveen.jpg",
       "contact": ""
     },
-    {
-      "name": "Dr. Seli Mohapatra",
-      "role": "Professor & Coordinator, CodeWarz",
-      "image": "seli_mam_up.jpg",
-      "contact": ""
-    },
+    
     {
       "name": "M. Naresh",
       "role": "Asst. Professor & Coordinator, PromptCraft",
       "image": "naresh-new.jpg",
-      "contact": ""
-    },
-    {
-      "name": "K. Sudheer Babu",
-      "role": "Asst. Professor & Coordinator, DreamFrame",
-      "image": "sudheerSir.jpg",
       "contact": ""
     }
   ],
