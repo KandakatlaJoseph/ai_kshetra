@@ -9,7 +9,7 @@
     {
       "name": "Dr. N Venkateswar Rao",
       "role": "Professor & Convener, NEXAA",
-      "image": "nvrSir.png",
+      "image": "nvr-up.jpg",
       "contact": ""
     },
     {
@@ -21,19 +21,25 @@
     {
       "name": "Mr. M. Praveen Kumar",
       "role": "Asst. Professor & Coordinator, Build with AI",
-      "image": "praveen_sir.jpg",
+      "image": "Praveen.jpg",
       "contact": ""
     },
     {
       "name": "Dr. Seli Mohapatra",
       "role": "Professor & Coordinator, CodeWarz",
-      "image": "seliMam.png",
+      "image": "seli_mam_up.jpg",
       "contact": ""
     },
     {
       "name": "M. Naresh",
-      "role": "Asst. Professor & Coordinator, Build with AI",
-      "image": "sureshBabuSir.jpg",
+      "role": "Asst. Professor & Coordinator, PromptCraft",
+      "image": "naresh-new.jpg",
+      "contact": ""
+    },
+    {
+      "name": "K. Sudheer Babu",
+      "role": "Asst. Professor & Coordinator, DreamFrame",
+      "image": "sudheerSir.jpg",
       "contact": ""
     }
   ],
@@ -85,6 +91,12 @@
   ],
   "organisers": [
     {
+      "name": "K. Chethan Eswar",
+      "role": "Organizer",
+      "image": "chetanSpectrum.jpg",
+      "contact": ""
+    },
+    {
       "name": "G. Raghavendra",
       "role": "Organizer",
       "image": "raghavendra.jpg",
@@ -93,31 +105,27 @@
     {
       "name": "G. Rohith kumar yadav",
       "role": "Organizer",
-      "image": "https://via.placeholder.com/200x200?text=G.+Rohith+kumar+yadav",
+      "image": "rohit-new.jpg",
       "contact": ""
     },
-    {
-      "name": "K. Chethan Eswar",
-      "role": "Organizer",
-      "image": "chetanSpectrum.jpg",
-      "contact": ""
-    },
+    
     {
       "name": "A. Sai Praveen",
       "role": "Organizer",
       "image": "https://via.placeholder.com/200x200?text=A.+Sai+Praveen",
       "contact": ""
     },
-    {
-      "name": "G. Brahmani",
-      "role": "Organizer",
-      "image": "brahmani-new.jpg",
-      "contact": ""
-    },
+    
     {
       "name": "J. Sai Lakshmi Mohitha",
       "role": "Organizer",
       "image": "mohitha-new.jpg",
+      "contact": ""
+    },
+    {
+      "name": "G. Brahmani",
+      "role": "Organizer",
+      "image": "brahmani-new.jpg",
       "contact": ""
     },
     {
@@ -135,13 +143,13 @@
     {
       "name": "S. Swetha",
       "role": "Organizer",
-      "image": "https://via.placeholder.com/200x200?text=S.+Swetha",
+      "image": "saiPallavi.jpg",
       "contact": ""
     },
     {
       "name": "Y. Sai Hanuma Reddy",
       "role": "Organizer",
-      "image": "https://via.placeholder.com/200x200?text=Y.+Sai+Hanuma+Reddy",
+      "image": "hanuma.jpg",
       "contact": ""
     },
     {
@@ -159,7 +167,7 @@
     {
       "name": "G. Yuvaraj",
       "role": "Organizer",
-      "image": "https://via.placeholder.com/200x200?text=G.+Yuvaraj",
+      "image": "yuvraj-new.jpg",
       "contact": ""
     },
     {
@@ -177,13 +185,13 @@
     {
       "name": "T. Meghanath",
       "role": "Organizer",
-      "image": "meghanathSpectrum.jpg",
+      "image": "meghanath-new.jpg",
       "contact": ""
     },
     {
       "name": "T. Yaswanth Badri Nath",
       "role": "Organizer",
-      "image": "https://via.placeholder.com/200x200?text=T.+Yaswanth+Badri+Nath",
+      "image": "yaswanth-new.jpg",
       "contact": ""
     },
     {
