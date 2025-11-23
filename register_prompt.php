@@ -2,28 +2,51 @@
 include 'db.php';
 
 $message = "";
-$status = "";
+$status  = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $participant_name = $_POST['participant_name'];
-    $participant_email = $_POST['participant_email'];
-    $participant_phone = $_POST['participant_phone'];
-    $participant_college = $_POST['participant_college'];
-    $participant_roll = $_POST['participant_roll'];
 
-    $sql = "INSERT INTO registrations_prompt_craft (participant_name, participant_email, participant_phone, participant_college, participant_roll)
-            VALUES ('$participant_name', '$participant_email', '$participant_phone', '$participant_college', '$participant_roll')";
+    $participant_name    = $conn->real_escape_string($_POST['participant_name'] ?? '');
+    $participant_email   = $conn->real_escape_string($_POST['participant_email'] ?? '');
+    $participant_phone   = $conn->real_escape_string($_POST['participant_phone'] ?? '');
+    $participant_college = $conn->real_escape_string($_POST['participant_college'] ?? '');
+    $participant_roll    = $conn->real_escape_string($_POST['participant_roll'] ?? '');
 
-    if ($conn->query($sql) === TRUE) {
-        $message = "Registration successful! Welcome to PromptCraft.";
-        $status = "success";
+    // 1) duplicate check using participant_phone
+    $checkSql = "
+        SELECT COUNT(*) AS c
+        FROM registrations_prompt_craft
+        WHERE participant_phone = '$participant_phone'
+    ";
+    $checkRes = $conn->query($checkSql);
+    $checkRow = $checkRes ? $checkRes->fetch_assoc() : ['c' => 0];
+
+    if ((int)$checkRow['c'] > 0) {
+        $message = "This phone number is already registered for PromptCraft.";
+        $status  = "error";
     } else {
-        $message = "Error: " . $sql . "<br>" . $conn->error;
-        $status = "error";
+        $sql = "
+            INSERT INTO registrations_prompt_craft
+            (participant_name, participant_email, participant_phone, participant_college, participant_roll)
+            VALUES
+            ('$participant_name', '$participant_email', '$participant_phone', '$participant_college', '$participant_roll')
+        ";
+
+        if ($conn->query($sql) === TRUE) {
+            $message = "Registration successful! Welcome to PromptCraft.";
+            $status  = "success";
+        } else {
+            if ($conn->errno == 1062) {
+                $message = "This phone number is already registered for PromptCraft.";
+                $status  = "error";
+            } else {
+                $message = "Error while saving your registration. Please try again later.";
+                $status  = "error";
+            }
+        }
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,11 +80,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .form-row .form-group {
             flex: 1;
         }
+        .alert {
+            padding: 12px 18px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .alert.success {
+            background: rgba(0,255,150,0.15);
+            border: 1px solid #00ff9a;
+            color: #00ff9a;
+        }
+        .alert.error {
+            background: rgba(255,80,80,0.15);
+            border: 1px solid #ff5050;
+            color: #ff5050;
+        }
     </style>
 </head>
 <body>
 <header class="header">
-
     <nav class="menu nav-menu">
         <input type="checkbox" class="menu-open" id="menu-open" />
 
@@ -71,52 +109,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <span class="lines line-3"></span>
         </label>
 
-<a href="index.html#home" class="menu-item">Home</a>
-<a href="index.html#events" class="menu-item">Events</a>
-<a href="about.html" class="menu-item">About</a>
-<a href="index.html#contact" class="menu-item">Contact</a>
-
+        <a href="index.html#home"    class="menu-item">Home</a>
+        <a href="index.html#events"  class="menu-item">Events</a>
+        <a href="about.html"         class="menu-item">About</a>
+        <a href="index.html#contact" class="menu-item">Contact</a>
     </nav>
-
 </header>
-    <div class="container">
-        <div class="reg-container">
-            <h2 class="reg-title">Register for PromptCraft</h2>
-            <?php if ($message): ?>
-                <div style="text-align: center; margin-bottom: 20px; color: <?php echo $status == 'success' ? '#00f5d4' : '#ff0055'; ?>;">
-                    <?php echo $message; ?>
-                </div>
-            <?php endif; ?>
-            
-            <form method="POST" action="">
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" name="participant_name" required>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" name="participant_email" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone</label>
-                        <input type="tel" name="participant_phone" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>College Name</label>
-                        <input type="text" name="participant_college" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Roll No</label>
-                        <input type="text" name="participant_roll" required>
-                    </div>
-                </div>
 
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Registration</button>
-            </form>
-        </div>
+<div class="container">
+    <div class="reg-container">
+        <h2 class="reg-title">Register for PromptCraft</h2>
+
+        <?php if ($message): ?>
+            <div class="alert <?= $status === 'success' ? 'success' : 'error' ?>">
+                <?= htmlspecialchars($message) ?>
+            </div>
+        <?php endif; ?>
+        
+        <form method="POST" action="">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="participant_name" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="participant_email" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" name="participant_phone" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>College Name</label>
+                    <input type="text" name="participant_college" required>
+                </div>
+                <div class="form-group">
+                    <label>Roll No</label>
+                    <input type="text" name="participant_roll" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Registration</button>
+        </form>
     </div>
+</div>
 </body>
 </html>
