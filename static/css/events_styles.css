@@ -79,4 +79,182 @@
 .event-hero > * {
     position: relative;
     z-index: 1;
+}/* ================================
+   EVENT DETAILS – RESPONSIVE
+   Put this at the END of events_styles.css or style.css
+   ================================ */
+
+/* Tablets & Mobiles */
+@media (max-width: 768px) {
+
+    /* Hero for event pages */
+    .hero.event-hero,
+    .event-hero {
+        min-height: 60vh;
+        padding: 90px 20px 40px; /* space from top menu */
+        text-align: center;
+    }
+
+    .event-hero .container {
+        max-width: 100%;
+    }
+
+    .event-hero .hero-subtitle {
+        font-size: 0.8rem;
+        letter-spacing: 3px;
+        margin-bottom: 10px;
+    }
+
+    .event-hero .hero-title {
+        font-size: 2.4rem;
+        line-height: 1.1;
+        margin-bottom: 10px;
+    }
+
+    .event-hero .hero-tagline {
+        font-size: 1rem;
+        max-width: 90%;
+        margin: 0 auto 18px;
+    }
+
+    .event-hero .btn.hero-cta-top {
+        padding: 10px 24px;
+        font-size: 0.8rem;
+    }
+
+    /* Event wrapper */
+    .events {
+        padding: 70px 0 60px;
+    }
+
+    .event-details-page {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .event-desc {
+        font-size: 0.95rem;
+    }
+
+    /* Info cards under hero */
+    .event-info-grid {
+        grid-template-columns: 1fr;   /* stack cards */
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+
+    .event-info-box {
+        padding: 16px;
+    }
+
+    .event-info-box h3 {
+        font-size: 0.85rem;
+    }
+
+    .event-info-box p {
+        font-size: 0.9rem;
+    }
+
+    /* Detail blocks (About, Rounds, Rules, etc.) */
+    .event-detail-block {
+        padding: 18px 15px 8px;
+        margin-bottom: 18px;
+    }
+
+    .event-detail-block h2 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .event-detail-block h3 {
+        font-size: 1rem;
+    }
+
+    .event-detail-block p,
+    .event-detail-block ul {
+        font-size: 0.9rem;
+    }
+
+    .event-detail-block ul {
+        margin-left: 16px;
+    }
+
+    /* Section header (Shortlisted, Winners, Certificates, Gallery) */
+    .event-section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .event-section-header h2 {
+        font-size: 1.1rem;
+    }
+
+    .badge {
+        font-size: 0.7rem;
+    }
+
+    /* Tables – make scrollable and compact */
+    .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .event-table {
+        min-width: 520px;  /* allows horizontal scroll on small screens */
+        font-size: 0.8rem;
+    }
+
+    .event-table th,
+    .event-table td {
+        padding: 6px 8px;
+        white-space: nowrap;
+    }
+
+    /* Gallery grid on mobile */
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .gallery-item.placeholder {
+        min-height: 110px;
+        font-size: 0.8rem;
+        padding: 6px;
+        text-align: center;
+    }
 }
+
+/* Very small phones */
+@media (max-width: 480px) {
+
+    .event-hero {
+        padding-top: 100px;
+    }
+
+    .event-hero .hero-title {
+        font-size: 2.1rem;
+    }
+
+    .event-hero .hero-tagline {
+        font-size: 0.9rem;
+    }
+
+    .event-details-page {
+        padding: 0 8px;
+    }
+
+    .event-detail-block {
+        padding: 16px 12px 6px;
+    }
+
+    .event-table {
+        min-width: 480px;
+        font-size: 0.78rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
