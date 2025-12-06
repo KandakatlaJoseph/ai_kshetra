@@ -49,45 +49,45 @@
   "student_coordinators": [
     {
       "name": "G.N.V Nihar",
-      "role": "CoOrdinator",
+      "role": "CoOrdinator, AI Kshetra & Build with AI",
       "image": "NiharPIC.jpg",
-      "contact": "+91 7093725382"
+      "contact": "+917093725382"
     },
     {
       "name": "N. Shivaraj",
-      "role": "CoOrdinator",
+      "role": "CoOrdinator, AI Kshetra & PromptCraft",
       "image": "shivarajSpectrum.jpg",
-      "contact": ""
+      "contact": "+917816045119"
     },
     {
       "name": "K. Joseph Prem Kumar",
-      "role": "CoOrdinator",
+      "role": "CoOrdinator, AI Kshetra",
       "image": "josephSpectrum.jpg",
-      "contact": ""
+      "contact": "+919392122287"
     },
     {
       "name": "A. Nagalakshmi",
-      "role": "CoOrdinator",
+      "role": "CoOrdinator, CodeWarz",
       "image": "Nagalakshmi-new.jpg",
-      "contact": ""
+      "contact": "+917842441985"
     },
     {
       "name": "A. Amulya",
-      "role": "CoOrdinator",
+      "role": "CoOrdinator, CodeWarz",
       "image": "amulyaSpectrum.jpg",
-      "contact": ""
+      "contact": "+919391339152"
     },
     {
       "name": "A.Navya Mani Sri",
-      "role": "CoOrdinator",
+      "role": "CoOrdinator, PromptCraft",
       "image": "Navya-new.jpg",
-      "contact": ""
+      "contact": "+919949398861"
     },
     {
       "name": "V. Siri Chandana",
-      "role": "CoOrdinator",
+      "role": "CoOrdinator, DreamFrame",
       "image": "siriChandanaSpectrum.jpg",
-      "contact": ""
+      "contact": "+917075032603"
     }
   ],
   "organisers": [
@@ -113,7 +113,7 @@
     {
       "name": "A. Sai Praveen",
       "role": "Organizer",
-      "image": "https://via.placeholder.com/200x200?text=A.+Sai+Praveen",
+      "image": "praveen_s.jpg",
       "contact": ""
     },
     

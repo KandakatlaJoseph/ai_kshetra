@@ -6,10 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About | AI KSHETRA</title>
 
-    
+
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="static/css/about-styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Exo+2:wght@300;500;700&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Exo+2:wght@300;500;700&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        .person-contact a {
+            color: #0077ff;
+            /* Blue clickable phone color */
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            /* Space between icon & text */
+        }
+
+        .person-contact a:hover {
+            text-decoration: underline;
+            color: #0056cc;
+        }
+
+        .person-contact a::before {
+            content: "📞";
+            /* Simple phone icon */
+            font-size: 16px;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,10 +52,10 @@
                 <span class="lines line-3"></span>
             </label>
 
-<a href="index.html#home" class="menu-item">Home</a>
-<a href="index.html#events" class="menu-item">Events</a>
-<a href="about.html" class="menu-item">About</a>
-<a href="index.html#contact" class="menu-item">Contact</a>
+            <a href="index.html#home" class="menu-item">Home</a>
+            <a href="index.html#events" class="menu-item">Events</a>
+            <a href="about.html" class="menu-item">About</a>
+            <a href="index.html#contact" class="menu-item">Contact</a>
 
         </nav>
 
@@ -48,12 +75,13 @@
     <section class="container" style="padding: 120px 0;">
         <h2 class="section-title">What is AI KSHETRA?</h2>
 
-        <p style="max-width: 900px; margin: 0 auto; color: var(--text-secondary); font-size: 1.2rem; text-align:center; margin-bottom:60px;">
-            AI KSHETRA is a platform crafted to challenge, inspire, and elevate students 
-            into real-world innovators. Organized by the AI Spectrum Club, this event 
-            blends competitive spirit, creativity, and hands-on problem-solving in the 
-            fields of Artificial Intelligence, Algorithms, and Design. From coding 
-            battles to prototype building and prompt engineering — AI KSHETRA is where 
+        <p
+            style="max-width: 900px; margin: 0 auto; color: var(--text-secondary); font-size: 1.2rem; text-align:center; margin-bottom:60px;">
+            AI KSHETRA is a platform crafted to challenge, inspire, and elevate students
+            into real-world innovators. Organized by the AI Spectrum Club, this event
+            blends competitive spirit, creativity, and hands-on problem-solving in the
+            fields of Artificial Intelligence, Algorithms, and Design. From coding
+            battles to prototype building and prompt engineering — AI KSHETRA is where
             ideas transform into real impact.
         </p>
     </section>
@@ -80,12 +108,12 @@
             const data = await res.json();
 
             const createCard = (person) => `
-                <div class="person-card fade-in-section">
-                    <img src= "./static/peopleImg/${person.image}" alt="${person.name}" class="person-img" />
-                    <h3 class="person-name">${person.name}</h3>
-                    <p class="person-role">${person.role}</p>
-                    ${person.contact ? `<p class="person-contact">${person.contact}</p>` : ""}
-                </div>
+            <div class="person-card fade-in-section">
+                <img src="./static/peopleImg/${person.image}" alt="${person.name}" class="person-img" />
+                <h3 class="person-name">${person.name}</h3>
+                <p class="person-role">${person.role}</p>
+                ${person.contact ? `<p class="person-contact"><a href="tel:${person.contact}">${person.contact}</a></p>` : ""}
+            </div>
             `;
 
             Object.keys(data).forEach(category => {
