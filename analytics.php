@@ -60,7 +60,11 @@ if (isset($_GET['export'])) {
         // Data rows
         $result->data_seek(0);
         while ($row = $result->fetch_assoc()) {
-            fputcsv($output, $row);
+            // Decode HTML entities for CSV export
+            $decodedRow = array_map(function($value) {
+                return htmlspecialchars_decode((string)$value);
+            }, $row);
+            fputcsv($output, $decodedRow);
         }
     } else {
         fputcsv($output, ['No data available']);
@@ -99,67 +103,77 @@ foreach ($events as $key => $info) {
     $eventRows[$key] = $rows;
 }
 
-// 2) College-wise counts (combined from all events)
+// 2) College-wise & Branch-wise counts (combined from all events & all members)
 $collegeCounts = [];
+$branchCounts = [];
 
-function addCollegeCount(&$arr, $college, $count = 1) {
-    if (!$college) return;
-    $college = trim($college);
-    if ($college === '') return;
-    if (!isset($arr[$college])) $arr[$college] = 0;
-    $arr[$college] += $count;
+function addCount(&$arr, $val, $count = 1) {
+    if (!$val) return;
+    $val = htmlspecialchars_decode(trim($val));
+    if ($val === '') return;
+    if (!isset($arr[$val])) $arr[$val] = 0;
+    $arr[$val] += $count;
 }
 
-// Build with AI – teams, using member1_college as team college
-$res = $conn->query("
-    SELECT member1_college AS college, COUNT(*) AS c
-    FROM registrations_build_with_ai
-    GROUP BY member1_college
-");
+// Build with AI (up to 4 members)
+$res = $conn->query("SELECT member1_college, member1_branch, 
+                            member2_college, member2_branch,
+                            member3_college, member3_branch,
+                            member4_college, member4_branch 
+                     FROM registrations_build_with_ai");
 if ($res) {
     while ($row = $res->fetch_assoc()) {
-        addCollegeCount($collegeCounts, $row['college'], (int)$row['c']);
+        addCount($collegeCounts, $row['member1_college']);
+        addCount($branchCounts, $row['member1_branch']);
+        
+        addCount($collegeCounts, $row['member2_college']);
+        addCount($branchCounts, $row['member2_branch']);
+        
+        addCount($collegeCounts, $row['member3_college']);
+        addCount($branchCounts, $row['member3_branch']);
+        
+        addCount($collegeCounts, $row['member4_college']);
+        addCount($branchCounts, $row['member4_branch']);
     }
 }
 
-// CodeWarz – member1_college
-$res = $conn->query("
-    SELECT member1_college AS college, COUNT(*) AS c
-    FROM registrations_codewarz
-    GROUP BY member1_college
-");
+// CodeWarz (up to 2 members)
+$res = $conn->query("SELECT member1_college, member1_branch, 
+                            member2_college, member2_branch 
+                     FROM registrations_codewarz");
 if ($res) {
     while ($row = $res->fetch_assoc()) {
-        addCollegeCount($collegeCounts, $row['college'], (int)$row['c']);
+        addCount($collegeCounts, $row['member1_college']);
+        addCount($branchCounts, $row['member1_branch']);
+        
+        addCount($collegeCounts, $row['member2_college']);
+        addCount($branchCounts, $row['member2_branch']);
     }
 }
 
-// PromptCraft – participant_college
-$res = $conn->query("
-    SELECT participant_college AS college, COUNT(*) AS c
-    FROM registrations_prompt_craft
-    GROUP BY participant_college
-");
+// PromptCraft (1 participant)
+$res = $conn->query("SELECT participant_college, participant_branch 
+                     FROM registrations_prompt_craft");
 if ($res) {
     while ($row = $res->fetch_assoc()) {
-        addCollegeCount($collegeCounts, $row['college'], (int)$row['c']);
+        addCount($collegeCounts, $row['participant_college']);
+        addCount($branchCounts, $row['participant_branch']);
     }
 }
 
-// DreamFrame – participant_college
-$res = $conn->query("
-    SELECT participant_college AS college, COUNT(*) AS c
-    FROM registrations_dream_frame
-    GROUP BY participant_college
-");
+// DreamFrame (1 participant)
+$res = $conn->query("SELECT participant_college, participant_branch 
+                     FROM registrations_dream_frame");
 if ($res) {
     while ($row = $res->fetch_assoc()) {
-        addCollegeCount($collegeCounts, $row['college'], (int)$row['c']);
+        addCount($collegeCounts, $row['participant_college']);
+        addCount($branchCounts, $row['participant_branch']);
     }
 }
 
-// Sort colleges by count (descending)
+// Sort by counts (descending)
 arsort($collegeCounts);
+arsort($branchCounts);
 
 $conn->close();
 
@@ -173,6 +187,9 @@ foreach ($events as $key => $info) {
 
 $collegeLabels = array_keys($collegeCounts);
 $collegeValues = array_values($collegeCounts);
+
+$branchLabels = array_keys($branchCounts);
+$branchValues = array_values($branchCounts);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -306,7 +323,7 @@ $collegeValues = array_values($collegeCounts);
                     <thead>
                         <tr>
                             <th>College</th>
-                            <th>No. of Registrations (Teams / Participants)</th>
+                            <th>No. of Participants</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -316,6 +333,42 @@ $collegeValues = array_values($collegeCounts);
                             <?php foreach ($collegeCounts as $college => $cnt): ?>
                                 <tr>
                                     <td><?php echo htmlspecialchars($college); ?></td>
+                                    <td><?php echo $cnt; ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- BRANCH-WISE SECTION -->
+        <div class="analytics-charts-block">
+            <h2 class="section-title">Registrations by Branch</h2>
+
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>Branch-wise Registrations (Bar)</h3>
+                    <canvas id="branchBarChart"></canvas>
+                </div>
+            </div>
+
+            <div class="college-table-wrapper">
+                <h3 style="margin-bottom:10px;">Branch-wise Counts (Table)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Branch</th>
+                            <th>No. of Participants</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if (count($branchCounts) === 0): ?>
+                            <tr><td colspan="2">No registrations yet.</td></tr>
+                        <?php else: ?>
+                            <?php foreach ($branchCounts as $branch => $cnt): ?>
+                                <tr>
+                                    <td><?php echo htmlspecialchars($branch); ?></td>
                                     <td><?php echo $cnt; ?></td>
                                 </tr>
                             <?php endforeach; ?>
@@ -359,7 +412,7 @@ $collegeValues = array_values($collegeCounts);
                                 <?php foreach ($eventRows[$key] as $row): ?>
                                     <tr>
                                         <?php foreach ($row as $val): ?>
-                                            <td><?php echo htmlspecialchars((string)$val); ?></td>
+                                            <td><?php echo htmlspecialchars(htmlspecialchars_decode((string)$val)); ?></td>
                                         <?php endforeach; ?>
                                     </tr>
                                 <?php endforeach; ?>
@@ -438,9 +491,36 @@ $collegeValues = array_values($collegeCounts);
             data: {
                 labels: COLLEGE_LABELS,
                 datasets: [{
-                    label: 'Registrations',
+                    label: 'Participants',
                     data: COLLEGE_VALUES,
                     backgroundColor: generateColors(COLLEGE_LABELS.length)
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { beginAtZero: true, ticks: { precision: 0 } }
+                }
+            }
+        });
+    }
+
+    // Branch Bar Chart (horizontal)
+    const BRANCH_LABELS = <?php echo json_encode($branchLabels); ?>;
+    const BRANCH_VALUES = <?php echo json_encode($branchValues); ?>;
+    
+    const ctxBranch = document.getElementById('branchBarChart');
+    if (ctxBranch && BRANCH_LABELS.length > 0) {
+        new Chart(ctxBranch, {
+            type: 'bar',
+            data: {
+                labels: BRANCH_LABELS,
+                datasets: [{
+                    label: 'Participants',
+                    data: BRANCH_VALUES,
+                    backgroundColor: generateColors(BRANCH_LABELS.length)
                 }]
             },
             options: {

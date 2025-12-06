@@ -2,48 +2,88 @@
 include 'db.php';
 
 $message = "";
-$status  = "";
+$status = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $participant_name    = $conn->real_escape_string($_POST['participant_name'] ?? '');
-    $participant_email   = $conn->real_escape_string($_POST['participant_email'] ?? '');
-    $participant_phone   = $conn->real_escape_string($_POST['participant_phone'] ?? '');
-    $participant_college = $conn->real_escape_string($_POST['participant_college'] ?? '');
-    $participant_roll    = $conn->real_escape_string($_POST['participant_roll'] ?? '');
+    // Helper function to sanitize input
+    function clean_input($data) {
+        return htmlspecialchars(stripslashes(trim($data)));
+    }
 
-    // 1) duplicate check using participant_phone
-    $checkSql = "
-        SELECT COUNT(*) AS c
-        FROM registrations_prompt_craft
-        WHERE participant_phone = '$participant_phone'
-    ";
-    $checkRes = $conn->query($checkSql);
-    $checkRow = $checkRes ? $checkRes->fetch_assoc() : ['c' => 0];
+    // Collect and sanitize inputs
+    $participant_name    = clean_input($_POST['participant_name'] ?? '');
+    $participant_email   = clean_input($_POST['participant_email'] ?? '');
+    $participant_phone   = clean_input($_POST['participant_phone'] ?? '');
+    $participant_college = clean_input($_POST['participant_college'] ?? '');
+    $participant_branch  = clean_input($_POST['participant_branch'] ?? '');
+    $participant_roll    = clean_input($_POST['participant_roll'] ?? '');
 
-    if ((int)$checkRow['c'] > 0) {
-        $message = "This phone number is already registered for PromptCraft.";
-        $status  = "error";
-    } else {
-        $sql = "
-            INSERT INTO registrations_prompt_craft
-            (participant_name, participant_email, participant_phone, participant_college, participant_roll)
-            VALUES
-            ('$participant_name', '$participant_email', '$participant_phone', '$participant_college', '$participant_roll')
-        ";
+    // Basic Validation
+    if (empty($participant_name) || empty($participant_email) || empty($participant_phone) || empty($participant_branch)) {
+        header("Location: status_prompt.php?status=error");
+        exit();
+    }
 
-        if ($conn->query($sql) === TRUE) {
-            $message = "Registration successful! Welcome to PromptCraft.";
-            $status  = "success";
+    // Validate Phone Number (Must be exactly 10 digits)
+    if (!preg_match('/^\d{10}$/', $participant_phone)) {
+        header("Location: status_prompt.php?status=error");
+        exit();
+    }
+
+    // Check for duplicate registration
+    $stmt = $conn->prepare("SELECT id FROM registrations_prompt_craft WHERE participant_phone = ?");
+    $stmt->bind_param("s", $participant_phone);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if ($stmt->num_rows > 0) {
+        $stmt->close();
+        header("Location: status_prompt.php?status=exists");
+        exit();
+    }
+    $stmt->close();
+
+    // Insert Data using Prepared Statement
+    $sql = "INSERT INTO registrations_prompt_craft 
+            (participant_name, participant_email, participant_phone, participant_college, participant_branch, participant_roll)
+            VALUES (?, ?, ?, ?, ?, ?)";
+
+    $stmt = $conn->prepare($sql);
+    
+    if ($stmt) {
+        $stmt->bind_param("ssssss", 
+            $participant_name, $participant_email, $participant_phone, $participant_college, $participant_branch, $participant_roll
+        );
+
+        if ($stmt->execute()) {
+            header("Location: status_prompt.php?status=success");
         } else {
-            if ($conn->errno == 1062) {
-                $message = "This phone number is already registered for PromptCraft.";
-                $status  = "error";
-            } else {
-                $message = "Error while saving your registration. Please try again later.";
-                $status  = "error";
-            }
+            error_log("Execute failed: " . $stmt->error);
+            header("Location: status_prompt.php?status=error");
         }
+        $stmt->close();
+    } else {
+        error_log("Prepare failed: " . $conn->error);
+        header("Location: status_prompt.php?status=error");
+    }
+    exit();
+}
+
+$branches = [
+    "CSE (AI & ML)", "Computer Science and Engineering (CSE)", "CSE (Data Science)", "CSE (IoT)",
+    "Computer Science & Business Systems (CSBS)", "Artificial Intelligence & Data Science (AI & DS)",
+    "Information Technology (IT)", "Electronics and Communication Engineering (ECE)",
+    "Electrical and Electronics Engineering (EEE)", "Mechanical Engineering (ME)", "Civil Engineering",
+    "Chemical Engineering", "Mechatronics Engineering", "Biomedical Engineering", "Agricultural Engineering",
+    "Biomedical Science", "Business Administration (BBA)", "MBA (All Specializations)",
+    "Computer Applications (BCA / MCA)", "B.Sc (Computer Science, Mathematics, Physics, Chemistry, Life Sciences)",
+    "M.Tech", "Other"
+];
+
+function render_branch_options($branches) {
+    foreach ($branches as $branch) {
+        echo "<option value=\"" . htmlspecialchars($branch) . "\">" . htmlspecialchars($branch) . "</option>";
     }
 }
 ?>
@@ -96,6 +136,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border: 1px solid #ff5050;
             color: #ff5050;
         }
+        select {
+            width: 100%;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            transition: all 0.3s;
+        }
+        select:focus {
+            outline: none;
+            border-color: var(--accent-secondary);
+            box-shadow: 0 0 15px rgba(0, 245, 212, 0.2);
+        }
+        option {
+            background: #0a0a12;
+            color: var(--text-primary);
+        }
     </style>
 </head>
 <body>
@@ -138,7 +197,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="form-group">
                     <label>Phone</label>
-                    <input type="tel" name="participant_phone" required>
+                    <input type="tel" name="participant_phone" pattern="[0-9]{10}" maxlength="10" title="Please enter exactly 10 digits" required>
                 </div>
             </div>
             <div class="form-row">
@@ -147,9 +206,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="text" name="participant_college" required>
                 </div>
                 <div class="form-group">
-                    <label>Roll No</label>
-                    <input type="text" name="participant_roll" required>
+                    <label>Branch</label>
+                    <select name="participant_branch" required>
+                        <option value="" disabled selected>Select Branch</option>
+                        <?php render_branch_options($branches); ?>
+                    </select>
                 </div>
+            </div>
+            <div class="form-group">
+                <label>Roll No</label>
+                <input type="text" name="participant_roll" required>
             </div>
 
             <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Registration</button>

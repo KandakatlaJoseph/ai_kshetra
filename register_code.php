@@ -2,75 +2,100 @@
 include 'db.php';
 
 $message = "";
-$status  = "";
+$status = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Sanitize inputs
-    $member1_name    = $conn->real_escape_string(trim($_POST['member1_name'] ?? ''));
-    $member1_email   = $conn->real_escape_string(trim($_POST['member1_email'] ?? ''));
-    $member1_phone   = $conn->real_escape_string(trim($_POST['member1_phone'] ?? ''));
-    $member1_college = $conn->real_escape_string(trim($_POST['member1_college'] ?? ''));
-    $member1_roll    = $conn->real_escape_string(trim($_POST['member1_roll'] ?? ''));
+    // Helper function to sanitize input
+    function clean_input($data) {
+        return htmlspecialchars(stripslashes(trim($data)));
+    }
+
+    // Collect and sanitize inputs
+    $member1_name    = clean_input($_POST['member1_name'] ?? '');
+    $member1_email   = clean_input($_POST['member1_email'] ?? '');
+    $member1_phone   = clean_input($_POST['member1_phone'] ?? '');
+    $member1_college = clean_input($_POST['member1_college'] ?? '');
+    $member1_branch  = clean_input($_POST['member1_branch'] ?? '');
+    $member1_roll    = clean_input($_POST['member1_roll'] ?? '');
     
-    $member2_name    = $conn->real_escape_string(trim($_POST['member2_name'] ?? ''));
-    $member2_email   = $conn->real_escape_string(trim($_POST['member2_email'] ?? ''));
-    $member2_phone   = $conn->real_escape_string(trim($_POST['member2_phone'] ?? ''));
-    $member2_college = $conn->real_escape_string(trim($_POST['member2_college'] ?? ''));
-    $member2_roll    = $conn->real_escape_string(trim($_POST['member2_roll'] ?? ''));
+    $member2_name    = clean_input($_POST['member2_name'] ?? '');
+    $member2_email   = clean_input($_POST['member2_email'] ?? '');
+    $member2_phone   = clean_input($_POST['member2_phone'] ?? '');
+    $member2_college = clean_input($_POST['member2_college'] ?? '');
+    $member2_branch  = clean_input($_POST['member2_branch'] ?? '');
+    $member2_roll    = clean_input($_POST['member2_roll'] ?? '');
 
-    // 0) Server-side required check for both participants
-    if (
-        $member1_name    === '' || $member1_email   === '' || $member1_phone   === '' ||
-        $member1_college === '' || $member1_roll    === '' ||
-        $member2_name    === '' || $member2_email   === '' || $member2_phone   === '' ||
-        $member2_college === '' || $member2_roll    === ''
-    ) {
-        $message = "Please fill all required fields for both Participant 1 and Participant 2.";
-        $status  = "error";
-    } else {
+    // Basic Validation
+    if (empty($member1_name) || empty($member1_email) || empty($member1_phone) || empty($member1_branch) || empty($member2_name) || empty($member2_branch)) {
+        header("Location: status_code.php?status=error");
+        exit();
+    }
 
-        // 1) Duplicate check using leader phone
-        $checkSql = "
-            SELECT COUNT(*) AS c
-            FROM registrations_codewarz
-            WHERE member1_phone = '$member1_phone'
-        ";
-        $checkRes = $conn->query($checkSql);
-        $checkRow = $checkRes ? $checkRes->fetch_assoc() : ['c' => 0];
+    // Validate Phone Numbers (Must be exactly 10 digits)
+    if (!preg_match('/^\d{10}$/', $member1_phone) || !preg_match('/^\d{10}$/', $member2_phone)) {
+        $message = "Phone numbers must be exactly 10 digits.";
+        // Ideally redirect with error, but for now using generic error status or just exit
+        // Since we don't have a specific error code for invalid phone, we'll use 'error'
+        header("Location: status_code.php?status=error"); 
+        exit();
+    }
 
-        if ((int)$checkRow['c'] > 0) {
-            $message = "This phone number is already registered for CodeWarz.";
-            $status  = "error";
+    // Check for duplicate registration (using Leader's phone)
+    $stmt = $conn->prepare("SELECT id FROM registrations_codewarz WHERE member1_phone = ?");
+    $stmt->bind_param("s", $member1_phone);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if ($stmt->num_rows > 0) {
+        $stmt->close();
+        header("Location: status_code.php?status=exists");
+        exit();
+    }
+    $stmt->close();
+
+    // Insert Data using Prepared Statement
+    $sql = "INSERT INTO registrations_codewarz 
+            (member1_name, member1_email, member1_phone, member1_college, member1_branch, member1_roll,
+             member2_name, member2_email, member2_phone, member2_college, member2_branch, member2_roll)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+    $stmt = $conn->prepare($sql);
+    
+    if ($stmt) {
+        $stmt->bind_param("ssssssssssss", 
+            $member1_name, $member1_email, $member1_phone, $member1_college, $member1_branch, $member1_roll,
+            $member2_name, $member2_email, $member2_phone, $member2_college, $member2_branch, $member2_roll
+        );
+
+        if ($stmt->execute()) {
+            header("Location: status_code.php?status=success");
         } else {
-            // 2) Insert new team
-            $sql = "
-                INSERT INTO registrations_codewarz
-                (
-                    member1_name, member1_email, member1_phone, member1_college, member1_roll,
-                    member2_name, member2_email, member2_phone, member2_college, member2_roll
-                )
-                VALUES
-                (
-                    '$member1_name', '$member1_email', '$member1_phone', '$member1_college', '$member1_roll',
-                    '$member2_name', '$member2_email', '$member2_phone', '$member2_college', '$member2_roll'
-                )
-            ";
-
-            if ($conn->query($sql) === TRUE) {
-                $message = "Registration successful! Get ready for CodeWarz.";
-                $status  = "success";
-            } else {
-                // 1062 = duplicate key (safety net if UNIQUE index also fires)
-                if ($conn->errno == 1062) {
-                    $message = "This phone number is already registered for CodeWarz.";
-                    $status  = "error";
-                } else {
-                    $message = "Error while saving your registration. Please try again later.";
-                    $status  = "error";
-                }
-            }
+            error_log("Execute failed: " . $stmt->error);
+            header("Location: status_code.php?status=error");
         }
+        $stmt->close();
+    } else {
+        error_log("Prepare failed: " . $conn->error);
+        header("Location: status_code.php?status=error");
+    }
+    exit();
+}
+
+$branches = [
+    "CSE (AI & ML)", "Computer Science and Engineering (CSE)", "CSE (Data Science)", "CSE (IoT)",
+    "Computer Science & Business Systems (CSBS)", "Artificial Intelligence & Data Science (AI & DS)",
+    "Information Technology (IT)", "Electronics and Communication Engineering (ECE)",
+    "Electrical and Electronics Engineering (EEE)", "Mechanical Engineering (ME)", "Civil Engineering",
+    "Chemical Engineering", "Mechatronics Engineering", "Biomedical Engineering", "Agricultural Engineering",
+    "Biomedical Science", "Business Administration (BBA)", "MBA (All Specializations)",
+    "Computer Applications (BCA / MCA)", "B.Sc (Computer Science, Mathematics, Physics, Chemistry, Life Sciences)",
+    "M.Tech", "Other"
+];
+
+function render_branch_options($branches) {
+    foreach ($branches as $branch) {
+        echo "<option value=\"" . htmlspecialchars($branch) . "\">" . htmlspecialchars($branch) . "</option>";
     }
 }
 ?>
@@ -123,6 +148,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border: 1px solid #ff5050;
             color: #ff5050;
         }
+        select {
+            width: 100%;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            transition: all 0.3s;
+        }
+        select:focus {
+            outline: none;
+            border-color: var(--accent-secondary);
+            box-shadow: 0 0 15px rgba(0, 245, 212, 0.2);
+        }
+        option {
+            background: #0a0a12;
+            color: var(--text-primary);
+        }
     </style>
 </head>
 <body>
@@ -166,7 +210,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="form-group">
                     <label>Phone</label>
-                    <input type="tel" name="member1_phone" required>
+                    <input type="tel" name="member1_phone" pattern="[0-9]{10}" maxlength="10" title="Please enter exactly 10 digits" required>
                 </div>
             </div>
             <div class="form-row">
@@ -175,9 +219,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="text" name="member1_college" required>
                 </div>
                 <div class="form-group">
-                    <label>Roll No</label>
-                    <input type="text" name="member1_roll" required>
+                    <label>Branch</label>
+                    <select name="member1_branch" required>
+                        <option value="" disabled selected>Select Branch</option>
+                        <?php render_branch_options($branches); ?>
+                    </select>
                 </div>
+            </div>
+            <div class="form-group">
+                <label>Roll No</label>
+                <input type="text" name="member1_roll" required>
             </div>
 
             <h3>Participant 2</h3>
@@ -192,7 +243,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="form-group">
                     <label>Phone</label>
-                    <input type="tel" name="member2_phone" required>
+                    <input type="tel" name="member2_phone" pattern="[0-9]{10}" maxlength="10" title="Please enter exactly 10 digits" required>
                 </div>
             </div>
             <div class="form-row">
@@ -201,9 +252,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="text" name="member2_college" required>
                 </div>
                 <div class="form-group">
-                    <label>Roll No</label>
-                    <input type="text" name="member2_roll" required>
+                    <label>Branch</label>
+                    <select name="member2_branch" required>
+                        <option value="" disabled selected>Select Branch</option>
+                        <?php render_branch_options($branches); ?>
+                    </select>
                 </div>
+            </div>
+            <div class="form-group">
+                <label>Roll No</label>
+                <input type="text" name="member2_roll" required>
             </div>
 
             <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Registration</button>

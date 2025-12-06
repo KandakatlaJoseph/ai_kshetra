@@ -43,62 +43,83 @@ if ($res && $row = $res->fetch_assoc()) $dreamCount = (int)$row['c'];
 $eventLabels = ['Build with AI', 'CodeWarz', 'PromptCraft', 'DreamFrame'];
 $eventCounts = [$buildCount, $codeCount, $promptCount, $dreamCount];
 
-// ---------- 2. College-wise counts (from all events) ----------
+// ---------- 2. College-wise & Branch-wise counts (from all events & all members) ----------
 $collegeCounts = [];
+$branchCounts = [];
 
-function addCollegeCount(&$arr, $college, $count = 1) {
-    if (!$college) return;
-    $college = trim($college);
-    if ($college === '') return;
-    if (!isset($arr[$college])) $arr[$college] = 0;
-    $arr[$college] += $count;
+function addCount(&$arr, $val, $count = 1) {
+    if (!$val) return;
+    $val = htmlspecialchars_decode(trim($val));
+    if ($val === '') return;
+    if (!isset($arr[$val])) $arr[$val] = 0;
+    $arr[$val] += $count;
 }
 
-// Build with AI – member1_college
-$res = $conn->query("SELECT member1_college AS college, COUNT(*) AS c 
-                     FROM registrations_build_with_ai 
-                     GROUP BY member1_college");
+// Build with AI (up to 4 members)
+$res = $conn->query("SELECT member1_college, member1_branch, 
+                            member2_college, member2_branch,
+                            member3_college, member3_branch,
+                            member4_college, member4_branch 
+                     FROM registrations_build_with_ai");
 if ($res) {
     while ($row = $res->fetch_assoc()) {
-        addCollegeCount($collegeCounts, $row['college'], (int)$row['c']);
+        addCount($collegeCounts, $row['member1_college']);
+        addCount($branchCounts, $row['member1_branch']);
+        
+        addCount($collegeCounts, $row['member2_college']);
+        addCount($branchCounts, $row['member2_branch']);
+        
+        addCount($collegeCounts, $row['member3_college']);
+        addCount($branchCounts, $row['member3_branch']);
+        
+        addCount($collegeCounts, $row['member4_college']);
+        addCount($branchCounts, $row['member4_branch']);
     }
 }
 
-// CodeWarz – member1_college
-$res = $conn->query("SELECT member1_college AS college, COUNT(*) AS c 
-                     FROM registrations_codewarz 
-                     GROUP BY member1_college");
+// CodeWarz (up to 2 members)
+$res = $conn->query("SELECT member1_college, member1_branch, 
+                            member2_college, member2_branch 
+                     FROM registrations_codewarz");
 if ($res) {
     while ($row = $res->fetch_assoc()) {
-        addCollegeCount($collegeCounts, $row['college'], (int)$row['c']);
+        addCount($collegeCounts, $row['member1_college']);
+        addCount($branchCounts, $row['member1_branch']);
+        
+        addCount($collegeCounts, $row['member2_college']);
+        addCount($branchCounts, $row['member2_branch']);
     }
 }
 
-// PromptCraft – participant_college
-$res = $conn->query("SELECT participant_college AS college, COUNT(*) AS c 
-                     FROM registrations_prompt_craft 
-                     GROUP BY participant_college");
+// PromptCraft (1 participant)
+$res = $conn->query("SELECT participant_college, participant_branch 
+                     FROM registrations_prompt_craft");
 if ($res) {
     while ($row = $res->fetch_assoc()) {
-        addCollegeCount($collegeCounts, $row['college'], (int)$row['c']);
+        addCount($collegeCounts, $row['participant_college']);
+        addCount($branchCounts, $row['participant_branch']);
     }
 }
 
-// DreamFrame – participant_college
-$res = $conn->query("SELECT participant_college AS college, COUNT(*) AS c 
-                     FROM registrations_dream_frame 
-                     GROUP BY participant_college");
+// DreamFrame (1 participant)
+$res = $conn->query("SELECT participant_college, participant_branch 
+                     FROM registrations_dream_frame");
 if ($res) {
     while ($row = $res->fetch_assoc()) {
-        addCollegeCount($collegeCounts, $row['college'], (int)$row['c']);
+        addCount($collegeCounts, $row['participant_college']);
+        addCount($branchCounts, $row['participant_branch']);
     }
 }
 
-// Sort colleges by total registrations
+// Sort by counts
 arsort($collegeCounts);
+arsort($branchCounts);
 
 $collegeLabels = array_keys($collegeCounts);
 $collegeValues = array_values($collegeCounts);
+
+$branchLabels = array_keys($branchCounts);
+$branchValues = array_values($branchCounts);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -245,7 +266,7 @@ $collegeValues = array_values($collegeCounts);
             <thead>
                 <tr>
                     <th>College</th>
-                    <th>No. of Registrations (Teams / Participants)</th>
+                    <th>No. of Participants</th>
                 </tr>
             </thead>
             <tbody>
@@ -255,6 +276,34 @@ $collegeValues = array_values($collegeCounts);
                 <?php foreach ($collegeCounts as $college => $cnt): ?>
                     <tr>
                         <td><?= htmlspecialchars($college) ?></td>
+                        <td><?= $cnt ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Branch wise -->
+    <div class="chart-box" style="margin-top:40px;">
+        <h2>Registrations by Branch (Bar)</h2>
+        <canvas id="branchBarChart"></canvas>
+
+        <h3 style="margin-top:20px;">Branch-wise Counts (Table)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Branch</th>
+                    <th>No. of Participants</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php if (count($branchCounts) === 0): ?>
+                <tr><td colspan="2">No registrations yet.</td></tr>
+            <?php else: ?>
+                <?php foreach ($branchCounts as $branch => $cnt): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($branch) ?></td>
                         <td><?= $cnt ?></td>
                     </tr>
                 <?php endforeach; ?>
@@ -333,9 +382,37 @@ if (ctxCollege && collegeLabels.length > 0) {
         data: {
             labels: collegeLabels,
             datasets: [{
-                label: 'Registrations',
+                label: 'Participants',
                 data: collegeValues,
                 backgroundColor: generateColors(collegeLabels.length),
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                x: { beginAtZero: true, ticks: { precision: 0 } }
+            }
+        }
+    });
+}
+
+// Branch Bar
+const branchLabels = <?= json_encode($branchLabels) ?>;
+const branchValues = <?= json_encode($branchValues) ?>;
+const ctxBranch = document.getElementById('branchBarChart');
+if (ctxBranch && branchLabels.length > 0) {
+    new Chart(ctxBranch, {
+        type: 'bar',
+        data: {
+            labels: branchLabels,
+            datasets: [{
+                label: 'Participants',
+                data: branchValues,
+                backgroundColor: generateColors(branchLabels.length),
             }]
         },
         options: {
