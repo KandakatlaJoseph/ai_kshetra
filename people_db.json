@@ -36,7 +36,6 @@
       "image": "Praveen.jpg",
       "contact": ""
     },
-    
     {
       "name": "M. Naresh",
       "role": "Asst. Professor & Coordinator, PromptCraft",
@@ -44,8 +43,6 @@
       "contact": ""
     }
   ],
-
-
   "student_coordinators": [
     {
       "name": "G.N.V Nihar",
@@ -61,7 +58,7 @@
     },
     {
       "name": "K. Joseph Prem Kumar",
-      "role": "CoOrdinator, AI Kshetra",
+      "role": "CoOrdinator, Build with AI",
       "image": "josephSpectrum.jpg",
       "contact": "+919392122287"
     },
@@ -109,14 +106,12 @@
       "image": "rohit-new.jpg",
       "contact": ""
     },
-    
     {
       "name": "A. Sai Praveen",
       "role": "Organizer",
       "image": "praveen_s.jpg",
       "contact": ""
     },
-    
     {
       "name": "J. Sai Lakshmi Mohitha",
       "role": "Organizer",
