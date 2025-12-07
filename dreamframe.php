@@ -129,8 +129,7 @@
 
         <!-- Short intro -->
         <p class="event-desc" style="max-width: 800px; margin: 0 auto 30px; text-align:center;">
-            <strong>DreamFrame</strong> challenges individuals to create a visually captivating poster in Canva
-            based on a given theme, showcasing creativity, message clarity, and aesthetic balance.
+            <strong>DreamFrame</strong> is a creative poster design competition where participants use Canva to produce visually compelling posters based on a theme revealed at the start of the event. The challenge highlights creativity, message clarity, effective layout, and visual communication skills.
         </p>
 
         <!-- Quick info -->
@@ -153,13 +152,10 @@
         <div class="event-detail-block">
             <h2>About the Event</h2>
             <p>
-                <strong>DreamFrame</strong> is designed for students who love visual storytelling, design and
-                communication. Participants will convert a given theme or problem statement into a powerful poster
-                that can convey a message at a glance.
+                <strong>DreamFrame</strong> is for students who enjoy design, visual storytelling, and communication. Participants receive a theme or problem statement at the beginning and must convert it into a powerful poster conveying the message instantly.
             </p>
             <p>
-                The focus is not only on good-looking design, but also on how clearly the idea is communicated,
-                how well the elements are arranged, and how effectively the poster connects with the viewer.
+                The focus goes beyond aesthetics, emphasizing clarity, layout balance, and strong idea representation.
             </p>
         </div>
 
@@ -167,16 +163,11 @@
         <div class="event-detail-block">
             <h2>Event Format</h2>
             <ul>
-                <li><strong>Theme Reveal:</strong> A theme or storyline is announced at the start of the event
-                    (for example: awareness poster, tech innovation, social cause, fest branding, etc.).</li>
-                <li><strong>Design Duration:</strong> Participants get around <strong>60 minutes</strong> to design
-                    their poster using <strong>Canva</strong>.</li>
-                <li><strong>Resources:</strong> They may use shapes, illustrations, icons, typography, images
-                    (as allowed), and Canva’s built-in tools to build the poster.</li>
-                <li><strong>Submission:</strong> The final design must be exported in the format and resolution
-                    specified by the organisers (e.g., PNG/JPEG) and submitted before the deadline.</li>
-                <li><strong>Short Presentation:</strong> Each participant will get <strong>1–2 minutes</strong> to
-                    explain their concept, design decisions, and how it relates to the theme.</li>
+                <li><strong>Theme Reveal:</strong> A theme or storyline is announced at the start (e.g., awareness, innovation, social cause, fest branding).</li>
+                <li><strong>Design Duration:</strong> Participants get <strong>60 minutes</strong> to create their poster in Canva.</li>
+                <li><strong>Resources:</strong> Allowed elements include shapes, icons, illustrations, typography, and Canva's built-in tools.</li>
+                <li><strong>Submission:</strong> The final poster must be exported (PNG/JPEG) and submitted before the deadline.</li>
+                <li><strong>Short Presentation:</strong> Each participant delivers a <strong>1–2 minute</strong> explanation of their concept and design choices.</li>
             </ul>
         </div>
 
@@ -217,6 +208,24 @@
                 <li><strong>1st Prize:</strong> ₹3000</li>
                 <li><strong>2nd Prize:</strong> ₹2000</li>
                 <li><strong>3rd Prize:</strong> ₹1000</li>
+            </ul>
+        </div>
+
+        <!-- Event Coordinators -->
+        <div class="event-detail-block">
+            <h2>Event Coordinators</h2>
+            <p>For any queries regarding this event, please contact:</p>
+            <ul>
+                <li>
+                    <strong>V. Siri Chandana</strong><br>
+                    CoOrdinator, DreamFrame<br>
+                    <a href="tel:+917075032603" style="color: var(--accent-secondary);">+91 7075032603</a>
+                </li>
+                <li>
+                    <strong>P. Simhadri</strong><br>
+                    CoOrdinator, DreamFrame<br>
+                    <a href="tel:+916301676383" style="color: var(--accent-secondary);">+91 6301676383</a>
+                </li>
             </ul>
         </div>
 

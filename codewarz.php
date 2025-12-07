@@ -128,8 +128,7 @@
     <div class="container event-details-page">
 
         <p class="event-desc" style="max-width: 800px; margin: 0 auto 30px; text-align:center;">
-            <strong>CodeWarz</strong> is a multi-round competitive programming battle that tests algorithmic thinking,
-            debugging skills, logic development, accuracy and speed under pressure.
+            <strong>CodeWarz</strong> is a structured competitive programming event designed to evaluate participants' proficiency in coding, algorithms, and problem-solving. The competition features multiple rounds that test theoretical knowledge, analytical capability, coding accuracy, and response speed.
         </p>
 
         <div class="event-info-grid">
@@ -142,30 +141,53 @@
                 <p>2 Members (Duo)</p>
             </div>
             <div class="event-info-box">
-                <h3>Mode</h3>
-                <p>Offline, On Campus</p>
+                <h3>Platform</h3>
+                <p>HackerRank</p>
             </div>
         </div>
 
         <div class="event-detail-block">
-            <h2>Event Structure</h2>
+            <h2>Event Overview</h2>
+            <p>
+                Participants compete in teams of two and progress through a preliminary screening followed by an intensive multi-round main event. Each stage is designed to assess different dimensions of technical competence.
+            </p>
+        </div>
 
-            <h3>Preliminary Round – Logic &amp; MCQ Test</h3>
+        <div class="event-detail-block">
+            <h2>Round Structure</h2>
+
+            <h3>Preliminary Round</h3>
+            <p>An MCQ-based assessment covering <strong>Programming Fundamentals</strong> and <strong>Data Structures & Algorithms (DSA)</strong>.</p>
             <ul>
-                <li>Objective and short-answer questions on C/C++/Java/Python basics, algorithms and time complexity.</li>
-                <li>Focuses on logic, patterns, and debugging rather than rote memorization.</li>
-                <li>Top-scoring teams qualify for the main rounds.</li>
+                <li>Top-scoring teams will qualify for the Main Rounds.</li>
             </ul>
 
             <h3>Main Rounds</h3>
+            <p>The main event consists of four sub-rounds:</p>
+
+            <h4>1) Coding Round</h4>
             <ul>
-                <li><strong>Coding Round</strong> – Solve a set of programming problems of increasing difficulty
-                    within the given time.</li>
-                <li><strong>Fix the Bug / Fill the Algorithm</strong> – Given partial or buggy code, participants must
-                    identify logic errors and correct/complete the solution.</li>
-                <li><strong>Rapid Fire (Optional Round)</strong> – Quick technical quiz based on algorithms,
-                    data structures and output prediction.</li>
+                <li>Five programming problems of varying difficulty levels (Easy, Medium, Hard).</li>
+                <li>Evaluation focuses on logic, efficiency, and correctness.</li>
             </ul>
+
+            <h4>2) Fill the Algorithm</h4>
+            <ul>
+                <li>Teams analyze and correct incomplete algorithms.</li>
+                <li>Tests understanding of algorithmic flow and optimization.</li>
+            </ul>
+
+            <h4>3) Rapid Fire</h4>
+            <ul>
+                <li>A quick-response technical round aimed at testing fundamental knowledge and presence of mind.</li>
+            </ul>
+
+            <h4>4) ReelsRiddle</h4>
+            <ul>
+                <li>A visual interpretation round where participants identify programming concepts based on short video clips.</li>
+            </ul>
+
+            
         </div>
 
         <div class="event-detail-block">
@@ -197,6 +219,24 @@
                 <li><strong>1st Prize:</strong> ₹3000</li>
                 <li><strong>2nd Prize:</strong> ₹2000</li>
                 <li><strong>3rd Prize:</strong> ₹1000</li>
+            </ul>
+        </div>
+
+        <!-- Event Coordinators -->
+        <div class="event-detail-block">
+            <h2>Event Coordinators</h2>
+            <p>For any queries regarding this event, please contact:</p>
+            <ul>
+                <li>
+                    <strong>A. Nagalakshmi</strong><br>
+                    CoOrdinator, CodeWarz<br>
+                    <a href="tel:+917842441985" style="color: var(--accent-secondary);">+91 7842441985</a>
+                </li>
+                <li style="margin-top: 15px;">
+                    <strong>A. Amulya</strong><br>
+                    CoOrdinator, CodeWarz<br>
+                    <a href="tel:+919391339152" style="color: var(--accent-secondary);">+91 9391339152</a>
+                </li>
             </ul>
         </div>
 

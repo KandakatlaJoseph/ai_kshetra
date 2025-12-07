@@ -176,6 +176,7 @@
             </ul>
 
             <h3>Round 2 – Prototype &amp; Pitch</h3>
+            <p><strong>Note:</strong> Problem statements for Round 2 will be given at the event time only.</p>
             <ul>
                 <li>Teams build a functional prototype / demo for their chosen problem within the time limit.</li>
                 <li>They present:
@@ -223,6 +224,24 @@
                 <li><strong>1st Prize:</strong> ₹3000</li>
                 <li><strong>2nd Prize:</strong> ₹2000</li>
                 <li><strong>3rd Prize:</strong> ₹1000</li>
+            </ul>
+        </div>
+
+        <!-- Event Coordinators -->
+        <div class="event-detail-block">
+            <h2>Event Coordinators</h2>
+            <p>For any queries regarding this event, please contact:</p>
+            <ul>
+                <li>
+                    <strong>G.N.V Nihar</strong><br>
+                    CoOrdinator, Build with AI<br>
+                    <a href="tel:+917093725382" style="color: var(--accent-secondary);">+91 7093725382</a>
+                </li>
+                <li style="margin-top: 15px;">
+                    <strong>K. Joseph Prem Kumar</strong><br>
+                    CoOrdinator, Build with AI<br>
+                    <a href="tel:+919392122287" style="color: var(--accent-secondary);">+91 9392122287</a>
+                </li>
             </ul>
         </div>
 
