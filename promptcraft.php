@@ -200,6 +200,7 @@
             </ul>
         </div>
 
+        
         <!-- Event Coordinators -->
         <div class="event-detail-block">
             <h2>Event Coordinators</h2>

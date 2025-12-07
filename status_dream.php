@@ -100,7 +100,7 @@ if ($status === 'success') {
             <p class="status-message"><?php echo htmlspecialchars($message); ?></p>
 
             <?php if ($isSuccess): ?>
-                <a href="#" class="btn whatsapp-btn" target="_blank">
+                <a href="https://chat.whatsapp.com/EBEyQ1QpwqX6DpuU43R5bZ" class="btn whatsapp-btn" target="_blank">
                     <span>Join WhatsApp Group</span>
                 </a>
                 <p style="margin-top: 15px; font-size: 0.9rem; color: var(--text-secondary);">
