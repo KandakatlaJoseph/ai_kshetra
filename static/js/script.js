@@ -161,4 +161,46 @@ document.addEventListener('DOMContentLoaded', () => {
             startAutoScroll();
         }
     }
+    // === Stats Animation ===
+    const statsSection = document.querySelector('.hero-stats');
+    if (statsSection) {
+        const statsObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.stat-number');
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        const prefix = counter.getAttribute('data-prefix') || '';
+                        const suffix = counter.getAttribute('data-suffix') || '';
+
+                        // Fallback if target is invalid
+                        if (!target && target !== 0) return;
+
+                        const duration = 1500; // 1.5 seconds
+                        const incrementTime = 20; // update every 20ms
+                        const totalSteps = duration / incrementTime;
+                        let currentStep = 0;
+
+                        const timer = setInterval(() => {
+                            currentStep++;
+                            const progress = Math.min(currentStep / totalSteps, 1);
+
+                            // Cubic ease-out
+                            const ease = 1 - Math.pow(1 - progress, 3);
+                            const current = Math.floor(ease * target);
+
+                            counter.innerText = prefix + current + suffix;
+
+                            if (progress >= 1) {
+                                clearInterval(timer);
+                                counter.innerText = prefix + target + suffix; // Ensure final value
+                            }
+                        }, incrementTime);
+                    });
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        statsObserver.observe(statsSection);
+    }
 });
