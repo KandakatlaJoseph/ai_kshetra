@@ -1203,4 +1203,87 @@ body {
     .gender-split {
         flex-direction: column;
     }
+
+    /* === Mobile Bus Table (Card View) === */
+    .bus-table-wrapper {
+        border: none;
+        overflow-x: visible;
+    }
+
+    .bus-table {
+        min-width: 100%;
+        display: block;
+        background: transparent;
+    }
+
+    .bus-table thead {
+        display: none;
+        /* Hide default table headers */
+    }
+
+    .bus-table tbody {
+        display: block;
+    }
+
+    .bus-table tr {
+        display: block;
+        margin-bottom: 20px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--card-border);
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .bus-table td {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+        text-align: left;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .bus-table td:last-child {
+        border-bottom: none;
+    }
+
+    /* Bus No Styling */
+    .bus-table td:nth-of-type(1) {
+        font-family: var(--font-heading);
+        font-size: 1.3rem;
+        color: var(--accent-primary);
+        border-bottom: 2px solid var(--accent-secondary);
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+    }
+
+    .bus-table td:nth-of-type(1)::before {
+        content: "Bus No: ";
+        color: #fff;
+    }
+
+    /* 7:00 AM Shift Label */
+    .bus-table td:nth-of-type(2)::before {
+        content: "7:00 AM Shift";
+        display: block;
+        font-family: var(--font-heading);
+        color: #ffd700;
+        /* Gold color for distinction */
+        margin-bottom: 5px;
+        font-size: 1rem;
+    }
+
+    /* 9:00 AM Shift Label */
+    .bus-table td:nth-of-type(3)::before {
+        content: "9:00 AM Shift";
+        display: block;
+        font-family: var(--font-heading);
+        color: #00f5d4;
+        /* Teal color for distinction */
+        margin-bottom: 5px;
+        font-size: 1rem;
+        margin-top: 5px;
+    }
 }
