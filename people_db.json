@@ -7,16 +7,10 @@
       "contact": ""
     },
     {
-      "name": "Dr. N Venkateswar Rao",
-      "role": "Professor & Convener, NEXAA",
-      "image": "nvr-up.jpg",
-      "contact": ""
-    },
-    {
       "name": "Dr. M. Sridhar",
       "role": "Professor & Convener, NEXAA",
       "image": "Sridhar.png",
-      "contact": ""
+      "contact": "9989784709"
     },
     {
       "name": "Dr. Seli Mohapatra",
@@ -25,7 +19,7 @@
       "contact": ""
     },
     {
-      "name": "Mr. K. Sudheer Babu",
+      "name": "Mr. N. Sudheer Kumar",
       "role": "Assoc. Professor & Coordinator, DreamFrame",
       "image": "sudheerSir.jpg",
       "contact": ""
@@ -46,43 +40,43 @@
   "student_coordinators": [
     {
       "name": "G.N.V Nihar",
-      "role": "CoOrdinator, AI Kshetra & Build with AI",
+      "role": "Coordinator, AI Kshetra & Build with AI",
       "image": "NiharPIC.jpg",
       "contact": "+917093725382"
     },
     {
       "name": "N. Shivaraj",
-      "role": "CoOrdinator, AI Kshetra & PromptCraft",
+      "role": "Coordinator, AI Kshetra & PromptCraft",
       "image": "shivarajSpectrum.jpg",
       "contact": "+917816045119"
     },
     {
       "name": "K. Joseph Prem Kumar",
-      "role": "CoOrdinator, Build with AI",
+      "role": "Coordinator, Build with AI",
       "image": "josephSpectrum.jpg",
       "contact": "+919392122287"
     },
     {
       "name": "A. Nagalakshmi",
-      "role": "CoOrdinator, CodeWarz",
+      "role": "Coordinator, CodeWarz",
       "image": "Nagalakshmi-new.jpg",
       "contact": "+917842441985"
     },
     {
       "name": "A. Amulya",
-      "role": "CoOrdinator, CodeWarz",
+      "role": "Coordinator, CodeWarz",
       "image": "amulyaSpectrum.jpg",
       "contact": "+919391339152"
     },
     {
       "name": "A. Navya Mani Sri",
-      "role": "CoOrdinator, PromptCraft",
+      "role": "Coordinator, PromptCraft",
       "image": "Navya-new.jpg",
       "contact": "+919949398861"
     },
     {
       "name": "V. Siri Chandana",
-      "role": "CoOrdinator, DreamFrame",
+      "role": "Coordinator, DreamFrame",
       "image": "siriChandanaSpectrum.jpg",
       "contact": "+917075032603"
     }
@@ -98,12 +92,6 @@
       "name": "G. Raghavendra",
       "role": "Organizer",
       "image": "raghavendra.jpg",
-      "contact": ""
-    },
-    {
-      "name": "G. Rohith kumar yadav",
-      "role": "Organizer",
-      "image": "rohit-new.jpg",
       "contact": ""
     },
     {
@@ -133,7 +121,7 @@
     {
       "name": "R. Joel Livingstone",
       "role": "Organizer",
-      "image": "https://via.placeholder.com/200x200?text=R.+Joel+Livingstone",
+      "image": "joel-new.jpg",
       "contact": ""
     },
     {
@@ -158,6 +146,12 @@
       "name": "G. Sri sai Pravallika",
       "role": "Organizer",
       "image": "saiSpectrum.jpg",
+      "contact": ""
+    },
+    {
+      "name": "G. Rohith kumar yadav",
+      "role": "Organizer",
+      "image": "rohit-new.jpg",
       "contact": ""
     },
     {
