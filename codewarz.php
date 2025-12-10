@@ -146,6 +146,29 @@
             </div>
         </div>
 
+        <!-- NEW: Event Schedule -->
+        <div class="event-detail-block" style="border-left: 4px solid var(--accent-secondary); background: rgba(0, 245, 212, 0.05);">
+            <h2 style="color: var(--accent-secondary);">📅 Event Schedule & Venue</h2>
+            <div class="schedule-grid" style="display: grid; gap: 20px;">
+                <div class="schedule-item">
+                    <h3 style="margin-bottom: 5px; color: #fff;">Preliminary Round</h3>
+                    <p style="font-size: 1.1rem; color: var(--text-primary);">
+                        <strong>Date:</strong> December 26th<br>
+                        <strong>Time:</strong> 1:30 PM - 5:00 PM<br>
+                        <strong>Venue:</strong> HT-1, HT-2 Labs
+                    </p>
+                </div>
+                <div class="schedule-item">
+                    <h3 style="margin-bottom: 5px; color: #fff;">Main Round</h3>
+                    <p style="font-size: 1.1rem; color: var(--text-primary);">
+                        <strong>Date:</strong> December 27th<br>
+                        <strong>Time:</strong> 1:00 PM - 4:00 PM<br>
+                        <strong>Venue:</strong> HT-1, HT-2 Labs
+                    </p>
+                </div>
+            </div>
+        </div>
+
         <div class="event-detail-block">
             <h2>Event Overview</h2>
             <p>
@@ -226,18 +249,42 @@
         <div class="event-detail-block">
             <h2>Event Coordinators</h2>
             <p>For any queries regarding this event, please contact:</p>
-            <ul>
-                <li>
-                    <strong>A. Nagalakshmi</strong><br>
-                    CoOrdinator, CodeWarz<br>
-                    <a href="tel:+917842441985" style="color: var(--accent-secondary);">+91 7842441985</a>
-                </li>
-                <li style="margin-top: 15px;">
-                    <strong>A. Amulya</strong><br>
-                    CoOrdinator, CodeWarz<br>
-                    <a href="tel:+919391339152" style="color: var(--accent-secondary);">+91 9391339152</a>
-                </li>
-            </ul>
+            
+            <div class="coordinator-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px;">
+                <!-- Student Coordinators -->
+                <div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--accent-primary); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px;">Student Coordinators</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 15px;">
+                            <strong style="font-size: 1.1em;">A. Nagalakshmi</strong><br>
+                            <a href="tel:+917842441985" style="color: var(--accent-secondary); text-decoration: none;">+91 7842441985</a>
+                        </li>
+                        <li style="margin-bottom: 15px;">
+                            <strong style="font-size: 1.1em;">A. Amulya</strong><br>
+                            <a href="tel:+919391339152" style="color: var(--accent-secondary); text-decoration: none;">+91 9391339152</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Faculty Coordinators -->
+                <div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--accent-primary); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px;">Faculty Coordinators</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;">
+                            <strong>Dr. Seli Mohapatra</strong><br>
+                            <span style="font-size: 0.9em; color: var(--text-secondary);">Coordinator for CodeWarz</span>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <strong>Sri Kommineni Venkata Ranga Rao</strong><br>
+                            <span style="font-size: 0.9em; color: var(--text-secondary);">Faculty Member</span>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <strong>Mrs. Vinnakota Naga Venkata Swathi</strong><br>
+                            <span style="font-size: 0.9em; color: var(--text-secondary);">Faculty Member</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <!-- Shortlisted Teams -->
