@@ -1017,3 +1017,190 @@ body {
         max-width: 100%;
     }
 }
+
+/* === Hospitality Section === */
+.hospitality {
+    background: radial-gradient(circle at 50% 50%, rgba(0, 245, 212, 0.05), transparent 70%);
+}
+
+.hospitality-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.glass-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    transform: translateX(-100%);
+    transition: 0.5s;
+}
+
+.glass-card:hover::before {
+    transform: translateX(100%);
+}
+
+.glass-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-primary);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(157, 78, 221, 0.2);
+}
+
+.card-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+.card-text {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.info-block {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 3px solid var(--accent-primary);
+}
+
+.info-block h4 {
+    color: var(--accent-secondary);
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-list li {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.contact-list a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-list a:hover {
+    color: var(--accent-secondary);
+}
+
+.gender-split {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.split-col {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.split-col h4 {
+    color: var(--accent-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.split-col p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+}
+
+.split-col a {
+    color: var(--accent-primary);
+    font-size: 0.9rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.note-highlight {
+    font-size: 0.9rem;
+    color: #ffd700;
+    margin-top: 15px;
+    font-style: italic;
+    text-align: center;
+}
+
+/* === Bus Routes Table === */
+.section-padding {
+    padding: 100px 0;
+}
+
+.bus-table-wrapper {
+    overflow-x: auto;
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.bus-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(0, 0, 0, 0.2);
+    min-width: 600px;
+}
+
+.bus-table th,
+.bus-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bus-table th {
+    background: var(--accent-primary);
+    color: #fff;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.bus-table td {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.bus-table tr:hover td {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .gender-split {
+        flex-direction: column;
+    }
+}
