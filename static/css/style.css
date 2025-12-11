@@ -911,7 +911,9 @@ body {
     .nav-menu {
         position: fixed;
         top: 7vh;
-        right: 10px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
         z-index: 5000;
     }
 
