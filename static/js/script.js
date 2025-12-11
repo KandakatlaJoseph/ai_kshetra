@@ -1,3 +1,91 @@
+// ===== Loading Screen Animation =====
+(function () {
+    const TOTAL_FRAMES = 37; // images 000 to 036
+    const FRAME_DURATION = 100; // ms per frame (~10fps for slower, smoother animation)
+    const loadingScreen = document.getElementById('loadingScreen');
+    const loadingImage = document.getElementById('loadingImage');
+    const loadingProgress = document.getElementById('loadingProgress');
+
+    if (!loadingScreen || !loadingImage) return;
+
+    // Detect if mobile/portrait mode (use vertical images)
+    const isMobile = window.innerWidth <= 768 || window.innerHeight > window.innerWidth;
+
+    // Preload all images first
+    const images = [];
+    let loadedCount = 0;
+
+    function getImagePath(index) {
+        const num = String(index).padStart(3, '0');
+        if (isMobile) {
+            // Use vertical images for mobile
+            return `static/LoadingImgV/Untitled design.remuxed_${num}.webp`;
+        } else {
+            // Use horizontal images for desktop
+            return `static/LoadingImg/ai kshetra_${num}.webp`;
+        }
+    }
+
+    function preloadImages() {
+        return new Promise((resolve) => {
+            for (let i = 0; i < TOTAL_FRAMES; i++) {
+                const img = new Image();
+                img.src = getImagePath(i);
+                img.onload = () => {
+                    loadedCount++;
+                    if (loadingProgress) {
+                        const percent = Math.round((loadedCount / TOTAL_FRAMES) * 100);
+                        loadingProgress.textContent = `Loading... ${percent}%`;
+                    }
+                    if (loadedCount === TOTAL_FRAMES) {
+                        resolve();
+                    }
+                };
+                img.onerror = () => {
+                    loadedCount++;
+                    if (loadedCount === TOTAL_FRAMES) {
+                        resolve();
+                    }
+                };
+                images.push(img);
+            }
+        });
+    }
+
+    function playAnimation() {
+        return new Promise((resolve) => {
+            let currentFrame = 0;
+            loadingImage.src = images[0].src;
+            if (loadingProgress) {
+                loadingProgress.textContent = '';
+            }
+
+            const interval = setInterval(() => {
+                currentFrame++;
+                if (currentFrame >= TOTAL_FRAMES) {
+                    clearInterval(interval);
+                    resolve();
+                } else {
+                    loadingImage.src = images[currentFrame].src;
+                }
+            }, FRAME_DURATION);
+        });
+    }
+
+    function hideLoadingScreen() {
+        loadingScreen.classList.add('hidden');
+        // Remove from DOM after transition
+        setTimeout(() => {
+            loadingScreen.style.display = 'none';
+        }, 600);
+    }
+
+    // Start the loading sequence
+    preloadImages()
+        .then(() => playAnimation())
+        .then(() => hideLoadingScreen());
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log('AI Kshetra loaded');
 

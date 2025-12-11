@@ -106,6 +106,7 @@ function render_branch_options($branches) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - CodeWarz</title>
     <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/autocomplete.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
@@ -268,5 +269,6 @@ function render_branch_options($branches) {
         </form>
     </div>
 </div>
+<script src="static/js/college-autocomplete.js"></script>
 </body>
 </html>

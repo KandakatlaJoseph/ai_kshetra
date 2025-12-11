@@ -1,0 +1,141 @@
+/* ===== College Autocomplete Dropdown Styles ===== */
+
+.autocomplete-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.autocomplete-wrapper input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    transition: all 0.3s;
+}
+
+.autocomplete-wrapper input:focus {
+    outline: none;
+    border-color: var(--accent-secondary);
+    box-shadow: 0 0 15px rgba(0, 245, 212, 0.2);
+}
+
+.autocomplete-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 250px;
+    overflow-y: auto;
+    background: rgba(10, 10, 18, 0.98);
+    border: 1px solid var(--accent-primary);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    z-index: 1000;
+    display: none;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.autocomplete-dropdown.active {
+    display: block;
+}
+
+.autocomplete-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease;
+}
+
+.autocomplete-item:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-item:hover,
+.autocomplete-item.highlighted {
+    background: rgba(157, 78, 221, 0.2);
+    color: var(--text-primary);
+}
+
+.autocomplete-item.selected {
+    background: rgba(0, 245, 212, 0.15);
+    color: var(--accent-secondary);
+}
+
+/* Highlighted text (matching part) */
+.autocomplete-item .match {
+    color: var(--accent-secondary);
+    font-weight: 600;
+}
+
+/* Add New College option */
+.autocomplete-item.add-new {
+    background: linear-gradient(135deg, rgba(157, 78, 221, 0.1), rgba(0, 245, 212, 0.1));
+    border-top: 1px solid var(--accent-primary);
+    color: var(--accent-secondary);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.autocomplete-item.add-new::before {
+    content: '+';
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent-primary);
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.autocomplete-item.add-new:hover {
+    background: linear-gradient(135deg, rgba(157, 78, 221, 0.25), rgba(0, 245, 212, 0.25));
+}
+
+/* No results message */
+.autocomplete-no-results {
+    padding: 15px;
+    color: var(--text-secondary);
+    text-align: center;
+    font-style: italic;
+}
+
+/* Scrollbar for dropdown */
+.autocomplete-dropdown::-webkit-scrollbar {
+    width: 8px;
+}
+
+.autocomplete-dropdown::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.autocomplete-dropdown::-webkit-scrollbar-thumb {
+    background: var(--accent-primary);
+    border-radius: 4px;
+}
+
+.autocomplete-dropdown::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-secondary);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .autocomplete-dropdown {
+        max-height: 200px;
+    }
+
+    .autocomplete-item {
+        padding: 14px 12px;
+        font-size: 0.9rem;
+    }
+}
