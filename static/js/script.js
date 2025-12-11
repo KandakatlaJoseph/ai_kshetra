@@ -28,6 +28,9 @@
 
     function preloadImages() {
         return new Promise((resolve) => {
+            // Hide image during preloading - only show percentage
+            loadingImage.style.display = 'none';
+
             for (let i = 0; i < TOTAL_FRAMES; i++) {
                 const img = new Image();
                 img.src = getImagePath(i);
@@ -55,6 +58,8 @@
     function playAnimation() {
         return new Promise((resolve) => {
             let currentFrame = 0;
+            // Show image now that animation is starting
+            loadingImage.style.display = 'block';
             loadingImage.src = images[0].src;
             if (loadingProgress) {
                 loadingProgress.textContent = '';

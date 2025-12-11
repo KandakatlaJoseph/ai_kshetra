@@ -49,6 +49,8 @@
     width: auto;
     height: auto;
     object-fit: contain;
+    display: none;
+    /* Hidden by default - JS will show when animation starts */
 }
 
 .loading-progress {
