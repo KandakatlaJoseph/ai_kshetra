@@ -3,8 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build with AI - Prototype Hackathon | AI Kshetra 2025</title>
+    <meta name="description" content="Participate in Build with AI, a 2-day Hackathon at AI Kshetra 2025. Build real-world AI prototypes and pitch your ideas.">
+    <meta name="keywords" content="Build with AI, Hackathon, AI Prototype, RVRJC, AI Kshetra, Project Expo">
 
-    <title>Build with AI – AI Kshetra</title>
+    <!-- Open Graph -->
+    <meta property="og:title" content="Build with AI - Prototype Hackathon">
+    <meta property="og:description" content="Build real-world AI prototypes and pitch your ideas. Join the hackathon at AI Kshetra 2025.">
+    <meta property="og:image" content="https://rvrjcce.ac.in/xcsm/aikshetra2K25/static/css/main.jpg">
+    <meta property="og:url" content="https://rvrjcce.ac.in/xcsm/aikshetra2K25/build-with-ai.php">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Build with AI - AI Kshetra 2025",
+      "startDate": "2025-12-26T13:30",
+      "endDate": "2025-12-27T15:00",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "HT-1, HT-2 Labs, RVR & JC College of Engineering",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Chandramoulipuram, Chowdavaram",
+          "addressLocality": "Guntur",
+          "postalCode": "522019",
+          "addressRegion": "Andhra Pradesh",
+          "addressCountry": "IN"
+        }
+      },
+      "image": [
+        "https://rvrjcce.ac.in/xcsm/aikshetra2K25/static/css/main.jpg"
+      ],
+      "description": "Build with AI is a two-round hackathon where teams identify a real-world problem, design an AI-based solution, and demonstrate a working prototype.",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://rvrjcce.ac.in/xcsm/aikshetra2K25/register_build.php",
+        "price": "0",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2024-12-12T00:00"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "NEXAA - AI Kshetra",
+        "url": "https://rvrjcce.ac.in/xcsm/aikshetra2K25"
+      }
+    }
+    </script>
 
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="static/css/events_styles.css">

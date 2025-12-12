@@ -2,8 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>DreamFrame – AI Kshetra</title>
+    <title>DreamFrame - Poster Design Challenge | AI Kshetra 2025</title>
+    <meta name="description" content="Unleash your creativity at DreamFrame, a poster design challenge using Canva at AI Kshetra 2025. Solo participation.">
+    <meta name="keywords" content="DreamFrame, Canva Design, Poster Design, Creative Challenge, RVRJC, AI Kshetra">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="DreamFrame - Poster Design Challenge">
+    <meta property="og:description" content="Design stunning posters at DreamFrame. Join the creative challenge at AI Kshetra 2025.">
+    <meta property="og:image" content="https://rvrjcce.ac.in/xcsm/aikshetra2K25/static/css/main.jpg">
+    <meta property="og:url" content="https://rvrjcce.ac.in/xcsm/aikshetra2K25/dreamframe.php">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "DreamFrame - AI Kshetra 2025",
+      "startDate": "2025-12-27T11:00",
+      "endDate": "2025-12-27T12:00",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "HT-1, HT-2 Labs, RVR & JC College of Engineering",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Chandramoulipuram, Chowdavaram",
+          "addressLocality": "Guntur",
+          "postalCode": "522019",
+          "addressRegion": "Andhra Pradesh",
+          "addressCountry": "IN"
+        }
+      },
+      "image": [
+        "https://rvrjcce.ac.in/xcsm/aikshetra2K25/static/css/main.jpg"
+      ],
+      "description": "DreamFrame is a creative poster design competition where participants use Canva to produce visually compelling posters based on a theme.",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://rvrjcce.ac.in/xcsm/aikshetra2K25/register_dream.php",
+        "price": "0",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2024-12-12T00:00"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "NEXAA - AI Kshetra",
+        "url": "https://rvrjcce.ac.in/xcsm/aikshetra2K25"
+      }
+    }
+    </script>
 
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="static/css/events_styles.css">

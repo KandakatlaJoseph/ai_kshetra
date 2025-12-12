@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin_*.php
+Disallow: /check_db.php
+Disallow: /setup_database.php
+Disallow: /db.php
+Disallow: /api/
+
+Sitemap: https://rvrjcce.ac.in/xcsm/aikshetra2K25/sitemap.xml
