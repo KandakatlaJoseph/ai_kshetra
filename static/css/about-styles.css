@@ -1,4 +1,4 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -35,7 +35,7 @@
 .person-card:hover {
     transform: translateY(-8px);
     border-color: var(--accent-primary);
-    box-shadow: 0 0 25px rgba(157,78,221,0.3);
+    box-shadow: 0 0 25px rgba(157, 78, 221, 0.3);
 }
 
 .person-img {
@@ -68,5 +68,45 @@
     .section-title {
         font-size: 1.8rem;
     }
-    
+
+}
+
+/* ============================================
+   VERY SMALL PHONES (360-390px width)
+   Realme 9 Pro, Samsung Galaxy S8, etc.
+   ============================================ */
+@media (max-width: 390px) {
+    .about-hero {
+        min-height: 50vh !important;
+        padding: 80px 12px 30px;
+    }
+
+    .people-grid {
+        gap: 18px;
+        padding: 25px 10px;
+    }
+
+    .person-card {
+        padding: 18px;
+    }
+
+    .person-img {
+        width: 110px;
+        height: 110px;
+        margin-bottom: 12px;
+    }
+
+    .person-name {
+        font-size: 1.1rem;
+        margin-bottom: 4px;
+    }
+
+    .person-role,
+    .person-contact {
+        font-size: 0.85rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
 }

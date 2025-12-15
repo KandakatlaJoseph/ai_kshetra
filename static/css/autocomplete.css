@@ -139,3 +139,33 @@
         font-size: 0.9rem;
     }
 }
+
+/* ============================================
+   VERY SMALL PHONES (360-390px width)
+   ============================================ */
+@media (max-width: 390px) {
+    .autocomplete-wrapper input {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    .autocomplete-dropdown {
+        max-height: 180px;
+    }
+
+    .autocomplete-item {
+        padding: 12px 10px;
+        font-size: 0.82rem;
+    }
+
+    .autocomplete-item.add-new::before {
+        width: 18px;
+        height: 18px;
+        font-size: 12px;
+    }
+
+    .autocomplete-no-results {
+        padding: 12px;
+        font-size: 0.85rem;
+    }
+}

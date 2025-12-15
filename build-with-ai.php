@@ -208,7 +208,9 @@
                     <p style="font-size: 1.1rem; color: var(--text-primary);">
                         <strong>Date:</strong> December 26th<br>
                         <strong>Time:</strong> 1:30 PM - 5:00 PM<br>
-                        <strong>Venue:</strong> HT-1, HT-2 Labs
+                        <strong>Duration:</strong> 15 mins<br>
+                        <strong>Venue:</strong> HT-1, HT-2 Labs (Hi-Tech Block)<br>
+                        <strong style="color: var(--accent-secondary);">🏆 Top 15 Teams Shortlisted</strong>
                     </p>
                 </div>
                 <div class="schedule-item">
@@ -216,7 +218,7 @@
                     <p style="font-size: 1.1rem; color: var(--text-primary);">
                         <strong>Date:</strong> December 27th<br>
                         <strong>Time:</strong> 10:00 AM - 3:00 PM<br>
-                        <strong>Venue:</strong> HT-1, HT-2 Labs
+                        <strong>Venue:</strong> HT-1, HT-2 Labs (Hi-Tech Block)
                     </p>
                 </div>
             </div>
@@ -243,8 +245,8 @@
             <h3>Round 1 – Screening (MCQ Quiz)</h3>
             <ul>
                 <li>Objective quiz on AI/ML basics, Python, data handling and logical reasoning.</li>
-                <li>Approx. 25–30 questions, time-bound.</li>
-                <li>Shortlisted teams qualify for the prototype round.</li>
+                <li>20 questions, time-bound.</li>
+                <li>Top 15 teams qualify for the prototype round.</li>
             </ul>
 
             <h3>Round 2 – Prototype &amp; Pitch</h3>
@@ -254,8 +256,7 @@
                 <li>They present:
                     <ul>
                         <li>Problem statement and motivation</li>
-                        <li>Dataset used and AI/ML techniques applied</li>
-                        <li>System architecture and workflow</li>
+                        <li>Application architecture and workflow</li>
                         <li>Demo of the working solution</li>
                         <li>Impact, limitations, and future scope</li>
                     </ul>

@@ -43,6 +43,7 @@
     margin-left: 20px;
     color: var(--text-secondary);
 }
+
 /* Event page hero (background same as About hero) */
 .event-hero {
     min-height: 60vh;
@@ -76,10 +77,12 @@
             #030014 100%);
 }
 
-.event-hero > * {
+.event-hero>* {
     position: relative;
     z-index: 1;
-}/* ================================
+}
+
+/* ================================
    EVENT DETAILS – RESPONSIVE
    Put this at the END of events_styles.css or style.css
    ================================ */
@@ -91,7 +94,8 @@
     .hero.event-hero,
     .event-hero {
         min-height: 60vh;
-        padding: 90px 20px 40px; /* space from top menu */
+        padding: 90px 20px 40px;
+        /* space from top menu */
         text-align: center;
     }
 
@@ -138,7 +142,8 @@
 
     /* Info cards under hero */
     .event-info-grid {
-        grid-template-columns: 1fr;   /* stack cards */
+        grid-template-columns: 1fr;
+        /* stack cards */
         gap: 15px;
         margin-bottom: 25px;
     }
@@ -201,7 +206,8 @@
     }
 
     .event-table {
-        min-width: 520px;  /* allows horizontal scroll on small screens */
+        min-width: 520px;
+        /* allows horizontal scroll on small screens */
         font-size: 0.8rem;
     }
 
@@ -258,3 +264,142 @@
     }
 }
 
+/* ============================================
+   VERY SMALL PHONES (360-390px width)
+   Realme 9 Pro, Samsung Galaxy S8, etc.
+   ============================================ */
+@media (max-width: 390px) {
+
+    /* Event Hero adjustments */
+    .hero.event-hero,
+    .event-hero {
+        min-height: 55vh;
+        padding: 80px 12px 30px;
+    }
+
+    .event-hero .hero-subtitle {
+        font-size: 0.65rem;
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+    }
+
+    .event-hero .hero-title {
+        font-size: 1.8rem;
+        line-height: 1.15;
+        margin-bottom: 8px;
+    }
+
+    .event-hero .hero-tagline {
+        font-size: 0.85rem;
+        max-width: 95%;
+        margin: 0 auto 15px;
+        line-height: 1.4;
+    }
+
+    .event-hero .btn.hero-cta-top {
+        padding: 8px 18px;
+        font-size: 0.7rem;
+    }
+
+    /* Event wrapper */
+    .events {
+        padding: 50px 0 40px;
+    }
+
+    .event-details-page {
+        padding: 0 8px;
+    }
+
+    .event-desc {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+
+    /* Info grid cards */
+    .event-info-grid {
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .event-info-box {
+        padding: 12px;
+    }
+
+    .event-info-box h3 {
+        font-size: 0.75rem;
+    }
+
+    .event-info-box p {
+        font-size: 0.85rem;
+    }
+
+    /* Event detail blocks */
+    .event-detail-block {
+        padding: 14px 10px 6px;
+        margin-bottom: 15px;
+    }
+
+    .event-detail-block h2 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+
+    .event-detail-block h3 {
+        font-size: 0.9rem;
+    }
+
+    .event-detail-block p,
+    .event-detail-block ul {
+        font-size: 0.82rem;
+        line-height: 1.5;
+    }
+
+    .event-detail-block ul {
+        margin-left: 14px;
+    }
+
+    .event-detail-block li {
+        margin-bottom: 6px;
+    }
+
+    /* Section headers */
+    .event-section-header h2 {
+        font-size: 0.95rem;
+    }
+
+    .badge {
+        font-size: 0.65rem;
+        padding: 2px 6px;
+    }
+
+    /* Tables */
+    .event-table {
+        min-width: 400px;
+        font-size: 0.72rem;
+    }
+
+    .event-table th,
+    .event-table td {
+        padding: 5px 6px;
+    }
+
+    /* Gallery */
+    .gallery-item.placeholder {
+        min-height: 90px;
+        font-size: 0.75rem;
+    }
+
+    /* Coordinator grid */
+    .coordinator-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    .coordinator-grid ul {
+        padding-left: 0;
+    }
+
+    .coordinator-grid li {
+        font-size: 0.85rem;
+    }
+}

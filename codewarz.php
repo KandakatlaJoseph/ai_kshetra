@@ -205,7 +205,9 @@
                     <p style="font-size: 1.1rem; color: var(--text-primary);">
                         <strong>Date:</strong> December 26th<br>
                         <strong>Time:</strong> 1:30 PM - 5:00 PM<br>
-                        <strong>Venue:</strong> HT-1, HT-2 Labs
+                        <strong>Duration:</strong> 15 mins (MCQ)<br>
+                        <strong>Venue:</strong> HT-1, HT-2 Labs (Hi-Tech Block)<br>
+                        <strong style="color: var(--accent-secondary);">🏆 Top 20 Teams Shortlisted</strong>
                     </p>
                 </div>
                 <div class="schedule-item">
@@ -213,7 +215,7 @@
                     <p style="font-size: 1.1rem; color: var(--text-primary);">
                         <strong>Date:</strong> December 27th<br>
                         <strong>Time:</strong> 1:00 PM - 4:00 PM<br>
-                        <strong>Venue:</strong> HT-1, HT-2 Labs
+                        <strong>Venue:</strong> HT-1, HT-2 Labs (Hi-Tech Block)
                     </p>
                 </div>
             </div>
@@ -232,7 +234,7 @@
             <h3>Preliminary Round</h3>
             <p>An MCQ-based assessment covering <strong>Programming Fundamentals</strong> and <strong>Data Structures & Algorithms (DSA)</strong>.</p>
             <ul>
-                <li>Top-scoring teams will qualify for the Main Rounds.</li>
+                <li>Top 20 scoring teams will qualify for the Main Rounds.</li>
             </ul>
 
             <h3>Main Rounds</h3>

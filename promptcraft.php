@@ -205,9 +205,9 @@
                 <div class="schedule-item">
                     <h3 style="margin-bottom: 5px; color: #fff;">Event Timing</h3>
                     <p style="font-size: 1.1rem; color: var(--text-primary);">
-                        <strong>Date:</strong> December 27th<br>
-                        <strong>Time:</strong> 10:00 AM - 11:00 AM<br>
-                        <strong>Venue:</strong> HT-1, HT-2 Labs
+                        <strong>Date:</strong> December 26th<br>
+                        <strong>Time:</strong> 2PM  - 5PM <br>
+                        <strong>Venue:</strong> HT-305 (Hi-Tech Block)
                     </p>
                 </div>
             </div>
