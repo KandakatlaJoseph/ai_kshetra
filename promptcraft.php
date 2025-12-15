@@ -6,7 +6,7 @@
     <meta name="description" content="Show your prompting skills at PromptCraft, AI Kshetra 2025. A solo event for prompt engineering and AI content identification.">
     <meta name="keywords" content="PromptCraft, Prompt Engineering, AI Challenge, RVRJC, AI Kshetra">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Open Graph -->
     <meta property="og:title" content="PromptCraft - Prompt Engineering Challenge">
     <meta property="og:description" content="Master the art of prompting at PromptCraft. Join the challenge at AI Kshetra 2025.">
