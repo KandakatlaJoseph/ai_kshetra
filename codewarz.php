@@ -47,6 +47,10 @@
         "availability": "https://schema.org/InStock",
         "validFrom": "2024-12-12T00:00"
       },
+      "performer": {
+        "@type": "PerformingGroup",
+        "name": "CSE (AI & ML) Department - NEXAA"
+      },
       "organizer": {
         "@type": "Organization",
         "name": "NEXAA - AI Kshetra",
