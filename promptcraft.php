@@ -211,6 +211,7 @@
                     <p style="font-size: 1.1rem; color: var(--text-primary);">
                         <strong>Date:</strong> December 26th<br>
                         <strong>Time:</strong> 2PM  - 5PM <br>
+                        <strong>Duration:</strong> 20 mins<br>
                         <strong>Venue:</strong> HT-305 (Hi-Tech Block)
                     </p>
                 </div>

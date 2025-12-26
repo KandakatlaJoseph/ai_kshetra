@@ -183,7 +183,9 @@
 
         <!-- Short intro -->
         <p class="event-desc" style="max-width: 800px; margin: 0 auto 30px; text-align:center;">
-            <strong>DreamFrame</strong> is a creative poster design competition where participants use Canva to produce visually compelling posters based on a theme revealed at the start of the event. The challenge highlights creativity, message clarity, effective layout, and visual communication skills.
+        <p class="event-desc" style="max-width: 800px; margin: 0 auto 30px; text-align:center;">
+            <strong>Dream Frame – Design Challenge</strong> is a time-bound creative competition designed to assess participants’ visual thinking, creativity, and ability to communicate ideas effectively using digital design tools.
+        </p>
         </p>
 
         <!-- Quick info -->
@@ -221,23 +223,40 @@
         <div class="event-detail-block">
             <h2>About the Event</h2>
             <p>
-                <strong>DreamFrame</strong> is for students who enjoy design, visual storytelling, and communication. Participants receive a theme or problem statement at the beginning and must convert it into a powerful poster conveying the message instantly.
+                The challenge spans a total of <strong>3 Hours</strong>, testing skills across multiple formats.
             </p>
             <p>
-                The focus goes beyond aesthetics, emphasizing clarity, layout balance, and strong idea representation.
+                <strong>Round 1: Poster Design</strong> (1 Hour)<br>
+                <strong>Round 2: Instagram Content Design</strong> (1 Hour)<br>
+                <strong>Evaluation:</strong> 1 Hour
             </p>
         </div>
 
         <!-- Event Format -->
         <div class="event-detail-block">
+        <div class="event-detail-block">
             <h2>Event Format</h2>
+            
+            <h3>Round 1: Poster Design</h3>
             <ul>
-                <li><strong>Theme Reveal:</strong> A theme or storyline is announced at the start (e.g., awareness, innovation, social cause, fest branding).</li>
-                <li><strong>Design Duration:</strong> Participants get <strong>60 minutes</strong> to create their poster in Canva.</li>
-                <li><strong>Resources:</strong> Allowed elements include shapes, icons, illustrations, typography, and Canva's built-in tools.</li>
-                <li><strong>Submission:</strong> The final poster must be exported (PNG/JPEG) and submitted before the deadline.</li>
-                <li><strong>Short Presentation:</strong> Each participant delivers a <strong>1–2 minute</strong> explanation of their concept and design choices.</li>
+                <li><strong>Duration:</strong> 1 Hour</li>
+                <li><strong>Tool:</strong> Canva</li>
+                <li><strong>Poster Size:</strong> A3</li>
+                <li><strong>Theme:</strong> Announced at the venue prior to the start.</li>
+                <li><strong>Task:</strong> Create an original poster based on the announced theme.</li>
+                <li><strong>Submission:</strong> Share design with official event email (edit access) and export as PNG/JPG.</li>
             </ul>
+
+            <h3 style="margin-top:20px;">Round 2: Instagram Content Design</h3>
+            <ul>
+                <li><strong>Duration:</strong> 1 Hour</li>
+                <li><strong>Tool:</strong> Canva</li>
+                <li><strong>Theme:</strong> Announced at the venue.</li>
+                <li><strong>Option A (Carousel):</strong> 3–5 slides, 1080×1080 pixels.</li>
+                <li><strong>Option B (Animated):</strong> GIF/MP4, 3–10 seconds, Looping animation.</li>
+                <li><strong>Submission:</strong> Share design with official event email (edit access) and export as PNG/JPG (Carousel) or GIF/MP4 (Animation).</li>
+            </ul>
+        </div>
         </div>
 
         <!-- Judging Criteria -->
@@ -256,18 +275,34 @@
 
         <!-- Rules & Guidelines -->
         <div class="event-detail-block">
+        <div class="event-detail-block">
             <h2>Rules &amp; Guidelines</h2>
+            
+            <h3>Canva Collaboration Policy</h3>
             <ul>
-                <li>Participation is strictly <strong>individual</strong> (solo); no team entries are allowed.</li>
-                <li>All designs must be created using <strong>Canva</strong> during the event duration.</li>
-                <li>Pre-made templates may be used as a base, but the final design must show clear
-                    <strong>customisation and originality</strong>.</li>
-                <li>Participants should not use any copyrighted images/logos without permission,
-                    except those available inside Canva’s free resources.</li>
-                <li>Obscene, offensive, or inappropriate content is strictly prohibited and will lead to disqualification.</li>
-                <li>Late submissions beyond the allotted time may receive penalties or be rejected.</li>
-                <li>The organisers and judges reserve the right to modify rules and their decision will be final.</li>
+                <li>Participants must collaborate their designs with the official event domain email and provide “Can edit” access.</li>
+                <li>Organizers have full control over the submitted design for event-related use.</li>
             </ul>
+
+            <h3>Device &amp; Account Guidelines</h3>
+            <ul>
+                <li>Participants may use their own device (Laptop / Tablet / Phone); bringing a personal device is optional.</li>
+                <li>Participants must use their own Canva account.</li>
+                <li>Internet access will be provided.</li>
+            </ul>
+
+            <h3>Originality Policy</h3>
+            <ul>
+                <li>Only original designs created during the challenge are permitted.</li>
+                <li>Plagiarism or use of copied content will result in disqualification.</li>
+            </ul>
+
+            <h3>Organizer Rights</h3>
+            <ul>
+                <li>Organizers reserve the right to edit, duplicate, and reuse submitted designs for evaluation, display, and official event purposes.</li>
+                <li>Participation implies acceptance of all terms and conditions.</li>
+            </ul>
+        </div>
         </div>
 
         <!-- Prizes -->
