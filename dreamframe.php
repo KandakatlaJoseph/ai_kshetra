@@ -117,11 +117,11 @@
         }
         .event-table th,
         .event-table td {
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 1px solid var(--accent-secondary);
             padding: 8px 12px;
         }
         .event-table th {
-            background: rgba(255,255,255,0.03);
+            background: rgba(0, 245, 212, 0.1);
             font-weight: 600;
         }
 
@@ -358,35 +358,6 @@
             </div>
         </div>
 
-        <!-- Shortlisted Participants -->
-        <section class="event-detail-block" id="round2">
-            <div class="event-section-header">
-                <h2>Shortlisted Participants</h2>
-                <span class="badge upcoming">Will be updated after Evaluation</span>
-            </div>
-
-            <div class="table-wrapper">
-                <table class="event-table">
-                    <thead>
-                        <tr>
-                            <th>S. No.</th>
-                            <th>Name</th>
-                            <th>Phone</th>
-                            <th>College</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Later: fill from registrations_dream_frame -->
-                        <tr>
-                            <td colspan="4" style="text-align:center; opacity:0.7;">
-                                Shortlist not published yet.
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
         <!-- Winners -->
         <section class="event-detail-block" id="winners">
             <div class="event-section-header">
@@ -400,14 +371,26 @@
                         <tr>
                             <th>Position</th>
                             <th>Name</th>
+                            <th>Regd. No.</th>
                             <th>College</th>
+                            <th>Branch</th>
                             <th>Prize</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Later: fill from results -->
+                        <!-- Example structure - Replace with actual winners data -->
+                        <!-- 
                         <tr>
-                            <td colspan="4" style="text-align:center; opacity:0.7;">
+                            <td>1st Prize</td>
+                            <td>Winner Name</td>
+                            <td>Regd123</td>
+                            <td>College Name</td>
+                            <td>Branch</td>
+                            <td>₹3000</td>
+                        </tr>
+                        -->
+                        <tr>
+                            <td colspan="6" style="text-align:center; opacity:0.7;">
                                 Results not announced yet.
                             </td>
                         </tr>

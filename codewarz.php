@@ -117,11 +117,11 @@
         }
         .event-table th,
         .event-table td {
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 1px solid var(--accent-secondary);
             padding: 8px 12px;
         }
         .event-table th {
-            background: rgba(255,255,255,0.03);
+            background: rgba(0, 245, 212, 0.1);
             font-weight: 600;
         }
 
@@ -347,26 +347,300 @@
         <section class="event-detail-block" id="round2">
             <div class="event-section-header">
                 <h2>Shortlisted Teams</h2>
-                <span class="badge upcoming">Will be updated after Prelims</span>
+                <span class="badge info">Updated</span>
             </div>
 
             <div class="table-wrapper">
                 <table class="event-table">
                     <thead>
                         <tr>
-                            <th>S. No.</th>
-                            <th>Participant 1 Name</th>
-                            <th>Participant 2 Name</th>
-                            <th>Leader Phone</th>
+                            <th>Sno</th>
+                            <th>Name</th>
+                            <th>Regd. No</th>
                             <th>College</th>
+                            <th>Dept.</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Later: fill from registrations_codewarz -->
+                        <!-- Team 1 -->
                         <tr>
-                            <td colspan="5" style="text-align:center; opacity:0.7;">
-                                Shortlist not published yet.
-                            </td>
+                            <td rowspan="2">1</td>
+                            <td>Nerella Venkata Ganesh</td>
+                            <td>Y24cm126</td>
+                            <td rowspan="2">RVR and JC College of Engineering, Guntur</td>
+                            <td>CSE (AI &amp; ML)</td>
+                        </tr>
+                        <tr>
+                            <td>Kunule Yuvaraju</td>
+                            <td>L25cd206</td>
+                            <td>CSD</td>
+                        </tr>
+
+                        <!-- Team 2 -->
+                        <tr>
+                            <td rowspan="2">2</td>
+                            <td>k lakshmi sri harsha</td>
+                            <td>238w1a05m8</td>
+                            <td rowspan="2">Velagapudi Ramakrishna Siddhartha Engineering College, Vijayawada</td>
+                            <td>CSE</td>
+                        </tr>
+                        <tr>
+                            <td>D sri krishna</td>
+                            <td>238w1a1215</td>
+                            <td>Information Technology (IT)</td>
+                        </tr>
+
+                        <!-- Team 3 -->
+                        <tr>
+                            <td rowspan="2">3</td>
+                            <td>Lasya Mandadapu</td>
+                            <td>23NN1A0533</td>
+                            <td>Vignan's Nirula Institute of Technology and Science for Women, Guntur</td>
+                            <td rowspan="2">CSE (AI &amp; ML)</td>
+                        </tr>
+                        <tr>
+                            <td>P.Nandana</td>
+                            <td>23NN1A0533</td>
+                            <td>Vignan's Lara Institute of Technology and Science, Guntur</td>
+                        </tr>
+
+                        <!-- Team 4 -->
+                        <tr>
+                            <td rowspan="2">4</td>
+                            <td>Tadikonda Mythri</td>
+                            <td>Y23CM167</td>
+                            <td rowspan="2">R.V.R. &amp; J.C. College of Engineering,Guntur</td>
+                            <td rowspan="2">CSE (AI &amp; ML)</td>
+                        </tr>
+                        <tr>
+                            <td>Varada Sai Sravani</td>
+                            <td>Y23CM183</td>
+                        </tr>
+
+                        <!-- Team 5 -->
+                        <tr>
+                            <td rowspan="2">5</td>
+                            <td>Pattan Nidha Anjum</td>
+                            <td>23BQ1A1289</td>
+                            <td rowspan="2">Vasireddy Venkatadri Institute of Technology, Guntur</td>
+                            <td rowspan="2">Information Technology (IT)</td>
+                        </tr>
+                        <tr>
+                            <td>Navya Chitla</td>
+                            <td>23BQ1A1276</td>
+                        </tr>
+
+                        <!-- Team 6 -->
+                        <tr>
+                            <td rowspan="2">6</td>
+                            <td>Sri Krishna dasari</td>
+                            <td>238w1a1215</td>
+                            <td rowspan="2">Velagapudi Ramakrishna Siddhartha Engineering College, Vijayawada</td>
+                            <td rowspan="2">Information Technology (IT)</td>
+                        </tr>
+                        <tr>
+                            <td>Lakshya deep</td>
+                            <td>238w1a1248</td>
+                        </tr>
+
+                        <!-- Team 7 -->
+                        <tr>
+                            <td rowspan="2">7</td>
+                            <td>Kattupalli Sai Suhas</td>
+                            <td>Y23CS082</td>
+                            <td rowspan="2">RVR and JC College of Engineering, Guntur</td>
+                            <td rowspan="2">CSE</td>
+                        </tr>
+                        <tr>
+                            <td>Jayaraj</td>
+                            <td>L24cs217</td>
+                        </tr>
+
+                        <!-- Team 8 -->
+                        <tr>
+                            <td rowspan="2">8</td>
+                            <td>Kola Yagnesh</td>
+                            <td>238W1A05N0</td>
+                            <td rowspan="2">Velagapudi Ramakrishna Siddhartha Engineering College, Vijayawada</td>
+                            <td>CSE</td>
+                        </tr>
+                        <tr>
+                            <td>Bhaviri Sai Charan</td>
+                            <td>238W1A05K7</td>
+                            <td>CSE (AI &amp; ML)</td>
+                        </tr>
+
+                        <!-- Team 9 -->
+                        <tr>
+                            <td rowspan="2">9</td>
+                            <td>TAMATAMA TANMAYI</td>
+                            <td>24EU04124</td>
+                            <td rowspan="2">Velagapudi Ramakrishna Siddhartha Engineering College, Vijayawada</td>
+                            <td rowspan="2">CSE</td>
+                        </tr>
+                        <tr>
+                            <td>SEELAM YAMUNA KEERTHANA</td>
+                            <td>24EU04117</td>
+                        </tr>
+
+                        <!-- Team 10 -->
+                        <tr>
+                            <td rowspan="2">10</td>
+                            <td>SYED SAMEER AYAZ</td>
+                            <td>231FA04333</td>
+                            <td rowspan="2">Vignan University ,Guntur</td>
+                            <td rowspan="2">CSE</td>
+                        </tr>
+                        <tr>
+                            <td>G Sivamani</td>
+                            <td>231FA04409</td>
+                        </tr>
+
+                        <!-- Team 11 -->
+                        <tr>
+                            <td rowspan="2">11</td>
+                            <td>C Rajendra</td>
+                            <td>238x1a0518</td>
+                            <td rowspan="2">Kallam Haranadha Reddy Institute of Technology, Guntur</td>
+                            <td rowspan="2">CSE</td>
+                        </tr>
+                        <tr>
+                            <td>Subbaramareddy</td>
+                            <td>238x1a0534</td>
+                        </tr>
+
+                        <!-- Team 12 -->
+                        <tr>
+                            <td rowspan="2">12</td>
+                            <td>Seswanth motepalli</td>
+                            <td>24eu04118</td>
+                            <td rowspan="2">Velagapudi Ramakrishna Siddhartha Engineering College, Vijayawada</td>
+                            <td rowspan="2">CSE</td>
+                        </tr>
+                        <tr>
+                            <td>Podile Sohith</td>
+                            <td>24eu04114</td>
+                        </tr>
+
+                        <!-- Team 13 -->
+                        <tr>
+                            <td rowspan="2">13</td>
+                            <td>Irfan Jan Khan</td>
+                            <td>23761A05E9</td>
+                            <td>Lakireddy Bali Reddy College of Engineering, Mylavaram</td>
+                            <td>CSE</td>
+                        </tr>
+                        <tr>
+                            <td>Shaik Rasulla Begum</td>
+                            <td>23BQ1A04F5</td>
+                            <td>Vasireddy Venkatadri Institute of Technology, Guntur</td>
+                            <td>ECE</td>
+                        </tr>
+
+                        <!-- Team 14 -->
+                        <tr>
+                            <td rowspan="2">14</td>
+                            <td>V.HARSHITH</td>
+                            <td>231FA04C93</td>
+                            <td>Vignan University ,Guntur</td>
+                            <td rowspan="2">CSE</td>
+                        </tr>
+                        <tr>
+                            <td>D.Thanuj Krishna</td>
+                            <td>231FA04E50</td>
+                            <td>Vignan's Foundation for Science Technology and Research, Guntur</td>
+                        </tr>
+
+                        <!-- Team 15 -->
+                        <tr>
+                            <td rowspan="2">15</td>
+                            <td>Bhavani Bodapati</td>
+                            <td>238w1a5477</td>
+                            <td rowspan="2">Velagapudi Ramakrishna Siddhartha Engineering College, Vijayawada</td>
+                            <td>Artificial Intelligence &amp; Data Science (AI &amp; DS)</td>
+                        </tr>
+                        <tr>
+                            <td>Jahnavi juvvi</td>
+                            <td>238w1a4226</td>
+                            <td>CSE (AI &amp; ML)</td>
+                        </tr>
+
+                        <!-- Team 16 -->
+                        <tr>
+                            <td rowspan="2">16</td>
+                            <td>Kokkera Pavani</td>
+                            <td>24nn1a0477</td>
+                            <td rowspan="2">Vignan's Nirula Institute of Technology and Science for Women, Guntur</td>
+                            <td rowspan="2">ECE</td>
+                        </tr>
+                        <tr>
+                            <td>Katla samanvitha</td>
+                            <td>24nn1a0476</td>
+                        </tr>
+
+                        <!-- Team 17 -->
+                        <tr>
+                            <td rowspan="2">17</td>
+                            <td>Kalepu venkata Tejaswini</td>
+                            <td>23501a0558</td>
+                            <td rowspan="2">Prasad V Potluri Siddhartha Institute of Technology, Vijayawada</td>
+                            <td rowspan="2">CSE</td>
+                        </tr>
+                        <tr>
+                            <td>Siva Sai Swaroop Yanduri</td>
+                            <td>23501a05j5</td>
+                        </tr>
+
+                        <!-- Team 18 -->
+                        <tr>
+                            <td rowspan="2">18</td>
+                            <td>RAVIPATI.HARSHITHA</td>
+                            <td>24471A05AN</td>
+                            <td rowspan="2">Narasaraopeta Engineering College, Narasaraopet</td>
+                            <td rowspan="2">CSE</td>
+                        </tr>
+                        <tr>
+                            <td>PONDUGULA.SREELAKSHMI</td>
+                            <td>24471A05EN</td>
+                        </tr>
+
+                        <!-- Team 19 -->
+                        <tr>
+                            <td rowspan="2">19</td>
+                            <td>BANDIKANTI TEJA SAI</td>
+                            <td>238X1A4503</td>
+                            <td rowspan="2">Kallam Haranadha Reddy Institute of Technology, Guntur</td>
+                            <td rowspan="2">AI &amp; DS</td>
+                        </tr>
+                        <tr>
+                            <td>IRAPANI JAGADISH</td>
+                            <td>238X1A4519</td>
+                        </tr>
+
+                        <!-- Team 20 -->
+                        <tr>
+                            <td rowspan="2">20</td>
+                            <td>Vattikuti Purna Sri Vamsi</td>
+                            <td>25B95A6129</td>
+                            <td rowspan="2">SRKR COLLEGE OF ENGINEERING</td>
+                            <td rowspan="2">CSE (AI &amp; ML)</td>
+                        </tr>
+                        <tr>
+                            <td>Unnam Venkata narayana</td>
+                            <td>25B95A0559</td>
+                        </tr>
+
+                        <!-- Team 21 -->
+                        <tr>
+                            <td rowspan="2">21</td>
+                            <td>SHAIK IRSHAD</td>
+                            <td>238W1A4256</td>
+                            <td rowspan="2">Velagapudi Ramakrishna Siddhartha Engineering College, Vijayawada</td>
+                            <td rowspan="2">CSE (AI &amp; ML)</td>
+                        </tr>
+                        <tr>
+                            <td>YAGATI DILEEP KUMAR</td>
+                            <td>238W1A4263</td>
                         </tr>
                     </tbody>
                 </table>
@@ -385,16 +659,31 @@
                     <thead>
                         <tr>
                             <th>Position</th>
-                            <th>Participant 1 Name</th>
-                            <th>Participant 2 Name</th>
+                            <th>Name</th>
+                            <th>Regd. No</th>
                             <th>College</th>
+                            <th>Dept.</th>
                             <th>Prize</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Later: fill from results -->
+                        <!-- Example structure - Replace with actual winners data -->
+                        <!-- 
                         <tr>
-                            <td colspan="5" style="text-align:center; opacity:0.7;">
+                            <td rowspan="2">1st Prize</td>
+                            <td>Winner Name 1</td>
+                            <td>Regd123</td>
+                            <td rowspan="2">College Name</td>
+                            <td rowspan="2">Department</td>
+                            <td rowspan="2">₹3000</td>
+                        </tr>
+                        <tr>
+                            <td>Winner Name 2</td>
+                            <td>Regd456</td>
+                        </tr>
+                        -->
+                        <tr>
+                            <td colspan="6" style="text-align:center; opacity:0.7;">
                                 Results not announced yet.
                             </td>
                         </tr>

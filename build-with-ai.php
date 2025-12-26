@@ -118,11 +118,11 @@
         }
         .event-table th,
         .event-table td {
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 1px solid var(--accent-secondary);
             padding: 8px 12px;
         }
         .event-table th {
-            background: rgba(255,255,255,0.03);
+            background: rgba(0, 245, 212, 0.1);
             font-weight: 600;
         }
 
@@ -350,28 +350,283 @@
         <section class="event-detail-block" id="round2">
             <div class="event-section-header">
                 <h2>Round 2 – Shortlisted Teams</h2>
-                <span class="badge upcoming">Will be updated after Round 1</span>
+                <span class="badge info">Updated</span>
             </div>
 
             <div class="table-wrapper">
                 <table class="event-table">
                     <thead>
                         <tr>
-                            <th>S. No.</th>
-                            <th>Member 1 Name</th>
-                            <th>Member 2 Name</th>
-                            <th>Member 3 Name</th>
-                            <th>Member 4 Name</th>
-                            <th>Leader Phone</th>
-                            <th>College</th>
+                            <th>No.</th>
+                            <th>Name</th>
+                            <th>Regd. No.</th>
+                            <th>Branch</th>
+                            <th>College_name</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Later: fill from database. Empty cells are okay if team has 2 or 3 members. -->
+                        <!-- Team 1 -->
                         <tr>
-                            <td colspan="7" style="text-align:center; opacity:0.7;">
-                                Round-2 shortlist not published yet.
-                            </td>
+                            <td rowspan="2">1</td>
+                            <td>K Geeshpath</td>
+                            <td>Y23CM067</td>
+                            <td rowspan="2">RVR and JC College of Engineering, Guntur</td>
+                            <td rowspan="2">CSE (AI &amp; ML)</td>
+                        </tr>
+                        <tr>
+                            <td>Kalki Tarun Kenguva</td>
+                            <td>Y23CM079</td>
+                        </tr>
+
+                        <!-- Team 2 -->
+                        <tr>
+                            <td rowspan="4">2</td>
+                            <td>Chelluboina srinivasa manikanta</td>
+                            <td>L24cs200</td>
+                            <td rowspan="4">RVR and JC College of Engineering, Guntur</td>
+                            <td rowspan="3">CSE</td>
+                        </tr>
+                        <tr>
+                            <td>CHITTALURI RAGHAVA</td>
+                            <td>Y23CS032</td>
+                        </tr>
+                        <tr>
+                            <td>Jayaraj</td>
+                            <td>L24cs217</td>
+                        </tr>
+                        <tr>
+                            <td>Kattupalli manish</td>
+                            <td>Y23cd093</td>
+                            <td>CSD</td>
+                        </tr>
+
+                        <!-- Team 3 -->
+                        <tr>
+                            <td rowspan="3">3</td>
+                            <td>KOLASANI MAHENDRA KRISHNA PRASAD</td>
+                            <td>Y23CM081</td>
+                            <td rowspan="3">RVR and JC College of Engineering, Guntur</td>
+                            <td rowspan="3">CSE (AI &amp; ML)</td>
+                        </tr>
+                        <tr>
+                            <td>KURIVELLA KHYATHI JAGAN</td>
+                            <td>Y23CM092</td>
+                        </tr>
+                        <tr>
+                            <td>Gopi Nadh Dupati</td>
+                            <td>Y23CM041</td>
+                        </tr>
+
+                        <!-- Team 4 -->
+                        <tr>
+                            <td rowspan="2">4</td>
+                            <td>VISHNU VEMPADAPU</td>
+                            <td>23761A42D0</td>
+                            <td rowspan="2">Lakireddy Bali Reddy College of Engineering, Mylavaram</td>
+                            <td rowspan="2">CSE (AI &amp; ML)</td>
+                        </tr>
+                        <tr>
+                            <td>Valluri M S S S Nirmal</td>
+                            <td>24765A4212</td>
+                        </tr>
+
+                        <!-- Team 5 -->
+                        <tr>
+                            <td rowspan="2">5</td>
+                            <td>Jahnavi Battina</td>
+                            <td>238W1A5473</td>
+                            <td rowspan="2">Velagapudi Ramakrishna Siddhartha Engineering College, Vijayawada</td>
+                            <td rowspan="2">Artificial Intelligence &amp; Data Science (AI &amp; DS)</td>
+                        </tr>
+                        <tr>
+                            <td>Bachu Divya Nagini</td>
+                            <td>238W1A5471</td>
+                        </tr>
+
+                        <!-- Team 6 -->
+                        <tr>
+                            <td rowspan="3">6</td>
+                            <td>paladugu gopichandu</td>
+                            <td>23JR1A05D1</td>
+                            <td rowspan="2">KKR and KSR Institute of Technology and Sciences, Guntur</td>
+                            <td rowspan="2">Computer Science and Engineering (CSE)</td>
+                        </tr>
+                        <tr>
+                            <td>Jathin lalith dachepalli</td>
+                            <td>23JR1A05A4</td>
+                        </tr>
+                        <tr>
+                            <td>K.Ram Akshay</td>
+                            <td>Y23ec089</td>
+                            <td>R.V.R. &amp; J.C. College of Engineering,Guntur</td>
+                            <td>ECE</td>
+                        </tr>
+
+                        <!-- Team 7 -->
+                        <tr>
+                            <td rowspan="2">7</td>
+                            <td>Naveen srinivas</td>
+                            <td>AM.AC.URCSE24249</td>
+                            <td>Amrita Vishwa Vidyapeetham, Coimbatore</td>
+                            <td>Computer Science and Engineering (CSE)</td>
+                        </tr>
+                        <tr>
+                            <td>Vinesh Reddy</td>
+                            <td>RA2411003010429</td>
+                            <td>SRM Institute of Science and Technology, Chennai</td>
+                            <td>Computer Science and Engineering (CSE)</td>
+                        </tr>
+
+                        <!-- Team 8 -->
+                        <tr>
+                            <td rowspan="4">8</td>
+                            <td>Suru Sushanth Sourya</td>
+                            <td>23501A05G6</td>
+                            <td rowspan="4">Prasad V Potluri Siddhartha Institute of Technology, Vijayawada</td>
+                            <td rowspan="4">Computer Science and Engineering (CSE)</td>
+                        </tr>
+                        <tr>
+                            <td>Yalamanchili Nihar</td>
+                            <td>23501A05J4</td>
+                        </tr>
+                        <tr>
+                            <td>Tangudu JayaKrishna</td>
+                            <td>23501A05H2</td>
+                        </tr>
+                        <tr>
+                            <td>Siva Sai Swaroop Yanduri</td>
+                            <td>23501A05J5</td>
+                        </tr>
+
+                        <!-- Team 9 -->
+                        <tr>
+                            <td rowspan="4">9</td>
+                            <td>M . Varshini</td>
+                            <td>Y22ACM452</td>
+                            <td rowspan="4">Bapatla Engineering College, Bapatla</td>
+                            <td rowspan="3">CSE (AI &amp; ML)</td>
+                        </tr>
+                        <tr>
+                            <td>Ch Lokesh</td>
+                            <td>Y23ACM411</td>
+                        </tr>
+                        <tr>
+                            <td>D. Manoj kuma</td>
+                            <td>Y25ACB414</td>
+                        </tr>
+                        <tr>
+                            <td>G. Venkat</td>
+                            <td>Y25AEC476</td>
+                            <td>Electronics and Communication Engineering (ECE)</td>
+                        </tr>
+
+                        <!-- Team 10 -->
+                        <tr>
+                            <td rowspan="2">10</td>
+                            <td>bhimireddy siva saranya</td>
+                            <td>231fa04839</td>
+                            <td>Vignan University ,Guntur</td>
+                            <td>Computer Science and Engineering (CSE)</td>
+                        </tr>
+                        <tr>
+                            <td>Navadeep</td>
+                            <td>231fa04895</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <!-- Team 11 -->
+                        <tr>
+                            <td rowspan="3">11</td>
+                            <td>SAMEER AHAMED MOHAMMAD</td>
+                            <td>Y23cm107</td>
+                            <td rowspan="3">RVR and JC College of Engineering, Guntur</td>
+                            <td rowspan="2">CSE (AI &amp; ML)</td>
+                        </tr>
+                        <tr>
+                            <td>Sunil madala</td>
+                            <td>Y23cm093</td>
+                        </tr>
+                        <tr>
+                            <td>Venkata Mahesh Chintala</td>
+                            <td>Y23IT123</td>
+                            <td>IT</td>
+                        </tr>
+
+                        <!-- Team 12 -->
+                        <tr>
+                            <td rowspan="4">12</td>
+                            <td>D.Giri Nihitha</td>
+                            <td>231FA04251</td>
+                            <td rowspan="4">Vignan's Foundation for Science Technology and Research, Guntur</td>
+                            <td rowspan="4">Computer Science and Engineering (CSE)</td>
+                        </tr>
+                        <tr>
+                            <td>A.Akshay Guptha</td>
+                            <td>231FA04510</td>
+                        </tr>
+                        <tr>
+                            <td>U.Sravani</td>
+                            <td>231FA04G08</td>
+                        </tr>
+                        <tr>
+                            <td>B.Sarojinaidu</td>
+                            <td>231FA04739</td>
+                        </tr>
+
+                        <!-- Team 13 -->
+                        <tr>
+                            <td rowspan="4">13</td>
+                            <td>Tapasvi Chittineni</td>
+                            <td>23501A4409</td>
+                            <td rowspan="4">Prasad V. Potluri Siddhartha Institute Of Technology</td>
+                            <td rowspan="4">CSE (Data Science)</td>
+                        </tr>
+                        <tr>
+                            <td>Kundana Cherukuri</td>
+                            <td>23501A4408</td>
+                        </tr>
+                        <tr>
+                            <td>Pravallika Nukabhattina</td>
+                            <td>23501A4443</td>
+                        </tr>
+                        <tr>
+                            <td>Vyshnavi Dasari</td>
+                            <td>23501A4413</td>
+                        </tr>
+
+                        <!-- Team 14 -->
+                        <tr>
+                            <td rowspan="4">14</td>
+                            <td>Rajaboina Raju</td>
+                            <td>248W5A4205</td>
+                            <td rowspan="4">Velagapudi Ramakrishna Siddhartha Engineering College, Vijayawada</td>
+                            <td rowspan="4">CSE (AI &amp; ML)</td>
+                        </tr>
+                        <tr>
+                            <td>Pallekala Surya Charan</td>
+                            <td>238W1A4251</td>
+                        </tr>
+                        <tr>
+                            <td>Y Dileep Kumar</td>
+                            <td>238W1A4263</td>
+                        </tr>
+                        <tr>
+                            <td>Shaik Irshad</td>
+                            <td>238W1A4256</td>
+                        </tr>
+
+                        <!-- Team 15 -->
+                        <tr>
+                            <td rowspan="2">15</td>
+                            <td>B. Kusuma Sita</td>
+                            <td>y23cm020</td>
+                            <td rowspan="2">RVR and JC College of Engineering, Guntur</td>
+                            <td rowspan="2">CSE (AI &amp; ML)</td>
+                        </tr>
+                        <tr>
+                            <td>Sk. Hanishma</td>
+                            <td>l24cm212</td>
                         </tr>
                     </tbody>
                 </table>
@@ -390,18 +645,31 @@
                     <thead>
                         <tr>
                             <th>Position</th>
-                            <th>Member 1 Name</th>
-                            <th>Member 2 Name</th>
-                            <th>Member 3 Name</th>
-                            <th>Member 4 Name</th>
-                            <th>College</th>
+                            <th>Name</th>
+                            <th>Regd. No.</th>
+                            <th>College_name</th>
+                            <th>Branch</th>
                             <th>Prize</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Later: fill from database. Each row = one team. -->
+                        <!-- Example structure - Replace with actual winners data -->
+                        
+                        <!-- <tr>
+                            <td rowspan="2">1st Prize</td>
+                            <td>Winner Name 1</td>
+                            <td>Regd123</td>
+                            <td rowspan="2">College Name</td>
+                            <td rowspan="2">Branch Name</td>
+                            <td rowspan="2">₹3000</td>
+                        </tr>
                         <tr>
-                            <td colspan="7" style="text-align:center; opacity:0.7;">
+                            <td>Winner Name 2</td>
+                            <td>Regd456</td>
+                        </tr>
+                        -->
+                        <tr>
+                            <td colspan="6" style="text-align:center; opacity:0.7;">
                                 Results not announced yet.
                             </td>
                         </tr>

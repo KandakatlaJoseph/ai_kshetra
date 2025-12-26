@@ -117,11 +117,11 @@
         }
         .event-table th,
         .event-table td {
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 1px solid var(--accent-secondary);
             padding: 8px 12px;
         }
         .event-table th {
-            background: rgba(255,255,255,0.03);
+            background: rgba(0, 245, 212, 0.1);
             font-weight: 600;
         }
 
@@ -317,40 +317,11 @@
             </div>
         </div>
 
-        <!-- Shortlisted Participants -->
-        <section class="event-detail-block" id="round2">
-            <div class="event-section-header">
-                <h2>Shortlisted Participants</h2>
-                <span class="badge upcoming">Will be updated after Round 1</span>
-            </div>
-
-            <div class="table-wrapper">
-                <table class="event-table">
-                    <thead>
-                        <tr>
-                            <th>S. No.</th>
-                            <th>Name</th>
-                            <th>Phone</th>
-                            <th>College</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Later: fill from registrations_prompt_craft -->
-                        <tr>
-                            <td colspan="4" style="text-align:center; opacity:0.7;">
-                                Shortlist not published yet.
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
         <!-- Winners -->
         <section class="event-detail-block" id="winners">
             <div class="event-section-header">
                 <h2>Winners</h2>
-                <span class="badge upcoming">To be announced</span>
+                <span class="badge info">Announced</span>
             </div>
 
             <div class="table-wrapper">
@@ -359,16 +330,41 @@
                         <tr>
                             <th>Position</th>
                             <th>Name</th>
+                            <th>Roll_Number</th>
                             <th>College</th>
+                            <th>Branch</th>
                             <th>Prize</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Later: fill from results -->
+                        <!-- 1st Prize -->
                         <tr>
-                            <td colspan="4" style="text-align:center; opacity:0.7;">
-                                Results not announced yet.
-                            </td>
+                            <td>-</td>
+                            <td>SHAIK AFREEN HASEN</td>
+                            <td>238W1A4255</td>
+                            <td>Velagapudi Ramakrishna Siddhartha Engineering College, Vijayawada</td>
+                            <td>CSE (AI &amp; ML)</td>
+                            <td>-</td>
+                        </tr>
+
+                        <!-- 2nd Prize -->
+                        <tr>
+                            <td>-</td>
+                            <td>G.snehal marteen</td>
+                            <td>23491a4232</td>
+                            <td>QIS Institute of Technology, Ongole</td>
+                            <td>CSE (AI &amp; ML)</td>
+                            <td>-</td>
+                        </tr>
+
+                        <!-- 3rd Prize -->
+                        <tr>
+                            <td>-</td>
+                            <td>Majji Gowri Sai Sree</td>
+                            <td>24B01A0585</td>
+                            <td>Shri vishnu engineering college for women</td>
+                            <td>CSE</td>
+                            <td>-</td>
                         </tr>
                     </tbody>
                 </table>
