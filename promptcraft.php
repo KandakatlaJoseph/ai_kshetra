@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>PromptCraft - Prompt Engineering Challenge | AI Kshetra 2025</title>
     <meta name="description" content="Show your prompting skills at PromptCraft, AI Kshetra 2025. A solo event for prompt engineering and AI content identification.">
-    <meta name="keywords" content="PromptCraft, Prompt Engineering, AI Challenge, RVRJC, AI Kshetra">
+    <meta name="keywords" content="PromptCraft, Prompt aEngineering, AI Challenge, RVRJC, AI Kshetra">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Open Graph -->
@@ -175,6 +175,7 @@
         <a href="register_prompt.php" class="btn btn-primary hero-cta-top">
             Register Now
         </a>
+       
     </div>
 </section>
 
@@ -339,32 +340,32 @@
                     <tbody>
                         <!-- 1st Prize -->
                         <tr>
-                            <td>-</td>
+                            <td>1</td>
                             <td>SHAIK AFREEN HASEN</td>
                             <td>238W1A4255</td>
                             <td>Velagapudi Ramakrishna Siddhartha Engineering College, Vijayawada</td>
                             <td>CSE (AI &amp; ML)</td>
-                            <td>-</td>
+                            <td>₹3000</td>
                         </tr>
 
                         <!-- 2nd Prize -->
                         <tr>
-                            <td>-</td>
+                            <td>2</td>
                             <td>G.snehal marteen</td>
                             <td>23491a4232</td>
                             <td>QIS Institute of Technology, Ongole</td>
                             <td>CSE (AI &amp; ML)</td>
-                            <td>-</td>
+                            <td>₹2000</td>
                         </tr>
 
                         <!-- 3rd Prize -->
                         <tr>
-                            <td>-</td>
+                            <td>3</td>
                             <td>Majji Gowri Sai Sree</td>
                             <td>24B01A0585</td>
                             <td>Shri vishnu engineering college for women</td>
                             <td>CSE</td>
-                            <td>-</td>
+                            <td>₹1000</td>
                         </tr>
                     </tbody>
                 </table>

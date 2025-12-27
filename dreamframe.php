@@ -175,6 +175,10 @@
         <a href="register_dream.php" class="btn btn-primary hero-cta-top">
             Register Now
         </a>
+        
+        <a href="https://forms.gle/m5xRc6z9mVLZf7KR9" class="btn btn-primary hero-cta-top">
+            Submit Here
+        </a>
     </div>
 </section>
 
@@ -379,21 +383,37 @@
                     </thead>
                     <tbody>
                         <!-- Example structure - Replace with actual winners data -->
-                        <!-- 
+                        
                         <tr>
                             <td>1st Prize</td>
-                            <td>Winner Name</td>
-                            <td>Regd123</td>
-                            <td>College Name</td>
-                            <td>Branch</td>
+                            <td>Chiraladinni Ramesh </td>
+                            <td>y23cm030</td>
+                            <td>RVR and JC College of Engineering, Guntur</td>
+                            <td>CSE (AI & ML)</td>
                             <td>₹3000</td>
                         </tr>
-                        -->
                         <tr>
+                            <td>2nd Prize</td>
+                            <td>Inaganti Geetha Bhargavi</td>
+                            <td>y23cm030</td>
+                            <td>KITS Akshar Institute of Technology, Guntur</td>
+                            <td>CSE</td>
+                            <td>₹2000</td>
+                        </tr>
+                        <tr>
+                            <td>3rd Prize</td>
+                            <td>P.VAMSI KRISHNA </td>
+                            <td>y23cm132</td>
+                            <td>RVR and JC College of Engineering, Guntur</td>
+                            <td>CSE (AI & ML)</td>
+                            <td>₹1000</td>
+                        </tr>
+                       
+                        <!-- <tr>
                             <td colspan="6" style="text-align:center; opacity:0.7;">
                                 Results not announced yet.
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>

@@ -176,6 +176,9 @@
         <a href="register_build.php" class="btn btn-primary hero-cta-top">
             Register Now
         </a>
+         <a href="https://forms.gle/MQRi9ALDH7NXWBAM6" class="btn btn-primary hero-cta-top">
+            Submit Here
+        </a>
     </div>
 </section>
 
@@ -525,14 +528,13 @@
                             <td rowspan="2">10</td>
                             <td>bhimireddy siva saranya</td>
                             <td>231fa04839</td>
-                            <td>Vignan University ,Guntur</td>
-                            <td>Computer Science and Engineering (CSE)</td>
+                            <td rowspan="2">Vignan University ,Guntur</td>
+                            <td rowspan="2">Computer Science and Engineering (CSE)</td>
                         </tr>
                         <tr>
                             <td>Navadeep</td>
                             <td>231fa04895</td>
-                            <td></td>
-                            <td></td>
+                           
                         </tr>
 
                         <!-- Team 11 -->
@@ -637,7 +639,7 @@
         <section class="event-detail-block" id="winners">
             <div class="event-section-header">
                 <h2>Winners</h2>
-                <span class="badge upcoming">To be announced</span>
+                <span class="badge upcoming">Announced</span>
             </div>
 
             <div class="table-wrapper">
@@ -655,24 +657,59 @@
                     <tbody>
                         <!-- Example structure - Replace with actual winners data -->
                         
+                    
+<tr>
+                            <td rowspan="4">1</td>
+                            <td>M . Varshini</td>
+                            <td>Y22ACM452</td>
+                            <td rowspan="4">Bapatla Engineering College, Bapatla</td>
+                            <td rowspan="3">CSE (AI &amp; ML)</td>
+                            <td rowspan="4">₹3000</td>
+                        </tr>
+                        <tr>
+                            <td>Ch Lokesh</td>
+                            <td>Y23ACM411</td>
+                        </tr>
+                        <tr>
+                            <td>D. Manoj kuma</td>
+                            <td>Y25ACB414</td>
+                        </tr>
+                        <tr>
+                            <td>G. Venkat</td>
+                            <td>Y25AEC476</td>
+                            <td>Electronics and Communication Engineering (ECE)</td>
+                        </tr>
+ <tr>
+                            <td rowspan="2">2</td>
+                            <td>B. Kusuma Sita</td>
+                            <td>y23cm020</td>
+                            <td rowspan="2">RVR and JC College of Engineering, Guntur</td>
+                            <td rowspan="2">CSE (AI &amp; ML)</td>
+                            <td rowspan="2">₹2000</td>
+                        </tr>
+                        <tr>
+                            <td>Sk. Hanishma</td>
+                            <td>l24cm212</td>
+                        </tr>
+<tr>
+                            <td rowspan="2">3</td>
+                            <td>bhimireddy siva saranya</td>
+                            <td>231fa04839</td>
+                            <td rowspan="2">Vignan University ,Guntur</td>
+                            <td rowspan="2">Computer Science and Engineering (CSE)</td>
+                            <td rowspan="2">₹1000</td>
+                        </tr>
+                        <tr>
+                            <td>Navadeep</td>
+                            <td>231fa04895</td>
+                            
+                        </tr>
+                       
                         <!-- <tr>
-                            <td rowspan="2">1st Prize</td>
-                            <td>Winner Name 1</td>
-                            <td>Regd123</td>
-                            <td rowspan="2">College Name</td>
-                            <td rowspan="2">Branch Name</td>
-                            <td rowspan="2">₹3000</td>
-                        </tr>
-                        <tr>
-                            <td>Winner Name 2</td>
-                            <td>Regd456</td>
-                        </tr>
-                        -->
-                        <tr>
                             <td colspan="6" style="text-align:center; opacity:0.7;">
                                 Results not announced yet.
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>

@@ -682,10 +682,54 @@
                             <td>Regd456</td>
                         </tr>
                         -->
-                        <tr>
+                        <!-- <tr>
                             <td colspan="6" style="text-align:center; opacity:0.7;">
                                 Results not announced yet.
-                            </td>
+                            </td> -->
+                            <tr>
+                            <td rowspan="2">1</td>
+                            <td>k lakshmi sri harsha</td>
+                            <td>238w1a05m8</td>
+                            <td rowspan="2">Velagapudi Ramakrishna Siddhartha Engineering College, Vijayawada</td>
+                            <td>CSE</td>
+                             <td rowspan="2">1</td>
+                        </tr>
+                        <tr>
+                            <td>D sri krishna</td>
+                            <td>238w1a1215</td>
+                            <td>Information Technology (IT)</td>
+                        </tr>
+
+<tr>
+                            <td rowspan="2">2</td>
+                            <td>SHAIK IRSHAD</td>
+                            <td>238W1A4256</td>
+                            <td rowspan="2">Velagapudi Ramakrishna Siddhartha Engineering College, Vijayawada</td>
+                            <td rowspan="2">CSE (AI &amp; ML)</td>
+                            <td rowspan="2">2</td>
+                        </tr>
+                        <tr>
+                            <td>YAGATI DILEEP KUMAR</td>
+                            <td>238W1A4263</td>
+                        
+                        </tr>
+
+
+<!-- Team 15 -->
+                        <tr>
+                            <td rowspan="2">3</td>
+                            <td>Bhavani Bodapati</td>
+                            <td>238w1a5477</td>
+                            <td rowspan="2">Velagapudi Ramakrishna Siddhartha Engineering College, Vijayawada</td>
+                            <td>Artificial Intelligence &amp; Data Science (AI &amp; DS)</td>
+                            <td rowspan="2">3</td>
+                        </tr>
+                        <tr>
+                            <td>Jahnavi juvvi</td>
+                            <td>238w1a4226</td>
+                            <td>CSE (AI &amp; ML)</td>
+                        
+                        </tr>
                         </tr>
                     </tbody>
                 </table>
