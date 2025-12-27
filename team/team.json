@@ -1,0 +1,18 @@
+{
+  "AK25-ORG-001": {
+    "name": "Nihar GNV",
+    "role": "Overall Event Coordinator",
+    "team": "AI Kshetra 2025",
+    "department": "CSE (AI & ML)",
+    "college": "R.V.R & J.C College of Engineering",
+    "valid_till": "31-12-2025"
+  },
+  "AK25-ORG-002": {
+    "name": "Student Name",
+    "role": "Technical Lead",
+    "team": "Build with AI",
+    "department": "CSE (AI & ML)",
+    "college": "R.V.R & J.C College of Engineering",
+    "valid_till": "31-12-2025"
+  }
+}
