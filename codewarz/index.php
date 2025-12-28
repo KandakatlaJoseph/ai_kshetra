@@ -744,16 +744,45 @@
             </div>
 
             <p>
-                All participants who officially take part in <strong>CodeWarz</strong> will receive an
-                <strong>e-certificate of participation</strong>.
+                Download your <strong>e-certificate of participation</strong> for <strong>CodeWarz</strong> by entering your registered mobile number below.
             </p>
-            <p>
-                Teams that qualify in the later rounds and the prize-winning teams will additionally receive
-                <strong>printed hardcopy certificates</strong> during the prize distribution.
-            </p>
-            <p>
-                Links to download the e-certificates will be updated here after processing.
-            </p>
+            
+            <div style="max-width: 500px; margin: 30px auto;">
+                <form id="certificate-form" style="display: flex; flex-direction: column; gap: 15px;">
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label for="mobile-number" style="display: block; margin-bottom: 8px; font-weight: 600;">Mobile Number</label>
+                        <input 
+                            type="tel" 
+                            id="mobile-number" 
+                            name="mobile_number" 
+                            pattern="[0-9]{10}" 
+                            maxlength="10" 
+                            placeholder="Enter your 10-digit mobile number" 
+                            required
+                            style="width: 100%; padding: 15px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.05); color: var(--text-primary); font-family: var(--font-body); font-size: 1rem;"
+                        >
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin: 0;">
+                        Fetch Certificate
+                    </button>
+                </form>
+            </div>
+
+            <div style="margin-top: 25px; padding: 15px; background: rgba(255, 193, 7, 0.1); border-left: 4px solid #ffc107; border-radius: 4px;">
+                <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary);">
+                    <strong>Note:</strong> If your certificate is not found, please verify that you entered the correct mobile number used during registration. Certificates are generated based on the information provided at the time of registration. If you believe there is an error, please contact the event coordinators with your registration details.
+                </p>
+            </div>
+
+            <script>
+                document.getElementById('certificate-form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const mobileNumber = document.getElementById('mobile-number').value;
+                    // Certificate fetch logic will be implemented here
+                    console.log('Fetching certificate for:', mobileNumber);
+                    alert('Certificate fetch functionality will be implemented soon.');
+                });
+            </script>
         </section>
 
         <!-- Gallery -->
