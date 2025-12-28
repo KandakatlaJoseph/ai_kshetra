@@ -11,7 +11,7 @@
     <meta property="og:title" content="CodeWarz - Competitive Coding Challenge">
     <meta property="og:description" content="Join CodeWarz, the ultimate coding battle at AI Kshetra 2025. Test your algorithmic skills!">
     <meta property="og:image" content="https://rvrjcce.ac.in/xcsm/aikshetra2K25/static/css/main.jpg">
-    <meta property="og:url" content="https://rvrjcce.ac.in/xcsm/aikshetra2K25/codewarz.php">
+    <meta property="og:url" content="https://rvrjcce.ac.in/xcsm/aikshetra2K25/codewarz/">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -59,8 +59,8 @@
     }
     </script>
 
-    <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="static/css/events_styles.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/events_styles.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,7 +77,7 @@
             text-align: center;
             position: relative;
             background-image:
-                url("static/css/main.jpg"),
+                url("../static/css/main.jpg"),
                 linear-gradient(rgba(0, 191, 255, 0.10) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 191, 255, 0.10) 1px, transparent 1px);
             background-size: cover, 50px 50px, 50px 50px;
@@ -157,10 +157,10 @@
             <span class="lines line-3"></span>
         </label>
 
-        <a href="index.html#home" class="menu-item">Home</a>
-        <a href="index.html#events" class="menu-item">Events</a>
-        <a href="about.html" class="menu-item">About</a>
-        <a href="index.html#contact" class="menu-item">Contact</a>
+        <a href="../index.html#home" class="menu-item">Home</a>
+        <a href="../index.html#events" class="menu-item">Events</a>
+        <a href="../about.html" class="menu-item">About</a>
+        <a href="../index.html#contact" class="menu-item">Contact</a>
     </nav>
 </header>
 
@@ -172,8 +172,8 @@
         <h1 class="hero-title">CodeWarz</h1>
         <p class="hero-tagline">Competitive Coding &amp; Algorithm Challenges</p>
 
-        <a href="register_code.php" class="btn btn-primary hero-cta-top">
-            Register Now
+        <a href="#certificates" class="btn btn-primary hero-cta-top">
+            Get Certificate
         </a>
     </div>
 </section>

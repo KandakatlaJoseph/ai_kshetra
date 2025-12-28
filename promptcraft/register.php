@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include '../db.php';
 
 $message = "";
 $status = "";
@@ -21,31 +21,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Basic Validation
     if (empty($participant_name) || empty($participant_email) || empty($participant_phone) || empty($participant_branch)) {
-        header("Location: status_dream.php?status=error");
+        header("Location: status.php?status=error");
         exit();
     }
 
     // Validate Phone Number (Must be exactly 10 digits)
     if (!preg_match('/^\d{10}$/', $participant_phone)) {
-        header("Location: status_dream.php?status=error");
+        header("Location: status_prompt.php?status=error");
         exit();
     }
 
     // Check for duplicate registration
-    $stmt = $conn->prepare("SELECT id FROM registrations_dream_frame WHERE participant_phone = ?");
+    $stmt = $conn->prepare("SELECT id FROM registrations_prompt_craft WHERE participant_phone = ?");
     $stmt->bind_param("s", $participant_phone);
     $stmt->execute();
     $stmt->store_result();
 
     if ($stmt->num_rows > 0) {
         $stmt->close();
-        header("Location: status_dream.php?status=exists");
+        header("Location: status_prompt.php?status=exists");
         exit();
     }
     $stmt->close();
 
     // Insert Data using Prepared Statement
-    $sql = "INSERT INTO registrations_dream_frame 
+    $sql = "INSERT INTO registrations_prompt_craft 
             (participant_name, participant_email, participant_phone, participant_college, participant_branch, participant_roll)
             VALUES (?, ?, ?, ?, ?, ?)";
 
@@ -57,15 +57,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         );
 
         if ($stmt->execute()) {
-            header("Location: status_dream.php?status=success");
+            header("Location: status.php?status=success");
         } else {
             error_log("Execute failed: " . $stmt->error);
-            header("Location: status_dream.php?status=error");
+            header("Location: status_prompt.php?status=error");
         }
         $stmt->close();
     } else {
         error_log("Prepare failed: " . $conn->error);
-        header("Location: status_dream.php?status=error");
+        header("Location: status_prompt.php?status=error");
     }
     exit();
 }
@@ -92,9 +92,9 @@ function render_branch_options($branches) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - DreamFrame</title>
-    <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="static/css/autocomplete.css">
+    <title>Register - PromptCraft</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/autocomplete.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
@@ -169,16 +169,16 @@ function render_branch_options($branches) {
             <span class="lines line-3"></span>
         </label>
 
-        <a href="index.html#home"    class="menu-item">Home</a>
-        <a href="index.html#events"  class="menu-item">Events</a>
-        <a href="about.html"         class="menu-item">About</a>
-        <a href="index.html#contact" class="menu-item">Contact</a>
+        <a href="../index.html#home"    class="menu-item">Home</a>
+        <a href="../index.html#events"  class="menu-item">Events</a>
+        <a href="../about.html"         class="menu-item">About</a>
+        <a href="../index.html#contact" class="menu-item">Contact</a>
     </nav>
 </header>
 
 <div class="container">
     <div class="reg-container">
-        <h2 class="reg-title">Register for DreamFrame</h2>
+        <h2 class="reg-title">Register for PromptCraft</h2>
 
         <?php if ($message): ?>
             <div class="alert <?= $status === 'success' ? 'success' : 'error' ?>">
@@ -223,6 +223,6 @@ function render_branch_options($branches) {
         </form>
     </div>
 </div>
-<script src="static/js/college-autocomplete.js"></script>
+<script src="../static/js/college-autocomplete.js"></script>
 </body>
 </html>

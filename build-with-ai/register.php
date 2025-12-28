@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include '../db.php';
 
 $message = "";
 $status = "";
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Basic Validation
     if (empty($member1_name) || empty($member1_email) || empty($member1_phone) || empty($member1_branch) || empty($member2_name) || empty($member2_branch)) {
-        header("Location: status_build.php?status=error");
+        header("Location: status.php?status=error");
         exit();
     }
 
@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         );
 
         if ($stmt->execute()) {
-            header("Location: status_build.php?status=success");
+            header("Location: status.php?status=success");
         } else {
             error_log("Execute failed: " . $stmt->error);
             header("Location: status_build.php?status=error");
@@ -130,8 +130,8 @@ function render_branch_options($branches) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Build with AI</title>
-    <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="static/css/autocomplete.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/autocomplete.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
@@ -212,10 +212,10 @@ function render_branch_options($branches) {
             <span class="lines line-3"></span>
         </label>
 
-        <a href="index.html#home"   class="menu-item">Home</a>
-        <a href="index.html#events" class="menu-item">Events</a>
-        <a href="about.html"        class="menu-item">About</a>
-        <a href="index.html#contact" class="menu-item">Contact</a>
+        <a href="../index.html#home"   class="menu-item">Home</a>
+        <a href="../index.html#events" class="menu-item">Events</a>
+        <a href="../about.html"        class="menu-item">About</a>
+        <a href="../index.html#contact" class="menu-item">Contact</a>
     </nav>
 </header>
 
@@ -389,6 +389,6 @@ function render_branch_options($branches) {
         }
     });
 </script>
-<script src="static/js/college-autocomplete.js"></script>
+<script src="../static/js/college-autocomplete.js"></script>
 </body>
 </html>

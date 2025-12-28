@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include '../db.php';
 
 $message = "";
 $status = "";
@@ -12,72 +12,60 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Collect and sanitize inputs
-    $member1_name    = clean_input($_POST['member1_name'] ?? '');
-    $member1_email   = clean_input($_POST['member1_email'] ?? '');
-    $member1_phone   = clean_input($_POST['member1_phone'] ?? '');
-    $member1_college = clean_input($_POST['member1_college'] ?? '');
-    $member1_branch  = clean_input($_POST['member1_branch'] ?? '');
-    $member1_roll    = clean_input($_POST['member1_roll'] ?? '');
-    
-    $member2_name    = clean_input($_POST['member2_name'] ?? '');
-    $member2_email   = clean_input($_POST['member2_email'] ?? '');
-    $member2_phone   = clean_input($_POST['member2_phone'] ?? '');
-    $member2_college = clean_input($_POST['member2_college'] ?? '');
-    $member2_branch  = clean_input($_POST['member2_branch'] ?? '');
-    $member2_roll    = clean_input($_POST['member2_roll'] ?? '');
+    $participant_name    = clean_input($_POST['participant_name'] ?? '');
+    $participant_email   = clean_input($_POST['participant_email'] ?? '');
+    $participant_phone   = clean_input($_POST['participant_phone'] ?? '');
+    $participant_college = clean_input($_POST['participant_college'] ?? '');
+    $participant_branch  = clean_input($_POST['participant_branch'] ?? '');
+    $participant_roll    = clean_input($_POST['participant_roll'] ?? '');
 
     // Basic Validation
-    if (empty($member1_name) || empty($member1_email) || empty($member1_phone) || empty($member1_branch) || empty($member2_name) || empty($member2_branch)) {
-        header("Location: status_code.php?status=error");
+    if (empty($participant_name) || empty($participant_email) || empty($participant_phone) || empty($participant_branch)) {
+        header("Location: status.php?status=error");
         exit();
     }
 
-    // Validate Phone Numbers (Must be exactly 10 digits)
-    if (!preg_match('/^\d{10}$/', $member1_phone) || !preg_match('/^\d{10}$/', $member2_phone)) {
-        $message = "Phone numbers must be exactly 10 digits.";
-        // Ideally redirect with error, but for now using generic error status or just exit
-        // Since we don't have a specific error code for invalid phone, we'll use 'error'
-        header("Location: status_code.php?status=error"); 
+    // Validate Phone Number (Must be exactly 10 digits)
+    if (!preg_match('/^\d{10}$/', $participant_phone)) {
+        header("Location: status_dream.php?status=error");
         exit();
     }
 
-    // Check for duplicate registration (using Leader's phone)
-    $stmt = $conn->prepare("SELECT id FROM registrations_codewarz WHERE member1_phone = ?");
-    $stmt->bind_param("s", $member1_phone);
+    // Check for duplicate registration
+    $stmt = $conn->prepare("SELECT id FROM registrations_dream_frame WHERE participant_phone = ?");
+    $stmt->bind_param("s", $participant_phone);
     $stmt->execute();
     $stmt->store_result();
 
     if ($stmt->num_rows > 0) {
         $stmt->close();
-        header("Location: status_code.php?status=exists");
+        header("Location: status_dream.php?status=exists");
         exit();
     }
     $stmt->close();
 
     // Insert Data using Prepared Statement
-    $sql = "INSERT INTO registrations_codewarz 
-            (member1_name, member1_email, member1_phone, member1_college, member1_branch, member1_roll,
-             member2_name, member2_email, member2_phone, member2_college, member2_branch, member2_roll)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO registrations_dream_frame 
+            (participant_name, participant_email, participant_phone, participant_college, participant_branch, participant_roll)
+            VALUES (?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
     
     if ($stmt) {
-        $stmt->bind_param("ssssssssssss", 
-            $member1_name, $member1_email, $member1_phone, $member1_college, $member1_branch, $member1_roll,
-            $member2_name, $member2_email, $member2_phone, $member2_college, $member2_branch, $member2_roll
+        $stmt->bind_param("ssssss", 
+            $participant_name, $participant_email, $participant_phone, $participant_college, $participant_branch, $participant_roll
         );
 
         if ($stmt->execute()) {
-            header("Location: status_code.php?status=success");
+            header("Location: status.php?status=success");
         } else {
             error_log("Execute failed: " . $stmt->error);
-            header("Location: status_code.php?status=error");
+            header("Location: status_dream.php?status=error");
         }
         $stmt->close();
     } else {
         error_log("Prepare failed: " . $conn->error);
-        header("Location: status_code.php?status=error");
+        header("Location: status_dream.php?status=error");
     }
     exit();
 }
@@ -104,15 +92,15 @@ function render_branch_options($branches) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - CodeWarz</title>
-    <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="static/css/autocomplete.css">
+    <title>Register - DreamFrame</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/autocomplete.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
     <style>
         .reg-container {
-            max-width: 800px;
+            max-width: 600px;
             margin: 120px auto 50px;
             padding: 40px;
             background: var(--card-bg);
@@ -181,16 +169,16 @@ function render_branch_options($branches) {
             <span class="lines line-3"></span>
         </label>
 
-        <a href="index.html#home"    class="menu-item">Home</a>
-        <a href="index.html#events"  class="menu-item">Events</a>
-        <a href="about.html"         class="menu-item">About</a>
-        <a href="index.html#contact" class="menu-item">Contact</a>
+        <a href="../index.html#home"    class="menu-item">Home</a>
+        <a href="../index.html#events"  class="menu-item">Events</a>
+        <a href="../about.html"         class="menu-item">About</a>
+        <a href="../index.html#contact" class="menu-item">Contact</a>
     </nav>
 </header>
 
 <div class="container">
     <div class="reg-container">
-        <h2 class="reg-title">Register for CodeWarz</h2>
+        <h2 class="reg-title">Register for DreamFrame</h2>
 
         <?php if ($message): ?>
             <div class="alert <?= $status === 'success' ? 'success' : 'error' ?>">
@@ -199,29 +187,28 @@ function render_branch_options($branches) {
         <?php endif; ?>
         
         <form method="POST" action="">
-            <h3>Participant 1 (Leader)</h3>
             <div class="form-group">
-                <label>Name</label>
-                <input type="text" name="member1_name" required>
+                <label>Full Name</label>
+                <input type="text" name="participant_name" required>
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" name="member1_email" required>
+                    <input type="email" name="participant_email" required>
                 </div>
                 <div class="form-group">
                     <label>Phone</label>
-                    <input type="tel" name="member1_phone" pattern="[0-9]{10}" maxlength="10" title="Please enter exactly 10 digits" required>
+                    <input type="tel" name="participant_phone" pattern="[0-9]{10}" maxlength="10" title="Please enter exactly 10 digits" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label>College Name</label>
-                    <input type="text" name="member1_college" required>
+                    <input type="text" name="participant_college" required>
                 </div>
                 <div class="form-group">
                     <label>Branch</label>
-                    <select name="member1_branch" required>
+                    <select name="participant_branch" required>
                         <option value="" disabled selected>Select Branch</option>
                         <?php render_branch_options($branches); ?>
                     </select>
@@ -229,46 +216,13 @@ function render_branch_options($branches) {
             </div>
             <div class="form-group">
                 <label>Roll No</label>
-                <input type="text" name="member1_roll" required>
-            </div>
-
-            <h3>Participant 2</h3>
-            <div class="form-group">
-                <label>Name</label>
-                <input type="text" name="member2_name" required>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" name="member2_email" required>
-                </div>
-                <div class="form-group">
-                    <label>Phone</label>
-                    <input type="tel" name="member2_phone" pattern="[0-9]{10}" maxlength="10" title="Please enter exactly 10 digits" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label>College Name</label>
-                    <input type="text" name="member2_college" required>
-                </div>
-                <div class="form-group">
-                    <label>Branch</label>
-                    <select name="member2_branch" required>
-                        <option value="" disabled selected>Select Branch</option>
-                        <?php render_branch_options($branches); ?>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Roll No</label>
-                <input type="text" name="member2_roll" required>
+                <input type="text" name="participant_roll" required>
             </div>
 
             <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Registration</button>
         </form>
     </div>
 </div>
-<script src="static/js/college-autocomplete.js"></script>
+<script src="../static/js/college-autocomplete.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@ $message = '';
 $isSuccess = false;
 
 if ($status === 'success') {
-    $message = "Registration Successful! Welcome to DreamFrame.";
+    $message = "Registration Successful! Welcome to Build with AI.";
     $isSuccess = true;
 } elseif ($status === 'error') {
     $message = "Registration Failed. Please try again.";
@@ -19,8 +19,8 @@ if ($status === 'success') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Status - DreamFrame</title>
-    <link rel="stylesheet" href="static/css/style.css">
+    <title>Registration Status - Build with AI</title>
+    <link rel="stylesheet" href="../static/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
@@ -84,10 +84,10 @@ if ($status === 'success') {
                 <span class="lines line-2"></span>
                 <span class="lines line-3"></span>
             </label>
-            <a href="index.html#home" class="menu-item">Home</a>
-            <a href="index.html#events" class="menu-item">Events</a>
-            <a href="about.html" class="menu-item">About</a>
-            <a href="index.html#contact" class="menu-item">Contact</a>
+            <a href="../index.html#home" class="menu-item">Home</a>
+            <a href="../index.html#events" class="menu-item">Events</a>
+            <a href="../about.html" class="menu-item">About</a>
+            <a href="../index.html#contact" class="menu-item">Contact</a>
         </nav>
     </header>
 
@@ -100,7 +100,7 @@ if ($status === 'success') {
             <p class="status-message"><?php echo htmlspecialchars($message); ?></p>
 
             <?php if ($isSuccess): ?>
-                <a href="https://chat.whatsapp.com/EBEyQ1QpwqX6DpuU43R5bZ" class="btn whatsapp-btn" target="_blank">
+                <a href="https://chat.whatsapp.com/Kvybi6X5GFFBAdlqmwpaS4" class="btn whatsapp-btn" target="_blank">
                     <span>Join WhatsApp Group</span>
                 </a>
                 <p style="margin-top: 15px; font-size: 0.9rem; color: var(--text-secondary);">
@@ -108,7 +108,7 @@ if ($status === 'success') {
                 </p>
             <?php endif; ?>
 
-            <a href="index.html" class="home-link">← Back to Home</a>
+            <a href="../index.html" class="home-link">← Back to Home</a>
         </div>
     </div>
 </body>
