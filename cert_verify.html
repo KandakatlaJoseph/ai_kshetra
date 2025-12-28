@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Certificate Verification | AI Kshetra 2025</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Orbitron Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #020617;
+            --card: rgba(15, 23, 42, 0.9);
+            --accent: #38bdf8;
+            --success: #22c55e;
+            --error: #ef4444;
+            --muted: #9ca3af;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Orbitron", system-ui, sans-serif;
+            background: radial-gradient(circle at top, #020617, #000);
+            color: #e5e7eb;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            width: min(520px, 94%);
+            background: var(--card);
+            backdrop-filter: blur(16px);
+            border-radius: 24px;
+            padding: 30px 28px;
+            border: 1px solid rgba(255, 255, 255, .08);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, .65);
+        }
+
+        h1 {
+            margin: 0;
+            text-align: center;
+            font-size: 24px;
+            letter-spacing: 1.5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 13px;
+            color: var(--muted);
+            margin: 8px 0 22px;
+        }
+
+        .status {
+            text-align: center;
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: 600;
+        }
+
+        .success {
+            color: var(--success);
+        }
+
+        .error {
+            color: var(--error);
+        }
+
+        /* 🔹 NAME HIGHLIGHT */
+        .name-highlight {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 700;
+            margin: 14px 0 22px;
+            color: #e5e7eb;
+            letter-spacing: 0.8px;
+        }
+
+        /* 🔹 DETAILS GRID */
+        .info {
+            display: grid;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 130px 1fr;
+            gap: 14px;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, .05);
+            font-size: 14px;
+            align-items: center;
+        }
+
+        .label {
+            color: var(--muted);
+            font-size: 12px;
+            letter-spacing: 0.4px;
+        }
+
+        .value {
+            color: #e5e7eb;
+            word-break: break-word;
+            line-height: 1.4;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 17px;
+        }
+
+        /* 📱 Mobile tweaks */
+        @media (max-width: 420px) {
+            .row {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+
+            .label {
+                font-size: 11px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="card">
+        <h1>AI Kshetra 2025</h1>
+        <div class="subtitle">Certificate Authenticity Verification</div>
+
+        <div id="status" class="status">Verifying certificate…</div>
+
+        <div id="details" class="info" style="display:none;">
+            <div class="name-highlight" id="name"></div>
+            <div class="row">
+                <div class="label">Event</div>
+                <div class="value" id="event"></div>
+            </div>
+            <div class="row">
+                <div class="label">Regd. No</div>
+                <div class="value" id="roll"></div>
+            </div>
+            <div class="row">
+                <div class="label">Department</div>
+                <div class="value" id="branch"></div>
+            </div>
+            <div class="row">
+                <div class="label">College</div>
+                <div class="value" id="college"></div>
+            </div>
+            <div class="row">
+                <div class="label">Phone</div>
+                <div class="value" id="phone"></div>
+            </div>
+            <div class="row">
+                <div class="label">Certificate ID</div>
+                <div class="value" id="uid"></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            AI Kshetra 2025 · NEXAA<br><br>
+            &copy; Developed and Designed by Web Design Wing<br>Department of CSE (AI & ML)<br>RVR & JC College of Engineering
+        </div>
+    </div>
+
+    <script>
+        /* ================= CONFIG ================= */
+        const SECRET_KEY = "AI_KSHETRA_2025";
+
+        /* ================= HELPERS ================= */
+        async function sha256(text) {
+            const data = new TextEncoder().encode(text);
+            const hash = await crypto.subtle.digest("SHA-256", data);
+            return Array.from(new Uint8Array(hash))
+                .map(b => b.toString(16).padStart(2, "0"))
+                .join("");
+        }
+
+        function param(name) {
+            return new URLSearchParams(window.location.search).get(name);
+        }
+
+        /* ======= EXPLICIT EVENT ROUTING (IF–ELSE) ======= */
+        function getDataUrl(event) {
+            if (event === "BWA") {
+                return "build-with-ai/data.json";
+            } else if (event === "CW") {
+                return "codewarz/data.json";
+            } else if (event === "PC") {
+                return "promptcraft/data.json";
+            } else if (event === "DF") {
+                return "dreamframe/data.json";
+            } else {
+                return null;
+            }
+        }
+
+        /* ================= MAIN ================= */
+        (async function () {
+            const event = param("event");
+            const phone = param("phone");
+            const sig = param("sig");
+
+            const statusEl = document.getElementById("status");
+            const detailsEl = document.getElementById("details");
+
+            if (!event || !phone || !sig) {
+                statusEl.textContent = "❌ Invalid verification link";
+                statusEl.className = "status error";
+                return;
+            }
+
+            const uid = `${event}_${phone}`;
+            const expectedSig = (await sha256(uid + SECRET_KEY)).substring(0, 12);
+
+            if (expectedSig !== sig) {
+                statusEl.textContent = "❌ Certificate verification failed";
+                statusEl.className = "status error";
+                return;
+            }
+
+            const dataUrl = getDataUrl(event);
+            if (!dataUrl) {
+                statusEl.textContent = "❌ Invalid event type";
+                statusEl.className = "status error";
+                return;
+            }
+
+            let data;
+            try {
+                const res = await fetch(dataUrl);
+                data = await res.json();
+            } catch (e) {
+                statusEl.textContent = "⚠️ Verified, but event data not found";
+                statusEl.className = "status success";
+                return;
+            }
+
+            if (!data[uid]) {
+                statusEl.textContent = "⚠️ Verified, but record not found";
+                statusEl.className = "status success";
+                return;
+            }
+
+            const d = data[uid];
+
+            statusEl.textContent = "✅ SHA-256 Signature Verified Successfully";
+            statusEl.className = "status success";
+
+            document.getElementById("name").textContent = d.name;
+            document.getElementById("event").textContent = d.event;
+            document.getElementById("roll").textContent = d.roll;
+            document.getElementById("branch").textContent = d.branch;
+            document.getElementById("college").textContent = d.college;
+            document.getElementById("phone").textContent = d.phone;
+            document.getElementById("uid").textContent = uid;
+
+            detailsEl.style.display = "grid";
+        })();
+    </script>
+
+</body>
+
+</html>
