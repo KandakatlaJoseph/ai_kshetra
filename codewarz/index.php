@@ -775,14 +775,42 @@
             </div>
 
             <script>
-                document.getElementById('certificate-form').addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const mobileNumber = document.getElementById('mobile-number').value;
-                    // Certificate fetch logic will be implemented here
-                    console.log('Fetching certificate for:', mobileNumber);
-                    alert('Certificate fetch functionality will be implemented soon.');
-                });
-            </script>
+                        document.getElementById("certificate-form").addEventListener("submit", async function(e) {
+                            e.preventDefault();
+                            const phone = document.getElementById("mobile-number").value.trim();
+                            const statusBox = document.createElement("div");
+
+                            if (!/^\d{10}$/.test(phone)) {
+                                alert("Please enter a valid 10-digit mobile number.");
+                                return;
+                            }
+
+                            const EVENT_CODE = "CW"; // CodeWarz
+                            const DATA_URL = "data.json"; // adjust if path differs
+
+                            try {
+                                const res = await fetch(DATA_URL);
+                                if (!res.ok) throw new Error("Data not found");
+
+                                const data = await res.json();
+                                const uid = `${EVENT_CODE}_${phone}`;
+
+                                if (!data[uid]) {
+                                    alert("❌ Certificate not found for this mobile number.");
+                                    return;
+                                }
+
+                                const certPath = data[uid].certificate;
+
+                                // 🔽 Redirect to PDF (download / open)
+                                window.location.href = `${certPath}`;
+
+                            } catch (err) {
+                                console.error(err);
+                                alert("⚠️ Unable to fetch certificate data. Please try again later.");
+                            }
+                        });
+                    </script>
         </section>
 
         <!-- Gallery -->
