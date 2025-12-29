@@ -125,24 +125,9 @@
             font-weight: 600;
         }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 18px;
-            margin-top: 15px;
-        }
-
-        .gallery-item.placeholder {
-            background: radial-gradient(circle at top, rgba(157,78,221,0.25), transparent 60%);
-            min-height: 140px;
-            border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.08);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--text-secondary);
-        }
     </style>
+    <link rel="stylesheet" href="../static/css/gallery_styles.css">
+
 </head>
 
 <body>
@@ -456,15 +441,45 @@
                 <span class="badge info">Photos</span>
             </div>
 
-            <p>
-                Screenshots and moments from <strong>PromptCraft</strong>, including the most interesting prompts
-                and outputs, will be compiled and shared here.
-            </p>
+            
 
+            
             <div class="gallery-grid">
-                <div class="gallery-item placeholder">Gallery coming soon</div>
-                <div class="gallery-item placeholder">Highlights will appear here</div>
-                <div class="gallery-item placeholder">Stay tuned!</div>
+                <?php
+                $picsDir = 'pics/';
+                $eventName = 'PromptCraft';
+                
+                // Check if pics directory exists
+                if (is_dir($picsDir)) {
+                    // Get all image files from pics directory
+                    $images = glob($picsDir . '*.{jpg,jpeg,png,gif,webp}', GLOB_BRACE);
+                    
+                    if (count($images) > 0) {
+                        // Sort images naturally
+                        natsort($images);
+                        
+                        // Generate gallery items
+                        $counter = 1;
+                        foreach ($images as $image) {
+                            $imageName = basename($image);
+                            echo '<div class="gallery-item">';
+                            echo '<img src="' . htmlspecialchars($image) . '" alt="' . htmlspecialchars($eventName) . ' Event Photo ' . $counter . '" loading="lazy">';
+                            echo '</div>';
+                            $counter++;
+                        }
+                    } else {
+                        // No images found - show placeholder
+                        echo '<div class="gallery-item placeholder">Gallery coming soon</div>';
+                        echo '<div class="gallery-item placeholder">Highlights will appear here</div>';
+                        echo '<div class="gallery-item placeholder">Stay tuned!</div>';
+                    }
+                } else {
+                    // Directory doesn't exist - show placeholder
+                    echo '<div class="gallery-item placeholder">Gallery coming soon</div>';
+                    echo '<div class="gallery-item placeholder">Highlights will appear here</div>';
+                    echo '<div class="gallery-item placeholder">Stay tuned!</div>';
+                }
+                ?>
             </div>
         </section>
 
@@ -472,6 +487,16 @@
 </section>
 
 </main>
+
+<!-- Lightbox Modal -->
+<div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <img src="" alt="Gallery Image" id="lightbox-img">
+    </div>
+</div>
+
+<script src="../static/js/gallery.js"></script>
 
 </body>
 </html>
